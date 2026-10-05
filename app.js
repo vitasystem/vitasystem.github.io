@@ -14,21 +14,50 @@
   menuToggle?.addEventListener('click', () => { const open = menuToggle.getAttribute('aria-expanded') !== 'true'; menuToggle.setAttribute('aria-expanded', String(open)); mobileMenu.classList.toggle('open', open); mobileMenu.setAttribute('aria-hidden', String(!open)); document.body.classList.toggle('menu-open', open); });
   $$('#mobileMenu a').forEach(a => a.addEventListener('click', closeMenu));
 
-  // HERO: five 6-second transmissions
+  // HERO: advance when each short scene finishes.
   const videos = $$('.hero-video');
   const segments = $$('.progress-segment');
+  const progress = $('#heroProgress');
   let heroIndex = 0, timer;
-  const duration = 6000;
+  const scheduleEnd = (video, idx) => {
+    if (idx !== heroIndex) return;
+    const ms = Number.isFinite(video.duration) && video.duration > 0
+      ? Math.max(1000, Math.min(12000, video.duration * 1000))
+      : 6000;
+    progress?.style.setProperty('--hero-duration', ms + 'ms');
+    clearTimeout(timer);
+    timer = setTimeout(() => playHero(idx + 1), ms + 350);
+  };
   const playHero = (idx) => {
     clearTimeout(timer);
     heroIndex = (idx + videos.length) % videos.length;
-    videos.forEach((v,i) => { v.classList.toggle('is-active', i===heroIndex); if(i===heroIndex){v.currentTime=0; v.play().catch(()=>{});} else {v.pause();} });
-    segments.forEach((s,i) => { s.classList.toggle('is-active', i===heroIndex); s.classList.toggle('is-past', i<heroIndex); const bar=s.querySelector('i'); if(bar){ bar.style.animation='none'; void bar.offsetWidth; bar.style.animation=''; } });
-    timer = setTimeout(() => playHero(heroIndex+1), duration);
+    videos.forEach((v, i) => {
+      v.classList.toggle('is-active', i === heroIndex);
+      if (i === heroIndex) {
+        v.currentTime = 0;
+        v.play().catch(() => {});
+        scheduleEnd(v, i);
+      } else {
+        v.pause();
+      }
+    });
+    segments.forEach((s, i) => {
+      s.classList.toggle('is-active', i === heroIndex);
+      s.classList.toggle('is-past', i < heroIndex);
+      const bar = s.querySelector('i');
+      if (bar) { bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; }
+    });
   };
+  videos.forEach((v, i) => {
+    v.addEventListener('ended', () => { if (i === heroIndex) playHero(i + 1); });
+    v.addEventListener('loadedmetadata', () => scheduleEnd(v, i));
+  });
   segments.forEach(s => s.addEventListener('click', () => playHero(Number(s.dataset.index))));
-  if(videos.length) playHero(0);
-  document.addEventListener('visibilitychange', () => { if(document.hidden){ clearTimeout(timer); videos.forEach(v=>v.pause()); } else { playHero(heroIndex); } });
+  if (videos.length) playHero(0);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { clearTimeout(timer); videos.forEach(v => v.pause()); }
+    else { playHero(heroIndex); }
+  });
 
   // Doors open before navigating
   const openPortal = (portal) => {
