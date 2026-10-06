@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#050507">
   <meta name="color-scheme" content="dark">
-  <title>ВІТА — Співачка Нової Ери | Official Website</title>
-  <meta name="description" content="Офіційний сайт ВІТИ — Співачки Нової Ери. Музика, відео, Система Віта, фото та 224 FM.">
+  <title>ВІТА — Співачка Нової Ери | Офіційний сайт</title>
+  <meta name="description" content="Офіційний сайт ВІТИ — Співачки Нової Ери. Музика, відео, Система Віта, світ ВІТИ та 224 FM.">
   <link rel="canonical" href="https://vitasystem.github.io/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="ВІТА — Співачка Нової Ери">
-  <meta property="og:description" content="Увійдіть у Систему Віта: музика, відео, 224 FM та світи ВІТИ.">
+  <meta property="og:description" content="Увійдіть до Системи Віта: музика, відео, 224 FM і світ ВІТИ.">
   <meta property="og:url" content="https://vitasystem.github.io/">
   <meta property="og:image" content="https://vitasystem.github.io/assets/img/gallery-2.webp">
   <meta name="twitter:card" content="summary_large_image">
@@ -24,7 +24,7 @@
     "@context":"https://schema.org",
     "@type":"Person",
     "name":"ВІТА",
-    "jobTitle":"Singer",
+    "jobTitle":"Співачка",
     "url":"https://vitasystem.github.io/",
     "sameAs":[
       "https://open.spotify.com/artist/421dXujdxnti2KuhbHpUXP",
@@ -41,28 +41,33 @@
   <div class="preloader" id="preloader" aria-hidden="true">
     <div class="preloader-mark">ВІТА</div>
     <div class="preloader-line"><i></i></div>
-    <div class="preloader-code">SYSTEM / 224 FM</div>
+    <div class="preloader-code">СИСТЕМА / 224 FM</div>
   </div>
 
   <header class="site-header" id="siteHeader">
     <a class="brand" href="#top" aria-label="ВІТА — на початок">ВІТА</a>
     <nav class="desktop-nav" aria-label="Головна навігація">
-      <a href="#music">MUSIC</a>
-      <a href="#video">VIDEO</a>
-      <a href="#world">VITA WORLD</a>
+      <a href="#music">МУЗИКА</a>
+      <a href="#video">ВІДЕО</a>
+      <a href="#world">СВІТ ВІТИ</a>
       <a href="#about">ПРО ВІТУ</a>
-      <a href="#gallery">GALLERY</a>
+      <a href="#gallery">ГАЛЕРЕЯ</a>
     </nav>
-    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Відкрити меню" aria-expanded="false"><span></span><span></span></button>
+    <div class="header-actions">
+      <div class="language-switch" role="group" aria-label="Мова сайту">
+        <button type="button" data-language="uk" aria-pressed="true">УКР</button><span aria-hidden="true">/</span><button type="button" data-language="en" aria-pressed="false">ENG</button>
+      </div>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Відкрити меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span></button>
+    </div>
   </header>
 
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <nav>
-      <a href="#music">MUSIC</a>
-      <a href="#video">VIDEO</a>
-      <a href="#world">VITA WORLD</a>
+      <a href="#music">МУЗИКА</a>
+      <a href="#video">ВІДЕО</a>
+      <a href="#world">СВІТ ВІТИ</a>
       <a href="#about">ПРО ВІТУ</a>
-      <a href="#gallery">GALLERY</a>
+      <a href="#gallery">ГАЛЕРЕЯ</a>
     </nav>
     <div class="mobile-socials">
       <a href="https://www.instagram.com/vita.system.music" target="_blank" rel="noopener">IG</a>
@@ -75,13 +80,11 @@
   <main id="top">
     <section class="hero" aria-label="ВІТА — Співачка Нової Ери">
       <div class="hero-media" id="heroMedia">
-        <video class="hero-video is-active" src="assets/video/story-01-bath.mp4" muted playsinline preload="auto"></video>
-        <video class="hero-video" src="assets/video/story-02-keys.mp4" muted playsinline preload="metadata"></video>
-        <video class="hero-video" src="assets/video/story-03-run.mp4" muted playsinline preload="metadata"></video>
-        <video class="hero-video" src="assets/video/story-04-door.mp4" muted playsinline preload="metadata"></video>
-        <video class="hero-video" src="assets/video/story-05-threshold.mp4" muted playsinline preload="metadata"></video>
-        <video class="hero-video" src="assets/video/story-06-bolid.mp4" muted playsinline preload="metadata"></video>
-        <video class="hero-video" src="assets/video/story-07-paris-night.mp4" muted playsinline preload="metadata"></video>
+        <video class="hero-video is-active" src="assets/video/01-bath.mp4" muted playsinline preload="auto"></video>
+        <video class="hero-video" src="assets/video/02-portal.mp4" muted playsinline preload="metadata"></video>
+        <video class="hero-video" src="assets/video/03-threshold.mp4" muted playsinline preload="metadata"></video>
+        <video class="hero-video" src="assets/video/04-speed.mp4" muted playsinline preload="metadata"></video>
+        <video class="hero-video" src="assets/video/05-paris-night.mp4" muted playsinline preload="metadata"></video>
       </div>
       <div class="hero-vignette"></div>
       <div class="rain-layer" aria-hidden="true"></div>
@@ -91,46 +94,44 @@
         <p class="hero-sub">СПІВАЧКА НОВОЇ ЕРИ</p>
       </div>
       <div class="hero-bottom">
-        <div class="hero-progress" id="heroProgress" aria-label="Слайди головного банера">
-          <button class="progress-segment is-active" data-index="0" aria-label="Відео 1"><i></i></button>
-          <button class="progress-segment" data-index="1" aria-label="Відео 2"><i></i></button>
-          <button class="progress-segment" data-index="2" aria-label="Відео 3"><i></i></button>
-          <button class="progress-segment" data-index="3" aria-label="Відео 4"><i></i></button>
-          <button class="progress-segment" data-index="4" aria-label="Відео 5"><i></i></button>
-          <button class="progress-segment" data-index="5" aria-label="Відео 6"><i></i></button>
-          <button class="progress-segment" data-index="6" aria-label="Відео 7"><i></i></button>
+        <div class="hero-progress" id="heroProgress" aria-label="Сцени головного банера">
+          <button class="progress-segment is-active" data-index="0" aria-label="Сцена 1"><i></i></button>
+          <button class="progress-segment" data-index="1" aria-label="Сцена 2"><i></i></button>
+          <button class="progress-segment" data-index="2" aria-label="Сцена 3"><i></i></button>
+          <button class="progress-segment" data-index="3" aria-label="Сцена 4"><i></i></button>
+          <button class="progress-segment" data-index="4" aria-label="Сцена 5"><i></i></button>
         </div>
-        <a class="scroll-cue" href="#portals"><span>ENTER</span><b>↓</b></a>
+        <a class="scroll-cue" href="#portals"><span>УВІЙТИ</span><b>↓</b></a>
       </div>
     </section>
 
     <section class="system-intro reveal">
       <p class="kicker">VI / 224</p>
       <h2>Вона не уявляє майбутнє.<br><em>Вона в ньому живе.</em></h2>
-      <p>Музика, fashion, відео й цифровий простір зібрані в одну систему. Обери двері.</p>
+      <p>Музика, мода, відео й цифровий простір зібрані в одну систему. Обери двері.</p>
     </section>
 
     <section class="portals" id="portals" aria-label="Три входи до Системи Віта">
-      <article class="portal portal-burgundy reveal" data-target="#music" tabindex="0" role="button" aria-label="Відкрити Music">
+      <article class="portal portal-burgundy reveal" data-target="#music" tabindex="0" role="button" aria-label="Відкрити музику">
         <div class="door-visual" style="--door:url('assets/img/door-burgundy.webp')">
           <div class="door-half left"></div><div class="door-half right"></div>
           <div class="door-shine"></div>
         </div>
-        <div class="portal-copy"><span>01</span><h3>MUSIC</h3><p>224 FM / audio archive</p></div>
+        <div class="portal-copy"><span>01</span><h3>МУЗИКА</h3><p>224 FM / музичний архів</p></div>
       </article>
-      <article class="portal portal-emerald reveal" data-target="#video" tabindex="0" role="button" aria-label="Відкрити Video">
+      <article class="portal portal-emerald reveal" data-target="#video" tabindex="0" role="button" aria-label="Відкрити відео">
         <div class="door-visual" style="--door:url('assets/img/door-emerald.webp')">
           <div class="door-half left"></div><div class="door-half right"></div>
           <div class="door-shine"></div>
         </div>
-        <div class="portal-copy"><span>02</span><h3>VIDEO</h3><p>visual transmissions</p></div>
+        <div class="portal-copy"><span>02</span><h3>ВІДЕО</h3><p>візуальні передачі</p></div>
       </article>
-      <article class="portal portal-amber reveal" data-target="#world" tabindex="0" role="button" aria-label="Відкрити Vita World">
+      <article class="portal portal-amber reveal" data-target="#world" tabindex="0" role="button" aria-label="Відкрити Світ Віти">
         <div class="door-visual" style="--door:url('assets/img/door-amber.webp')">
           <div class="door-half left"></div><div class="door-half right"></div>
           <div class="door-shine"></div>
         </div>
-        <div class="portal-copy"><span>03</span><h3>VITA WORLD</h3><p>enter the system</p></div>
+        <div class="portal-copy"><span>03</span><h3>СВІТ ВІТИ</h3><p>увійти до системи</p></div>
       </article>
     </section>
 
@@ -138,7 +139,7 @@
 
     <section class="music-section" id="music">
       <div class="section-heading reveal">
-        <span>01 / MUSIC</span>
+        <span>01 / МУЗИКА</span>
         <h2>РАДІО ВІТА <em>224 FM</em></h2>
         <p>Обери сигнал. Увімкни уривок.</p>
       </div>
@@ -149,7 +150,7 @@
         <div class="radio-ui">
           <div class="now-playing">
             <span class="signal-dot"></span>
-            <div><small>NOW PLAYING / 224 FM</small><strong id="trackTitle">Candy Dealer</strong></div>
+            <div><small>ЗАРАЗ ГРАЄ / 224 FM</small><strong id="trackTitle">ДилеR</strong></div>
             <time id="trackTime">00:00</time>
           </div>
           <div class="radio-controls">
@@ -162,35 +163,37 @@
       </div>
 
       <div class="track-list reveal" id="trackList">
-        <button class="track is-active" data-track="0"><span>01</span><b>Candy Dealer</b><i>PLAY</i></button>
-        <button class="track" data-track="1"><span>02</span><b>Leroy</b><i>PLAY</i></button>
-        <button class="track" data-track="2"><span>03</span><b>Нічний Париж</b><i>PLAY</i></button>
+        <button class="track is-active" data-track="0"><span>01</span><b>ДилеR</b><i>СЛУХАТИ</i></button>
+        <button class="track" data-track="1"><span>02</span><b>Leroy</b><i>СЛУХАТИ</i></button>
+        <button class="track" data-track="2"><span>03</span><b>Нічний Париж</b><i>СЛУХАТИ</i></button>
       </div>
       <audio id="audioPlayer" preload="metadata"></audio>
-      <a class="outline-link reveal" href="https://open.spotify.com/artist/421dXujdxnti2KuhbHpUXP" target="_blank" rel="noopener">FULL CATALOGUE ON SPOTIFY ↗</a>
+      <a class="outline-link reveal" href="https://open.spotify.com/artist/421dXujdxnti2KuhbHpUXP" target="_blank" rel="noopener">УСЯ МУЗИКА НА SPOTIFY ↗</a>
     </section>
 
     <section class="video-section" id="video">
       <div class="section-heading reveal">
-        <span>02 / VIDEO</span>
-        <h2>VISUAL <em>TRANSMISSIONS</em></h2>
-        <p>Фрагменти Системи Віта. Сім сигналів, одна історія.</p>
+        <span>02 / ВІДЕО</span>
+        <h2>ВІЗУАЛЬНІ <em>СИГНАЛИ</em></h2>
+        <p>П’ять сцен Системи Віта. Одна історія.</p>
       </div>
       <div class="video-grid">
-        <figure class="transmission wide reveal"><video src="assets/video/story-03-run.mp4" muted loop playsinline preload="metadata" poster="assets/img/gallery-1.webp"></video><figcaption><span>TRANSMISSION 03</span><b>THE RUN</b></figcaption></figure>
-        <figure class="transmission reveal"><video src="assets/video/story-01-bath.mp4" muted loop playsinline preload="metadata" poster="assets/img/gallery-3.webp"></video><figcaption><span>TRANSMISSION 01</span><b>IMMERSION</b></figcaption></figure>
-        <figure class="transmission reveal"><video src="assets/video/story-07-paris-night.mp4" muted loop playsinline preload="metadata" poster="assets/img/gallery-2.webp"></video><figcaption><span>TRANSMISSION 07</span><b>PARIS / NIGHT</b></figcaption></figure>
+        <figure class="transmission wide reveal"><video src="assets/video/01-bath.mp4" muted loop playsinline preload="metadata" aria-label="Сцена 1"></video><figcaption><span>СЦЕНА 01</span><b>ЗАНУРЕННЯ</b></figcaption></figure>
+        <figure class="transmission reveal"><video src="assets/video/02-portal.mp4" muted loop playsinline preload="metadata" aria-label="Сцена 2"></video><figcaption><span>СЦЕНА 02</span><b>НА ПОРОЗІ</b></figcaption></figure>
+        <figure class="transmission reveal"><video src="assets/video/03-threshold.mp4" muted loop playsinline preload="metadata" aria-label="Сцена 3"></video><figcaption><span>СЦЕНА 03</span><b>КРІЗЬ ПОРТАЛ</b></figcaption></figure>
+        <figure class="transmission reveal"><video src="assets/video/04-speed.mp4" muted loop playsinline preload="metadata" aria-label="Сцена 4"></video><figcaption><span>СЦЕНА 04</span><b>ШВИДКІСТЬ</b></figcaption></figure>
+        <figure class="transmission reveal"><video src="assets/video/05-paris-night.mp4" muted loop playsinline preload="metadata" aria-label="Сцена 5"></video><figcaption><span>СЦЕНА 05</span><b>ПАРИЖ УНОЧІ</b></figcaption></figure>
       </div>
-      <a class="outline-link reveal" href="https://www.youtube.com/@VitaSystemMusic" target="_blank" rel="noopener">OPEN VITA SYSTEM MUSIC ON YOUTUBE ↗</a>
+      <a class="outline-link reveal" href="https://www.youtube.com/@VitaSystemMusic" target="_blank" rel="noopener">ДИВИТИСЯ ВІДЕО ВІТИ НА YOUTUBE ↗</a>
     </section>
 
     <section class="world-section" id="world">
       <div class="world-backdrop" aria-hidden="true"></div>
       <div class="world-copy reveal">
-        <span>03 / VITA WORLD</span>
+        <span>03 / СВІТ ВІТИ</span>
         <h2>СИСТЕМА<br><em>ВІТА</em></h2>
-        <p>Не декорація навколо музики — окремий простір, де звук переходить у кадр, кадр у fashion, а fashion у майбутнє.</p>
-        <a href="#gallery">ENTER THE VISUAL ARCHIVE ↓</a>
+        <p>Це не декорація довкола музики, а окремий світ, де звук переходить у кадр, кадр — у моду, а мода — у майбутнє.</p>
+        <a href="#gallery">УВІЙТИ ДО ВІЗУАЛЬНОГО АРХІВУ ↓</a>
       </div>
       <div class="world-codes" aria-hidden="true"><span>224</span><span>V/S</span><span>∞</span></div>
     </section>
@@ -198,30 +201,30 @@
     <section class="about-section" id="about">
       <div class="about-image reveal"><img src="assets/img/vita-about.webp" alt="ВІТА" loading="lazy"><div class="scanline"></div></div>
       <div class="about-copy reveal">
-        <span class="kicker">ABOUT / ВІТА</span>
+        <span class="kicker">ПРО ВІТУ</span>
         <h2>СПІВАЧКА<br>НОВОЇ ЕРИ</h2>
         <p class="lead">ВІТА — артистка, чий світ існує на межі музики, кіно та майбутнього.</p>
-        <p>Її звучання поєднує intellectual dance pop, synth-wave і modern disco-house. Візуальна мова ВІТИ — холодне світло, мокрі поверхні, швидкість, міста після дощу та fashion без зайвого глянцю.</p>
+        <p>Її звучання поєднує інтелектуальний денс-поп, синтвейв і сучасний диско-хаус. Візуальна мова ВІТИ — холодне світло, мокрі поверхні, швидкість, міста після дощу й мода без зайвого блиску.</p>
         <p>Система Віта збирає пісні, відео, образи й цифрові історії в один безперервний простір.</p>
-        <div class="about-meta"><div><small>ARTIST</small><b>ВІТА</b></div><div><small>LABEL</small><b>Victoria Sidney Records</b></div><div><small>SIGNAL</small><b>224 FM</b></div></div>
+        <div class="about-meta"><div><small>АРТИСТКА</small><b>ВІТА</b></div><div><small>ЛЕЙБЛ</small><b>Victoria Sidney Records</b></div><div><small>СИГНАЛ</small><b>224 FM</b></div></div>
       </div>
     </section>
 
     <section class="gallery-section" id="gallery">
       <div class="section-heading reveal">
-        <span>VISUAL ARCHIVE</span>
+        <span>ВІЗУАЛЬНИЙ АРХІВ</span>
         <h2>ВІТА — <em>АРТИСТКА</em></h2>
         <p>Фотоальбом Системи. Архів буде розширюватися.</p>
       </div>
       <div class="gallery-grid">
-        <button class="gallery-item g1 reveal" data-full="assets/img/gallery-1.webp" aria-label="Відкрити фото 1"><img src="assets/img/gallery-1.webp" alt="ВІТА — футуристичний світ" loading="lazy"><span>01 / SYSTEM</span></button>
-        <button class="gallery-item g2 reveal" data-full="assets/img/gallery-2.webp" aria-label="Відкрити фото 2"><img src="assets/img/gallery-2.webp" alt="ВІТА — Париж уночі" loading="lazy"><span>02 / PARIS</span></button>
-        <button class="gallery-item g3 reveal" data-full="assets/img/gallery-3.webp" aria-label="Відкрити фото 3"><img src="assets/img/gallery-3.webp" alt="ВІТА — editorial" loading="lazy"><span>03 / EDITORIAL</span></button>
+        <button class="gallery-item g1 reveal" data-full="assets/img/gallery-1.webp" aria-label="Відкрити фото 1"><img src="assets/img/gallery-1.webp" alt="ВІТА — футуристичний світ" loading="lazy"><span>01 / СИСТЕМА</span></button>
+        <button class="gallery-item g2 reveal" data-full="assets/img/gallery-2.webp" aria-label="Відкрити фото 2"><img src="assets/img/gallery-2.webp" alt="ВІТА — Париж уночі" loading="lazy"><span>02 / ПАРИЖ</span></button>
+        <button class="gallery-item g3 reveal" data-full="assets/img/gallery-3.webp" aria-label="Відкрити фото 3"><img src="assets/img/gallery-3.webp" alt="ВІТА — editorial" loading="lazy"><span>03 / ОБРАЗ</span></button>
       </div>
     </section>
 
     <section class="connect-section reveal">
-      <span>FOLLOW THE SIGNAL</span>
+      <span>СЛІДУЙ ЗА СИГНАЛОМ</span>
       <h2>ВІТА</h2>
       <div class="social-links">
         <a href="https://open.spotify.com/artist/421dXujdxnti2KuhbHpUXP" target="_blank" rel="noopener"><small>01</small>SPOTIFY ↗</a>
