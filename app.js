@@ -120,13 +120,13 @@
     meta('meta[property="og:title"]',t.ogTitle);
     meta('meta[property="og:description"]',t.ogDescription);
     try { localStorage.setItem('vita-language',activeLanguage); } catch {}
-    $('.language-switch [data-language]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.language===activeLanguage)));
+    $$('.language-switch [data-language]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.language===activeLanguage)));
     setAttr('.language-switch','aria-label',t.languageLabel);
     setAttr('.brand','aria-label',t.brandAria);
     setAttr('.desktop-nav','aria-label',activeLanguage==='uk'?'Головна навігація':'Main navigation');
     setAttr('.mobile-menu nav','aria-label',activeLanguage==='uk'?'Мобільна навігація':'Mobile navigation');
     [['#music',t.navMusic],['#video',t.navVideo],['#world',t.navWorld],['#about',t.navAbout],['#gallery',t.navGallery]].forEach(([href,label])=>{
-      $('.desktop-nav a[href="'+href+'"], .mobile-menu nav a[href="'+href+'"]').forEach(link=>link.textContent=label);
+      $$('.desktop-nav a[href="'+href+'"], .mobile-menu nav a[href="'+href+'"]').forEach(link=>link.textContent=label);
     });
     const menuOpen=$('#menuToggle')?.getAttribute('aria-expanded')==='true';
     setAttr('#menuToggle','aria-label',menuOpen?t.menuClose:t.menuOpen);
@@ -135,7 +135,7 @@
     setText('.hero-copy .eyebrow',t.eyebrow);
     setText('.hero-sub',t.heroSubtitle);
     setAttr('#heroProgress','aria-label',t.heroProgress);
-    $('.progress-segment').forEach((button,i)=>button.setAttribute('aria-label',t.scenePrefix+' '+(i+1)));
+    $$('.progress-segment').forEach((button,i)=>button.setAttribute('aria-label',t.scenePrefix+' '+(i+1)));
     setText('.scroll-cue span',t.enter);
     setHTML('.system-intro h2',t.introHeading);
     setText('.system-intro>p:last-child',t.introBody);
@@ -155,7 +155,7 @@
     setAttr('#nextTrack','aria-label',t.next);
     setAttr('#playButton','aria-label',audio?.paused?t.play:t.pause);
     setAttr('#trackProgress','aria-label',t.trackPosition);
-    $('.track').forEach((track,i)=>{
+    $$('.track').forEach((track,i)=>{
       const action=track.querySelector('i');if(action)action.textContent=t.trackAction;
       const name=tracks[i]?.title||track.querySelector('b')?.textContent||'';
       track.setAttribute('aria-label',String(i+1).padStart(2,'0')+' '+name+' — '+t.trackAction);
@@ -164,7 +164,7 @@
     setText('.video-section .section-heading>span',t.videoCode);
     setHTML('.video-section .section-heading h2',t.videoHeading);
     setText('.video-section .section-heading p',t.videoBody);
-    $('.transmission').forEach((figure,i)=>{
+    $$('.transmission').forEach((figure,i)=>{
       const code=figure.querySelector('figcaption span');
       const title=figure.querySelector('figcaption b');
       const video=figure.querySelector('video');
@@ -180,15 +180,15 @@
     setText('.about-copy .kicker',t.aboutKicker);
     setHTML('.about-copy h2',t.aboutHeading);
     setText('.about-copy .lead',t.aboutLead);
-    const aboutParagraphs=$('.about-copy>p:not(.lead)');
+    const aboutParagraphs=$$('.about-copy>p:not(.lead)');
     if(aboutParagraphs[0])aboutParagraphs[0].textContent=t.aboutBody;
     if(aboutParagraphs[1])aboutParagraphs[1].textContent=t.aboutBody2;
-    $('.about-meta small').forEach((item,i)=>item.textContent=t.aboutMeta[i]||'');
+    $$('.about-meta small').forEach((item,i)=>item.textContent=t.aboutMeta[i]||'');
     setAttr('.about-image img','alt',t.aboutAlt);
     setText('.gallery-section .section-heading>span',t.galleryCode);
     setHTML('.gallery-section .section-heading h2',t.galleryHeading);
     setText('.gallery-section .section-heading p',t.galleryBody);
-    $('.gallery-item').forEach((item,i)=>{
+    $$('.gallery-item').forEach((item,i)=>{
       const label=item.querySelector('span'),image=item.querySelector('img');
       if(label)label.textContent=t.galleryLabels[i];
       if(image)image.alt=t.galleryAlts[i];
@@ -198,7 +198,7 @@
     setAttr('#lightbox','aria-label',t.lightbox);
     setAttr('#lightboxClose','aria-label',t.close);
   };
-  $('.language-switch [data-language]').forEach(button=>button.addEventListener('click',()=>translatePage(button.dataset.language)));
+  $$('.language-switch [data-language]').forEach(button=>button.addEventListener('click',()=>translatePage(button.dataset.language)));
   let savedLanguage='uk';
   try { savedLanguage=localStorage.getItem('vita-language')||'uk'; } catch {}
   const queryLanguage=new URLSearchParams(location.search).get('lang');
