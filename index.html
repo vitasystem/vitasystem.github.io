@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=vita-burgundy-pages-1">
+  <link rel="stylesheet" href="styles.css?v=vita-editorial-1">
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -43,18 +43,20 @@
   <div class="noise" aria-hidden="true"></div>
   <div class="preloader" id="preloader" aria-hidden="true">
     <div class="preloader-mark">ВІТА</div>
-    <div class="preloader-line"><i></i></div>
-    <div class="preloader-code">СИСТЕМА / 224 FM</div>
+    <p class="preloader-title">СИСТЕМА ВІТА ІНСТАЛЮЄТЬСЯ</p>
+    <div class="preloader-line" role="progressbar" aria-label="Завантаження сайту"><i></i></div>
+    <div class="preloader-code">ЧАСТОТА: 224 FM</div>
+    <small class="preloader-system">СИСТЕМА ВІТА / 224 FM</small>
   </div>
 
   <header class="site-header" id="siteHeader">
     <a class="brand" href="#top" aria-label="ВІТА — на початок">ВІТА</a>
     <nav class="desktop-nav" aria-label="Головна навігація">
-      <a href="#music">МУЗИКА</a>
-      <a href="#video">ВІДЕО</a>
-      <a href="#world">СВІТ ВІТИ</a>
-      <a href="#about">ПРО ВІТУ</a>
-      <a href="#gallery">ГАЛЕРЕЯ</a>
+      <a href="#top" data-nav="home">ГОЛОВНА</a>
+      <a href="#music" data-nav="music">МУЗИКА</a>
+      <a href="#about" data-nav="about">ПРО ВІТУ</a>
+      <a href="#gallery" data-nav="gallery">ГАЛЕРЕЯ</a>
+      <a href="#contact" data-nav="contact">КОНТАКТИ</a>
     </nav>
     <div class="header-actions">
       <div class="language-switch" role="group" aria-label="Мова сайту">
@@ -65,12 +67,12 @@
   </header>
 
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <nav>
-      <a href="#music">МУЗИКА</a>
-      <a href="#video">ВІДЕО</a>
-      <a href="#world">СВІТ ВІТИ</a>
-      <a href="#about">ПРО ВІТУ</a>
-      <a href="#gallery">ГАЛЕРЕЯ</a>
+    <nav aria-label="Мобільна навігація">
+      <a href="#top" data-nav="home">ГОЛОВНА</a>
+      <a href="#music" data-nav="music">МУЗИКА</a>
+      <a href="#about" data-nav="about">ПРО ВІТУ</a>
+      <a href="#gallery" data-nav="gallery">ГАЛЕРЕЯ</a>
+      <a href="#contact" data-nav="contact">КОНТАКТИ</a>
     </nav>
     <div class="mobile-socials">
       <a href="https://www.instagram.com/vita.system.music" target="_blank" rel="noopener">IG</a>
@@ -256,6 +258,15 @@
         <a href="https://www.facebook.com/VitaSystemMusic" target="_blank" rel="noopener"><small>05</small>FACEBOOK ↗</a>
       </div>
     </section>
+
+    <section class="contact-section" id="contact">
+      <div class="contact-copy">
+        <span class="kicker" data-contact-label>КОНТАКТИ / 224 FM</span>
+        <h2 data-contact-heading>ДЛЯ ПРЕСИ, СПІВПРАЦІ<br>ТА BOOKING</h2>
+        <p data-contact-copy>З питань преси, співпраці, booking і лейблу — напишіть ВІТІ в соціальних мережах.</p>
+      </div>
+      <a class="contact-link" href="https://www.instagram.com/vita.system.music" target="_blank" rel="noopener" data-contact-link>НАПИСАТИ ВІТІ ↗</a>
+    </section>
   </main>
 
   <footer>
@@ -269,6 +280,6 @@
     <img id="lightboxImage" alt="">
   </div>
 
-  <script src="app.js?v=about-pages-1" defer></script>
+  <script src="app.js?v=vita-editorial-1" defer></script>
 </body>
 </html>
