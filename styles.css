@@ -523,3 +523,8 @@ body.info-page.page-radio{background:radial-gradient(ellipse at 50% 15%,rgba(103
  .door-fog,.door-half{transition:none}
  .portal.opening .door-fog{opacity:.82}
 }
+
+
+/* Reset inherited label columns so each social icon centers on its circular button. */
+.connect-platforms .social-links a{grid-template-columns:minmax(0,1fr)!important;grid-auto-flow:row!important;place-items:center!important}
+.connect-platforms .social-links a svg{justify-self:center!important;align-self:center!important;transform:none!important}
