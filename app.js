@@ -73,7 +73,7 @@
     window.setTimeout(() => document.querySelector(target)?.scrollIntoView({behavior:'smooth'}), 1450);
     window.setTimeout(() => portal.classList.remove('opening'), 3000);
   };
-  $('.portal').forEach(p => { p.addEventListener('click',()=>openPortal(p)); p.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openPortal(p);}}); });
+  $$('.portal').forEach(p => { p.addEventListener('click',()=>openPortal(p)); p.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openPortal(p);}}); });
 
   // Scroll reveals
   const io = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target);} }), {threshold:.13, rootMargin:'0px 0px -7% 0px'});
