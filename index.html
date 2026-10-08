@@ -14,11 +14,14 @@
   <meta property="og:url" content="https://vitasystem.github.io/">
   <meta property="og:image" content="https://vitasystem.github.io/assets/img/gallery-2.webp">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/img/vita-icon-512.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="apple-touch-icon" sizes="512x512" href="assets/img/vita-icon-512.png">
+  <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=0d5ddc94">
+  <link rel="stylesheet" href="styles.css?v=vita-burgundy-pages-1">
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -138,6 +141,26 @@
       </article>
     </section>
 
+    <section class="about-section" id="about">
+      <div class="about-image reveal"><img src="assets/img/vita-about.webp" alt="ВІТА" loading="lazy"><div class="scanline"></div></div>
+      <div class="about-copy reveal">
+        <span class="kicker">ПРО ВІТУ</span>
+        <h2>СПІВАЧКА<br>НОВОЇ ЕРИ</h2>
+        <p class="lead">ВІТА — артистка, чий світ існує на межі музики, кіно та майбутнього.</p>
+        <p>Її звучання поєднує інтелектуальний денс-поп, синтвейв і сучасний диско-хаус. Візуальна мова ВІТИ — холодне світло, мокрі поверхні, швидкість, міста після дощу й мода без зайвого блиску.</p>
+        <p>Система Віта збирає пісні, відео, образи й цифрові історії в один безперервний простір.</p>
+        <div class="about-meta"><div><small>АРТИСТКА</small><b>ВІТА</b></div><div><small>ЛЕЙБЛ</small><b>Victoria Sidney Records</b></div><div><small>СИГНАЛ</small><b>224 FM</b></div></div>
+        <nav class="about-page-links" aria-label="Сторінки про Віту">
+          <a class="about-page-link" href="dossier.html?lang=uk" data-uk-href="dossier.html" data-en-href="dossier.html"><span>01</span><b>Досьє на Віту</b><i aria-hidden="true">↗</i></a>
+          <a class="about-page-link" href="interview.html?lang=uk" data-uk-href="interview.html" data-en-href="interview.html"><span>02</span><b>Інтерв’ю зі співачкою нової ери</b><i aria-hidden="true">↗</i></a>
+          <a class="about-page-link" href="facts.html?lang=uk" data-uk-href="facts.html" data-en-href="facts.html"><span>03</span><b>Цікаві факти про Віту</b><i aria-hidden="true">↗</i></a>
+          <a class="about-page-link" href="vita-code.html?lang=uk" data-uk-href="vita-code.html" data-en-href="vita-code.html"><span>04</span><b>Код Віти</b><i aria-hidden="true">↗</i></a>
+          <a class="about-page-link" href="blitz.html?lang=uk" data-uk-href="blitz.html" data-en-href="blitz.html"><span>05</span><b>Бліц із Вітою</b><i aria-hidden="true">↗</i></a>
+          <a class="about-page-link" href="radio.html?lang=uk" data-uk-href="radio.html" data-en-href="radio.html"><span>06</span><b>РАДІО ВІТА — 224 FM</b><i aria-hidden="true">↗</i></a>
+        </nav>
+      </div>
+    </section>
+
     <div class="rain-divider" aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 
     <section class="music-section" id="music">
@@ -205,17 +228,9 @@
       <div class="world-codes" aria-hidden="true"><span>224</span><span>V/S</span><span>∞</span></div>
     </section>
 
-    <section class="about-section" id="about">
-      <div class="about-image reveal"><img src="assets/img/vita-about.webp" alt="ВІТА" loading="lazy"><div class="scanline"></div></div>
-      <div class="about-copy reveal">
-        <span class="kicker">ПРО ВІТУ</span>
-        <h2>СПІВАЧКА<br>НОВОЇ ЕРИ</h2>
-        <p class="lead">ВІТА — артистка, чий світ існує на межі музики, кіно та майбутнього.</p>
-        <p>Її звучання поєднує інтелектуальний денс-поп, синтвейв і сучасний диско-хаус. Візуальна мова ВІТИ — холодне світло, мокрі поверхні, швидкість, міста після дощу й мода без зайвого блиску.</p>
-        <p>Система Віта збирає пісні, відео, образи й цифрові історії в один безперервний простір.</p>
-        <div class="about-meta"><div><small>АРТИСТКА</small><b>ВІТА</b></div><div><small>ЛЕЙБЛ</small><b>Victoria Sidney Records</b></div><div><small>СИГНАЛ</small><b>224 FM</b></div></div>
-      </div>
-    </section>
+    <figure class="world-banner reveal"><img src="assets/img/vita-system-banner.webp" alt="ВІТА на тлі світу Системи Віта" loading="lazy"></figure>
+
+    
 
     <section class="gallery-section" id="gallery">
       <div class="section-heading reveal">
@@ -254,6 +269,6 @@
     <img id="lightboxImage" alt="">
   </div>
 
-  <script src="app.js?v=doors-i18n-2" defer></script>
+  <script src="app.js?v=about-pages-1" defer></script>
 </body>
 </html>

@@ -1,0 +1,16 @@
+{
+  "name": "ВІТА — Система Віта",
+  "short_name": "ВІТА",
+  "start_url": "/?lang=uk",
+  "display": "standalone",
+  "background_color": "#050507",
+  "theme_color": "#050507",
+  "icons": [
+    {
+      "src": "/assets/img/vita-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

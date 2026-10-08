@@ -110,6 +110,7 @@
   const setText = (selector, value) => { const el=$(selector); if(el) el.textContent=value; };
   const setHTML = (selector, value) => { const el=$(selector); if(el) el.innerHTML=value; };
   const setAttr = (selector, name, value) => { const el=$(selector); if(el) el.setAttribute(name,value); };
+  const aboutPageLabels={uk:['Досьє на Віту','Інтерв’ю зі співачкою нової ери','Цікаві факти про Віту','Код Віти','Бліц із Вітою','РАДІО ВІТА — 224 FM'],en:['VITA dossier','Interview with the singer of the new era','Interesting facts about VITA','VITA code','Quick-fire with VITA','VITA RADIO — 224 FM']};
   const translatePage = (language) => {
     activeLanguage = language === 'en' ? 'en' : 'uk';
     const t=languageCopy[activeLanguage];
@@ -199,6 +200,14 @@
     setText('.connect-section>span',t.connect);
     setAttr('#lightbox','aria-label',t.lightbox);
     setAttr('#lightboxClose','aria-label',t.close);
+    document.querySelectorAll('.about-page-link').forEach((link,i)=>{
+      const label=aboutPageLabels[activeLanguage][i];
+      const title=link.querySelector('b');if(title&&label)title.textContent=label;
+      const route=activeLanguage==='en'?link.dataset.enHref:link.dataset.ukHref;
+      if(route)link.href=route+'?lang='+activeLanguage;
+    });
+    const banner=document.querySelector('.world-banner img');
+    if(banner)banner.alt=activeLanguage==='uk'?'ВІТА на тлі світу Системи Віта':'VITA in the world of the Vita System';
   };
   $$('.language-switch [data-language]').forEach(button=>button.addEventListener('click',()=>translatePage(button.dataset.language)));
   let savedLanguage='uk';
