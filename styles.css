@@ -353,12 +353,11 @@ footer{background:#050506;border-color:rgba(241,236,232,.13);color:#AAA3A5}
 }
 
 
-/* VITA wordmark: dark ruby fill, metallic pink highlights, restrained glow. */
+/* VITA wordmark: deep ruby face with a crisp illuminated metallic edge. */
 .hero h1{
- background:linear-gradient(180deg,#ffe0e8 0%,#d54868 4%,#350a17 13%,#8f203c 32%,#f3a5b7 47%,#641027 58%,#21070f 74%,#b83a58 88%,#ffd2dc 95%,#4d0d1d 100%);
- -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
- -webkit-text-stroke:1.25px rgba(247,157,178,.9);
- text-shadow:0 0 1px #fff1f4,0 0 7px rgba(231,91,123,.44);
+ color:#260713;background:none;-webkit-background-clip:initial;background-clip:initial;
+ -webkit-text-fill-color:#260713;-webkit-text-stroke:1.7px #ef91a7;
+ text-shadow:0 0 1px #ffeaf0,0 0 7px rgba(242,112,143,.62),0 0 18px rgba(127,22,50,.52);
  filter:drop-shadow(0 0 8px rgba(136,22,51,.48)) drop-shadow(0 5px 18px rgba(0,0,0,.72));
 }
 .preloader-mark{
