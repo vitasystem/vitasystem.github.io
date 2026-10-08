@@ -463,3 +463,63 @@ body.info-page.page-radio{background:radial-gradient(ellipse at 50% 15%,rgba(103
   .connect-platforms .social-links{width:100%;justify-content:center}
   .connect-platforms .subscribe-link{align-self:center}
 }
+
+
+/* Doors: preserve the destinations while using the supplied paired-door artwork. */
+.portal{aspect-ratio:1.2}
+.door-half{z-index:1}
+.door-visual:after{z-index:1}
+.door-fog{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none;opacity:.2;mix-blend-mode:screen;transition:opacity .55s ease}
+.door-fog i{position:absolute;display:block;width:78%;height:48%;border-radius:50%;background:radial-gradient(ellipse at center,rgba(235,229,229,.46) 0%,rgba(185,169,174,.23) 28%,rgba(131,108,118,.1) 49%,transparent 72%);filter:blur(15px);animation:doorMistDrift 8s ease-in-out infinite alternate}
+.door-fog i:nth-child(1){left:-24%;bottom:-15%;animation-delay:-2s}
+.door-fog i:nth-child(2){right:-25%;bottom:-12%;animation-delay:-5s}
+.door-fog i:nth-child(3){left:14%;bottom:-24%;width:72%;height:45%;animation-delay:-3.5s}
+@keyframes doorMistDrift{0%{transform:translate3d(-2%,5%,0) scale(.92)}100%{transform:translate3d(4%,-19%,0) scale(1.12)}}
+.door-shine{z-index:3}
+.door-cta{z-index:4}
+.portal.opening .door-fog{opacity:.88}
+.portal.opening .door-fog i{animation-duration:1.2s;filter:blur(21px)}
+.portal.opening .door-half{transition-delay:.43s}
+.portal.opening .door-half.left{transform:translateX(-100%)}
+.portal.opening .door-half.right{transform:translateX(100%)}
+.portal-copy{z-index:5}
+.portal-copy h3{font-size:clamp(26px,2.7vw,46px);line-height:1.03;letter-spacing:-.035em}
+.portal-copy p{text-transform:none;letter-spacing:.05em;font-size:clamp(11px,1vw,14px);line-height:1.4}
+.portal-emerald .portal-copy p{font-style:italic;color:#e4d5d8}
+.info-banner{position:relative;aspect-ratio:2.15/1;min-height:250px;max-height:490px;margin:0 0 48px;overflow:hidden;border:1px solid rgba(241,236,232,.18);background:#0c0d10;isolation:isolate}
+.info-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block}
+.info-banner:after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(5,5,6,.88),rgba(5,5,6,.08) 62%),linear-gradient(90deg,rgba(20,7,13,.28),transparent 70%);pointer-events:none}
+.info-banner-label{position:absolute;z-index:2;left:clamp(18px,3vw,38px);right:18px;bottom:clamp(18px,3vw,34px);display:grid;gap:8px;text-shadow:0 2px 18px rgba(0,0,0,.8)}
+.info-banner-label span{font-size:9px;letter-spacing:.25em;color:#e3cbd1}
+.info-banner-label strong{max-width:90%;font:400 clamp(24px,4.2vw,52px)/1.02 var(--serif);color:var(--paper);letter-spacing:-.035em}
+.page-interview .info-banner:after{background:linear-gradient(0deg,rgba(5,5,6,.9),rgba(5,5,6,.05) 68%),linear-gradient(90deg,rgba(8,16,24,.38),transparent 72%)}
+.page-facts .info-banner:after{background:linear-gradient(0deg,rgba(5,5,6,.9),rgba(5,5,6,.05) 68%),linear-gradient(90deg,rgba(20,7,13,.38),transparent 72%)}
+.page-code .info-banner:after{background:linear-gradient(0deg,rgba(5,5,6,.9),rgba(5,5,6,.05) 68%),linear-gradient(90deg,rgba(8,16,24,.52),transparent 72%)}
+.page-blitz .info-banner:after{background:linear-gradient(0deg,rgba(5,5,6,.9),rgba(5,5,6,.05) 68%),linear-gradient(90deg,rgba(26,10,16,.4),transparent 72%)}
+.page-radio .info-banner:after{background:linear-gradient(0deg,rgba(5,5,6,.9),rgba(5,5,6,.05) 68%),linear-gradient(90deg,rgba(20,7,13,.45),transparent 72%)}
+
+/* Keep each social-media glyph optically centered inside its round button. */
+.connect-platforms .social-links{display:flex;align-items:center;justify-content:center}
+.connect-platforms .social-links a{box-sizing:border-box;flex:0 0 52px;width:52px;height:52px;min-height:52px;margin:0;padding:0!important;display:grid;place-items:center;line-height:0}
+.connect-platforms .social-links a svg{display:block;width:22px;height:22px;margin:0}
+.connect-platforms .social-links a[aria-label="Facebook"] svg{transform:translateX(-1px)}
+@media(max-width:900px){
+ .portal{aspect-ratio:1.2;max-height:none}
+ .portal-copy h3{font-size:clamp(28px,8vw,40px);line-height:1.03}
+ .door-fog{opacity:.3}
+ .door-fog i{filter:blur(12px)}
+ .info-banner{aspect-ratio:1.55/1;min-height:0;margin-bottom:34px}
+ .info-banner-label strong{max-width:100%;font-size:clamp(23px,7vw,38px)}
+}
+@media(max-width:520px){
+ .portal-copy{bottom:18px;padding-top:13px}
+ .portal-copy h3{font-size:clamp(26px,7.6vw,34px)}
+ .portal-copy p{font-size:12px}
+ .connect-platforms .social-links a{flex-basis:46px;width:46px;height:46px;min-height:46px}
+ .connect-platforms .social-links a svg{width:20px;height:20px}
+}
+@media(prefers-reduced-motion:reduce){
+ .door-fog i{animation:none;transform:translateY(-5%)}
+ .door-fog,.door-half{transition:none}
+ .portal.opening .door-fog{opacity:.82}
+}
