@@ -44,3 +44,85 @@ footer{min-height:140px;padding:36px var(--pad);display:flex;align-items:end;gap
 .transmission.wide{grid-column:1 / span 2;grid-row:1}
 @media (max-width:900px){.header-actions{gap:7px}.language-switch{gap:7px;padding-left:12px}.video-grid{grid-template-columns:1fr;grid-template-rows:none}.transmission.wide{grid-column:auto;grid-row:auto}}
 @media (max-width:520px){.header-actions{gap:2px}.language-switch{padding-left:10px}.hero h1{letter-spacing:-.025em}}
+
+
+/* Responsive refinements requested for VITA's first pass */
+html, body { max-width: 100%; overflow-x: clip; }
+.hero-copy .eyebrow { font-size: clamp(12px, 1.1vw, 14px); letter-spacing: .3em; margin-bottom: 16px; }
+.hero h1 {
+  color: #a32742;
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: #a32742;
+  -webkit-text-stroke: .35px rgba(238, 206, 212, .42);
+  filter: drop-shadow(0 2px 8px rgba(55, 0, 14, .28));
+}
+.hero-sub { font-size: clamp(14px, 1.25vw, 17px); letter-spacing: .24em; text-transform: none; }
+.music-section .section-heading h2 { line-height: .94; }
+.music-section .section-heading h2 em {
+  display: block;
+  margin-top: .12em;
+  color: #a32742;
+  -webkit-text-fill-color: #a32742;
+  font-size: .86em;
+  line-height: .9;
+}
+.world-copy h2 { color: #a32742; line-height: .88; }
+.world-copy h2 em { color: #a32742; }
+.about-copy h2 { line-height: .9; letter-spacing: -.045em; }
+.boombox-wrap { position: relative; z-index: 2; width: min(850px, 75vw); }
+.boombox-wrap .boombox { display: block; width: 100%; }
+.speaker-pulse {
+  position: absolute;
+  top: 35%;
+  width: 35%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(163, 39, 66, .48);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+.speaker-pulse-left { left: 1.5%; }
+.speaker-pulse-right { right: 1.5%; }
+.radio-stage.is-playing .speaker-pulse { animation: speakerPulse 1.05s ease-in-out infinite; }
+@keyframes speakerPulse {
+  0%, 100% { transform: scale(.94); opacity: .22; box-shadow: 0 0 0 rgba(163, 39, 66, 0); }
+  50% { transform: scale(1.04); opacity: .78; box-shadow: 0 0 24px rgba(163, 39, 66, .35), inset 0 0 16px rgba(163, 39, 66, .18); }
+}
+.door-cta {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  gap: 3px;
+  min-width: 80%;
+  text-align: center;
+  color: #f1e7e9;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, .95), 0 0 28px rgba(0, 0, 0, .8);
+  pointer-events: none;
+  transition: opacity .35s ease, transform .35s ease;
+}
+.door-cta span { font: 500 12px/1.2 var(--sans); letter-spacing: .18em; }
+.door-cta strong { font: 400 clamp(27px, 3.3vw, 44px)/.95 var(--serif); }
+.portal:hover .door-cta { transform: translate(-50%, -53%); color: #fff; }
+.portal.opening .door-cta { opacity: 0; }
+@media (max-width: 900px) {
+  .hero-copy .eyebrow { font-size: 12px; }
+  .hero-sub { font-size: 14px; letter-spacing: .19em; }
+  .world-copy h2 { font-size: clamp(54px, 17vw, 88px); }
+  .about-copy h2 { font-size: clamp(54px, 16vw, 88px); }
+  .boombox-wrap { width: 95vw; }
+}
+@media (max-width: 520px) {
+  .hero-copy .eyebrow { font-size: 10px; letter-spacing: .24em; }
+  .hero-sub { font-size: 12px; letter-spacing: .11em; }
+  .music-section .section-heading h2 { font-size: 15vw; line-height: .96; }
+  .world-copy h2 { font-size: clamp(42px, 16vw, 72px); line-height: .92; letter-spacing: -.045em; }
+  .about-copy h2 { font-size: clamp(44px, 15vw, 72px); line-height: .94; }
+  .door-cta span { font-size: 12px; }
+  .door-cta strong { font-size: clamp(32px, 10vw, 46px); }
+}
