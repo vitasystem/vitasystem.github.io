@@ -18,7 +18,7 @@
   const menuToggle = $('#menuToggle'), mobileMenu = $('#mobileMenu');
   const closeMenu = () => { menuToggle?.setAttribute('aria-expanded','false'); mobileMenu?.classList.remove('open'); mobileMenu?.setAttribute('aria-hidden','true'); document.body.classList.remove('menu-open'); };
   menuToggle?.addEventListener('click', () => { const open = menuToggle.getAttribute('aria-expanded') !== 'true'; menuToggle.setAttribute('aria-expanded', String(open)); menuToggle.setAttribute('aria-label', open ? languageCopy[activeLanguage].menuClose : languageCopy[activeLanguage].menuOpen); mobileMenu.classList.toggle('open', open); mobileMenu.setAttribute('aria-hidden', String(!open)); document.body.classList.toggle('menu-open', open); });
-  $$('#mobileMenu a').forEach(a => a.addEventListener('click', closeMenu));
+  $$$('#mobileMenu a').forEach(a => a.addEventListener('click', closeMenu));
 
   // HERO: advance when each short scene finishes.
   const videos = $$('.hero-video');
@@ -50,13 +50,13 @@
   const setHeroSound = (enabled) => {
     heroSoundEnabled = enabled;
     if (enabled) {
-      $$('video').forEach(v => { v.muted = true; });
+      $$$('video').forEach(v => { v.muted = true; });
       radioAudio?.pause();
       const active = videos[heroIndex];
       if (active) { active.muted = false; active.play().catch(() => {}); }
     } else videos.forEach(v => { v.muted = true; });
     updateHeroSoundButton();
-    $('.video-sound-toggle').forEach(updateVideoSoundButton);
+    $$('.video-sound-toggle').forEach(updateVideoSoundButton);
   };
   heroSoundButton?.addEventListener('click', () => setHeroSound(!heroSoundEnabled));
   let heroIndex = 0, timer;
@@ -110,21 +110,21 @@
     window.setTimeout(() => document.querySelector(target)?.scrollIntoView({behavior:'smooth'}), 1450);
     window.setTimeout(() => portal.classList.remove('opening'), 3000);
   };
-  $$('.portal').forEach(p => { p.addEventListener('click',()=>openPortal(p)); p.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openPortal(p);}}); });
+  $$$('.portal').forEach(p => { p.addEventListener('click',()=>openPortal(p)); p.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openPortal(p);}}); });
 
   // Scroll reveals
   const io = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target);} }), {threshold:.13, rootMargin:'0px 0px -7% 0px'});
-  $$('.reveal').forEach(el=>io.observe(el));
+  $$$('.reveal').forEach(el=>io.observe(el));
 
   // Lazy video play in visual transmissions
   const vio = new IntersectionObserver(entries => entries.forEach(e => { const v=e.target; if(e.isIntersecting) v.play().catch(()=>{}); else v.pause(); }), {threshold:.28});
-  $('.transmission video').forEach(v=>vio.observe(v));
+  $$('.transmission video').forEach(v=>vio.observe(v));
   const ambientVideoObserver = new IntersectionObserver(entries => entries.forEach(e => {
     const v=e.target;
     if(e.isIntersecting) v.play().catch(()=>{});
     else v.pause();
   }), {threshold:.01,rootMargin:'240px 0px'});
-  $('.ambient-video').forEach(v=>ambientVideoObserver.observe(v));
+  $$('.ambient-video').forEach(v=>ambientVideoObserver.observe(v));
 
   // 224 FM player
   const tracks = [
@@ -141,7 +141,7 @@
     button.addEventListener('click', () => {
       const enable = video.muted;
       if (enable) {
-        $$('video').forEach(v => { v.muted = true; });
+        $$$('video').forEach(v => { v.muted = true; });
         heroSoundEnabled = false;
         radioAudio?.pause();
       }
@@ -152,19 +152,19 @@
     });
   });
   audio?.addEventListener('play', () => {
-    $$('video').forEach(v => { v.muted = true; });
+    $$$('video').forEach(v => { v.muted = true; });
     heroSoundEnabled = false;
     updateHeroSoundButton();
     videoSoundButtons.forEach(updateVideoSoundButton);
   });
   let trackIndex=0;
   const fmt = s => { if(!isFinite(s)) return '00:00'; const m=Math.floor(s/60), r=Math.floor(s%60); return `${String(m).padStart(2,'0')}:${String(r).padStart(2,'0')}`; };
-  const setTrack = (i, autoplay=false) => { trackIndex=(i+tracks.length)%tracks.length; audio.src=tracks[trackIndex].src; title.textContent=tracks[trackIndex].title; $$('.track').forEach((t,j)=>t.classList.toggle('is-active',j===trackIndex)); if(autoplay) audio.play().catch(()=>{}); };
+  const setTrack = (i, autoplay=false) => { trackIndex=(i+tracks.length)%tracks.length; audio.src=tracks[trackIndex].src; title.textContent=tracks[trackIndex].title; $$$('.track').forEach((t,j)=>t.classList.toggle('is-active',j===trackIndex)); if(autoplay) audio.play().catch(()=>{}); };
   setTrack(0);
   playBtn?.addEventListener('click',()=> audio.paused ? audio.play().catch(()=>{}) : audio.pause());
   $('#prevTrack')?.addEventListener('click',()=>setTrack(trackIndex-1,true));
   $('#nextTrack')?.addEventListener('click',()=>setTrack(trackIndex+1,true));
-  $$('.track').forEach(t=>t.addEventListener('click',()=>setTrack(Number(t.dataset.track),true)));
+  $$$('.track').forEach(t=>t.addEventListener('click',()=>setTrack(Number(t.dataset.track),true)));
   audio?.addEventListener('play',()=>{playBtn?.classList.add('is-playing');$('.radio-stage')?.classList.add('is-playing');playBtn?.setAttribute('aria-label',languageCopy[activeLanguage].pause);});
   audio?.addEventListener('pause',()=>{playBtn?.classList.remove('is-playing');$('.radio-stage')?.classList.remove('is-playing');playBtn?.setAttribute('aria-label',languageCopy[activeLanguage].play);});
   audio?.addEventListener('ended',()=>setTrack(trackIndex+1,true));
@@ -174,7 +174,7 @@
   // Gallery lightbox
   const lightbox=$('#lightbox'), lbImg=$('#lightboxImage');
   const closeLb=()=>{lightbox?.classList.remove('open');lightbox?.setAttribute('aria-hidden','true');document.body.classList.remove('lightbox-open');};
-  $$('.gallery-item').forEach(item=>item.addEventListener('click',()=>{ lbImg.src=item.dataset.full; lbImg.alt=item.querySelector('img')?.alt||'ВІТА'; lightbox.classList.add('open'); lightbox.setAttribute('aria-hidden','false'); document.body.classList.add('lightbox-open'); }));
+  $$$('.gallery-item').forEach(item=>item.addEventListener('click',()=>{ lbImg.src=item.dataset.full; lbImg.alt=item.querySelector('img')?.alt||'ВІТА'; lightbox.classList.add('open'); lightbox.setAttribute('aria-hidden','false'); document.body.classList.add('lightbox-open'); }));
   $('#lightboxClose')?.addEventListener('click',closeLb); lightbox?.addEventListener('click',e=>{if(e.target===lightbox)closeLb();}); addEventListener('keydown',e=>{if(e.key==='Escape'){closeLb();closeMenu();}});
 
   $('#year').textContent = new Date().getFullYear();
@@ -189,7 +189,7 @@
     activeLanguage = language === 'en' ? 'en' : 'uk';
     const t=languageCopy[activeLanguage];
     updateHeroSoundButton();
-    $('.video-sound-toggle').forEach(updateVideoSoundButton);
+    $$('.video-sound-toggle').forEach(updateVideoSoundButton);
     document.documentElement.lang=activeLanguage;
     document.title=t.title;
     const meta=(selector,value)=>{const el=$(selector);if(el)el.setAttribute('content',value);};
@@ -197,13 +197,13 @@
     meta('meta[property="og:title"]',t.ogTitle);
     meta('meta[property="og:description"]',t.ogDescription);
     try { localStorage.setItem('vita-language',activeLanguage); } catch {}
-    $$('.language-switch [data-language]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.language===activeLanguage)));
+    $$$('.language-switch [data-language]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.language===activeLanguage)));
     setAttr('.language-switch','aria-label',t.languageLabel);
     setAttr('.brand','aria-label',t.brandAria);
     setAttr('.desktop-nav','aria-label',activeLanguage==='uk'?'Головна навігація':'Main navigation');
     setAttr('.mobile-menu nav','aria-label',activeLanguage==='uk'?'Мобільна навігація':'Mobile navigation');
     const navLabels={home:t.navHome,music:t.navMusic,about:t.navAbout,gallery:t.navGallery,contact:t.navContact};
-    $$('[data-nav]').forEach(link=>{const label=navLabels[link.dataset.nav];if(label)link.textContent=label;});
+    $$$('[data-nav]').forEach(link=>{const label=navLabels[link.dataset.nav];if(label)link.textContent=label;});
     const menuOpen=$('#menuToggle')?.getAttribute('aria-expanded')==='true';
     setAttr('#menuToggle','aria-label',menuOpen?t.menuClose:t.menuOpen);
     setAttr('.hero','aria-label',t.heroAria);
@@ -214,7 +214,7 @@
     setText('.hero-copy .eyebrow',t.eyebrow);
     setText('.hero-sub',t.heroSubtitle);
     setAttr('#heroProgress','aria-label',t.heroProgress);
-    $$('.progress-segment').forEach((button,i)=>button.setAttribute('aria-label',t.scenePrefix+' '+(i+1)));
+    $$$('.progress-segment').forEach((button,i)=>button.setAttribute('aria-label',t.scenePrefix+' '+(i+1)));
     setText('.scroll-cue span',t.enter);
     setHTML('.system-intro h2',t.introHeading);
     setText('.system-intro>p:last-child',t.introBody);
@@ -237,7 +237,7 @@
     setAttr('#nextTrack','aria-label',t.next);
     setAttr('#playButton','aria-label',audio?.paused?t.play:t.pause);
     setAttr('#trackProgress','aria-label',t.trackPosition);
-    $$('.track').forEach((track,i)=>{
+    $$$('.track').forEach((track,i)=>{
       const action=track.querySelector('i');if(action)action.textContent=t.trackAction;
       const name=tracks[i]?.title||track.querySelector('b')?.textContent||'';
       track.setAttribute('aria-label',String(i+1).padStart(2,'0')+' '+name+' — '+t.trackAction);
@@ -246,7 +246,7 @@
     setText('.video-section .section-heading>span',t.videoCode);
     setHTML('.video-section .section-heading h2',t.videoHeading);
     setText('.video-section .section-heading p',t.videoBody);
-    $$('.transmission').forEach((figure,i)=>{
+    $$$('.transmission').forEach((figure,i)=>{
       const code=figure.querySelector('figcaption span');
       const title=figure.querySelector('figcaption b');
       const video=figure.querySelector('video');
@@ -265,12 +265,12 @@
     const aboutParagraphs=$$('.about-copy>p:not(.lead)');
     if(aboutParagraphs[0])aboutParagraphs[0].textContent=t.aboutBody;
     if(aboutParagraphs[1])aboutParagraphs[1].textContent=t.aboutBody2;
-    $$('.about-meta small').forEach((item,i)=>item.textContent=t.aboutMeta[i]||'');
+    $$$('.about-meta small').forEach((item,i)=>item.textContent=t.aboutMeta[i]||'');
     setAttr('.about-image img','alt',t.aboutAlt);
     setText('.gallery-section .section-heading>span',t.galleryCode);
     setHTML('.gallery-section .section-heading h2',t.galleryHeading);
     setText('.gallery-section .section-heading p',t.galleryBody);
-    $$('.gallery-item').forEach((item,i)=>{
+    $$$('.gallery-item').forEach((item,i)=>{
       const label=item.querySelector('span'),image=item.querySelector('img');
       if(label)label.textContent=t.galleryLabels[i];
       if(image)image.alt=t.galleryAlts[i];
@@ -294,7 +294,7 @@
     });
 
   };
-  $$('.language-switch [data-language]').forEach(button=>button.addEventListener('click',()=>translatePage(button.dataset.language)));
+  $$$('.language-switch [data-language]').forEach(button=>button.addEventListener('click',()=>translatePage(button.dataset.language)));
   let savedLanguage='uk';
   try { savedLanguage=localStorage.getItem('vita-language')||'uk'; } catch {}
   const queryLanguage=new URLSearchParams(location.search).get('lang');
