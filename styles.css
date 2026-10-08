@@ -536,3 +536,30 @@ body.info-page.page-radio{background:radial-gradient(ellipse at 50% 15%,rgba(103
 .portal.opening .door-fog{opacity:.96}
 .portal.opening .door-fog i{filter:blur(22px)}
 @media(max-width:900px){.door-fog{opacity:.55}.door-fog i{filter:blur(13px)}}
+
+
+/* Animated VITA media with accessible, user-triggered sound controls. */
+.hero-sound-toggle,.video-sound-toggle{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  min-height:34px;padding:0 11px;border:1px solid rgba(241,236,232,.45);
+  background:rgba(5,5,6,.48);backdrop-filter:blur(8px);color:#F1ECE8;
+  font:500 8px/1 var(--sans);letter-spacing:.14em;cursor:pointer;
+  transition:background .2s,border-color .2s,color .2s
+}
+.hero-sound-toggle{flex:none;border-radius:999px;white-space:nowrap}
+.hero-sound-toggle svg,.video-sound-toggle svg{width:15px;height:15px;flex:none}
+.hero-sound-toggle[aria-pressed="true"],.video-sound-toggle[aria-pressed="true"]{border-color:#a64b64;background:rgba(63,15,32,.82);color:#fff}
+.hero-sound-toggle:hover,.video-sound-toggle:hover{border-color:#c1667d;background:rgba(63,15,32,.78)}
+.hero-sound-toggle:focus-visible,.video-sound-toggle:focus-visible{outline:2px solid #f1c3ce;outline-offset:3px}
+.boombox-wrap{isolation:isolate}
+.boombox-wrap .boombox{height:auto;aspect-ratio:16/9;object-fit:contain}
+.boombox-sound-toggle{position:absolute;right:14px;top:14px;z-index:5;border-radius:999px}
+.world-banner{position:relative}
+.world-banner-video{display:block;width:100%;height:auto;max-width:none;aspect-ratio:16/9;object-fit:cover;background:#081018}
+.world-video-sound{position:absolute;right:clamp(14px,3vw,38px);bottom:clamp(14px,3vw,28px);z-index:4;border-radius:999px}
+@media(max-width:700px){
+  .hero-bottom{gap:10px}
+  .hero-sound-toggle{min-height:32px;padding:0 8px;gap:5px;font-size:7px;letter-spacing:.08em}
+  .hero-sound-toggle svg{width:14px;height:14px}
+  .video-sound-toggle{min-height:32px;padding:0 9px;font-size:8px}
+}

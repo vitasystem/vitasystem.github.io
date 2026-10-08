@@ -24,6 +24,41 @@
   const videos = $$('.hero-video');
   const segments = $$('.progress-segment');
   const progress = $('#heroProgress');
+  const heroSoundButton = $('#heroSoundToggle');
+  let heroSoundEnabled = false, radioAudio = null;
+  const updateHeroSoundButton = () => {
+    if (!heroSoundButton) return;
+    const en = activeLanguage === 'en';
+    heroSoundButton.setAttribute('aria-pressed', String(heroSoundEnabled));
+    heroSoundButton.setAttribute('aria-label', en
+      ? (heroSoundEnabled ? 'Mute sound on the five opening clips' : 'Enable sound on the five opening clips')
+      : (heroSoundEnabled ? 'Вимкнути звук у п’яти початкових кліпах' : 'Увімкнути звук у п’яти початкових кліпах'));
+    const label = heroSoundButton.querySelector('span');
+    if (label) label.textContent = en ? 'SOUND' : 'ЗВУК';
+  };
+  const updateVideoSoundButton = (button) => {
+    const video = document.getElementById(button.dataset.soundFor);
+    if (!video) return;
+    const on = !video.muted, en = activeLanguage === 'en';
+    button.setAttribute('aria-pressed', String(on));
+    button.setAttribute('aria-label', en
+      ? (on ? 'Mute video sound' : 'Enable video sound')
+      : (on ? 'Вимкнути звук відео' : 'Увімкнути звук відео'));
+    const label = button.querySelector('span');
+    if (label) label.textContent = en ? (on ? 'SOUND ON' : 'SOUND') : (on ? 'ЗВУК УВІМКНЕНО' : 'ЗВУК');
+  };
+  const setHeroSound = (enabled) => {
+    heroSoundEnabled = enabled;
+    if (enabled) {
+      $$('video').forEach(v => { v.muted = true; });
+      radioAudio?.pause();
+      const active = videos[heroIndex];
+      if (active) { active.muted = false; active.play().catch(() => {}); }
+    } else videos.forEach(v => { v.muted = true; });
+    updateHeroSoundButton();
+    $('.video-sound-toggle').forEach(updateVideoSoundButton);
+  };
+  heroSoundButton?.addEventListener('click', () => setHeroSound(!heroSoundEnabled));
   let heroIndex = 0, timer;
   const scheduleEnd = (video, idx) => {
     if (idx !== heroIndex) return;
@@ -41,10 +76,12 @@
       v.classList.toggle('is-active', i === heroIndex);
       if (i === heroIndex) {
         v.currentTime = 0;
+        v.muted = !heroSoundEnabled;
         v.play().catch(() => {});
         scheduleEnd(v, i);
       } else {
         v.pause();
+        v.muted = true;
       }
     });
     segments.forEach((s, i) => {
@@ -81,7 +118,13 @@
 
   // Lazy video play in visual transmissions
   const vio = new IntersectionObserver(entries => entries.forEach(e => { const v=e.target; if(e.isIntersecting) v.play().catch(()=>{}); else v.pause(); }), {threshold:.28});
-  $$('.transmission video').forEach(v=>vio.observe(v));
+  $('.transmission video').forEach(v=>vio.observe(v));
+  const ambientVideoObserver = new IntersectionObserver(entries => entries.forEach(e => {
+    const v=e.target;
+    if(e.isIntersecting) v.play().catch(()=>{});
+    else v.pause();
+  }), {threshold:.01,rootMargin:'240px 0px'});
+  $('.ambient-video').forEach(v=>ambientVideoObserver.observe(v));
 
   // 224 FM player
   const tracks = [
@@ -90,6 +133,30 @@
     {title:'Нічний Париж', src:'assets/audio/night-paris.mp3'}
   ];
   const audio=$('#audioPlayer'), playBtn=$('#playButton'), title=$('#trackTitle'), time=$('#trackTime'), prog=$('#trackProgress');
+  radioAudio = audio;
+  const videoSoundButtons = $('.video-sound-toggle');
+  videoSoundButtons.forEach(button => {
+    const video = document.getElementById(button.dataset.soundFor);
+    if (!video) return;
+    button.addEventListener('click', () => {
+      const enable = video.muted;
+      if (enable) {
+        $$('video').forEach(v => { v.muted = true; });
+        heroSoundEnabled = false;
+        radioAudio?.pause();
+      }
+      video.muted = !enable;
+      updateHeroSoundButton();
+      videoSoundButtons.forEach(updateVideoSoundButton);
+      if (enable) video.play().catch(() => { video.muted = true; updateVideoSoundButton(button); });
+    });
+  });
+  audio?.addEventListener('play', () => {
+    $$('video').forEach(v => { v.muted = true; });
+    heroSoundEnabled = false;
+    updateHeroSoundButton();
+    videoSoundButtons.forEach(updateVideoSoundButton);
+  });
   let trackIndex=0;
   const fmt = s => { if(!isFinite(s)) return '00:00'; const m=Math.floor(s/60), r=Math.floor(s%60); return `${String(m).padStart(2,'0')}:${String(r).padStart(2,'0')}`; };
   const setTrack = (i, autoplay=false) => { trackIndex=(i+tracks.length)%tracks.length; audio.src=tracks[trackIndex].src; title.textContent=tracks[trackIndex].title; $$('.track').forEach((t,j)=>t.classList.toggle('is-active',j===trackIndex)); if(autoplay) audio.play().catch(()=>{}); };
@@ -121,6 +188,8 @@
   const translatePage = (language) => {
     activeLanguage = language === 'en' ? 'en' : 'uk';
     const t=languageCopy[activeLanguage];
+    updateHeroSoundButton();
+    $('.video-sound-toggle').forEach(updateVideoSoundButton);
     document.documentElement.lang=activeLanguage;
     document.title=t.title;
     const meta=(selector,value)=>{const el=$(selector);if(el)el.setAttribute('content',value);};
@@ -162,7 +231,8 @@
     setHTML('.music-section .section-heading h2',t.musicHeading);
     setText('.music-section .section-heading p',t.musicBody);
     setText('.now-playing small',t.nowPlaying);
-    setAttr('.boombox','alt',activeLanguage==='uk'?'Футуристичний бумбокс Радіо ВІТА 224 FM':'Futuristic VITA 224 FM boombox');
+    setAttr('#boomboxVideo','aria-label',activeLanguage==='uk'?'Анімований бумбокс Радіо ВІТА 224 FM':'Animated VITA 224 FM boombox');
+    setAttr('#systemVideo','aria-label',activeLanguage==='uk'?'Відеосцена Системи Віта':'VITA System video scene');
     setAttr('#prevTrack','aria-label',t.previous);
     setAttr('#nextTrack','aria-label',t.next);
     setAttr('#playButton','aria-label',audio?.paused?t.play:t.pause);
@@ -222,8 +292,7 @@
       const route=activeLanguage==='en'?link.dataset.enHref:link.dataset.ukHref;
       if(route)link.href=route+'?lang='+activeLanguage;
     });
-    const banner=document.querySelector('.world-banner img');
-    if(banner)banner.alt=activeLanguage==='uk'?'ВІТА на тлі світу Системи Віта':'VITA in the world of the Vita System';
+
   };
   $$('.language-switch [data-language]').forEach(button=>button.addEventListener('click',()=>translatePage(button.dataset.language)));
   let savedLanguage='uk';

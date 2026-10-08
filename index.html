@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=vita-social-icons-mist-2">
+  <link rel="stylesheet" href="styles.css?v=vita-boombox-audio-1">
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -106,6 +106,7 @@
           <button class="progress-segment" data-index="3" aria-label="Сцена 4"><i></i></button>
           <button class="progress-segment" data-index="4" aria-label="Сцена 5"><i></i></button>
         </div>
+        <button class="hero-sound-toggle" id="heroSoundToggle" type="button" aria-pressed="false" aria-label="Увімкнути звук у п’яти початкових кліпах"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h3l4 3V7l-4 3H4Zm10-1a4 4 0 0 1 0 6m2-8a7 7 0 0 1 0 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>ЗВУК</span></button>
         <a class="scroll-cue" href="#portals"><span>УВІЙТИ</span><b>↓</b></a>
       </div>
     </section>
@@ -178,7 +179,8 @@
       <div class="radio-stage reveal">
         <div class="radio-orbit" aria-hidden="true"></div>
         <div class="boombox-wrap">
-          <img class="boombox" src="assets/img/boombox.webp" alt="Футуристичний бумбокс Радіо ВІТА 224 FM" loading="lazy">
+          <video class="boombox ambient-video" id="boomboxVideo" src="assets/video/06-boombox.mp4" muted loop playsinline preload="none" aria-label="Анімований бумбокс Радіо ВІТА 224 FM"></video>
+          <button class="video-sound-toggle boombox-sound-toggle" type="button" data-sound-for="boomboxVideo" aria-pressed="false" aria-label="Увімкнути звук бумбокса"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h3l4 3V7l-4 3H4Zm10-1a4 4 0 0 1 0 6m2-8a7 7 0 0 1 0 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>ЗВУК</span></button>
           <span class="speaker-pulse speaker-pulse-left" aria-hidden="true"></span>
           <span class="speaker-pulse speaker-pulse-right" aria-hidden="true"></span>
         </div>
@@ -233,7 +235,10 @@
       <div class="world-codes" aria-hidden="true"><span>224</span><span>V/S</span><span>∞</span></div>
     </section>
 
-    <figure class="world-banner reveal"><img src="assets/img/vita-system-banner.webp" alt="ВІТА на тлі світу Системи Віта" loading="lazy"></figure>
+    <figure class="world-banner reveal">
+      <video class="world-banner-video ambient-video" id="systemVideo" src="assets/video/07-system-vita.mp4" muted loop playsinline preload="none" aria-label="Відеосцена Системи Віта"></video>
+      <button class="video-sound-toggle world-video-sound" type="button" data-sound-for="systemVideo" aria-pressed="false" aria-label="Увімкнути звук відео Системи Віта"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h3l4 3V7l-4 3H4Zm10-1a4 4 0 0 1 0 6m2-8a7 7 0 0 1 0 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>ЗВУК</span></button>
+    </figure>
 
     
 
