@@ -140,8 +140,8 @@
     setHTML('.system-intro h2',t.introHeading);
     setText('.system-intro>p:last-child',t.introBody);
     setAttr('.portals','aria-label',t.portalsAria);
-    setText('.door-cta span',t.doorOpen);
-    setText('.door-cta strong',t.doorNoun);
+    $('.door-cta span').forEach(el=>el.textContent=t.doorOpen);
+    $('.door-cta strong').forEach(el=>el.textContent=t.doorNoun);
     ['.portal-burgundy','.portal-emerald','.portal-amber'].forEach((selector,i)=>{
       const portal=$(selector);if(!portal)return;
       setText(selector+' .portal-copy h3',t.portals[i].title);
