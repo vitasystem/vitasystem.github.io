@@ -418,3 +418,18 @@ body.info-page.page-radio{background:radial-gradient(ellipse at 50% 15%,rgba(103
 }
 @media(max-width:380px){.social-links{gap:7px}.social-links a{width:43px;height:43px;min-height:43px}}
 @media(prefers-reduced-motion:reduce){.info-page .info-page-nav a,.social-links a,.subscribe-link{transition:none}}
+
+
+/* Force the ruby wordmark on mobile and avoid stale desktop/mobile cascade differences. */
+@media (max-width:900px){
+  .hero-copy .hero h1{
+    color:#260713!important;
+    background:none!important;
+    -webkit-background-clip:border-box!important;
+    background-clip:border-box!important;
+    -webkit-text-fill-color:#260713!important;
+    -webkit-text-stroke:1.7px #ef91a7!important;
+    text-shadow:0 0 1px #ffeaf0,0 0 7px rgba(242,112,143,.62),0 0 18px rgba(127,22,50,.52)!important;
+    filter:drop-shadow(0 0 8px rgba(136,22,51,.48)) drop-shadow(0 5px 18px rgba(0,0,0,.72))!important;
+  }
+}
