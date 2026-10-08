@@ -134,7 +134,7 @@
   ];
   const audio=$('#audioPlayer'), playBtn=$('#playButton'), title=$('#trackTitle'), time=$('#trackTime'), prog=$('#trackProgress');
   radioAudio = audio;
-  const videoSoundButtons = $('.video-sound-toggle');
+  const videoSoundButtons = $$('.video-sound-toggle');
   videoSoundButtons.forEach(button => {
     const video = document.getElementById(button.dataset.soundFor);
     if (!video) return;
