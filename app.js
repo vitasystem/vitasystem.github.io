@@ -133,7 +133,7 @@
     setAttr('.desktop-nav','aria-label',activeLanguage==='uk'?'Головна навігація':'Main navigation');
     setAttr('.mobile-menu nav','aria-label',activeLanguage==='uk'?'Мобільна навігація':'Mobile navigation');
     const navLabels={home:t.navHome,music:t.navMusic,about:t.navAbout,gallery:t.navGallery,contact:t.navContact};
-    $('[data-nav]').forEach(link=>{const label=navLabels[link.dataset.nav];if(label)link.textContent=label;});
+    $$('[data-nav]').forEach(link=>{const label=navLabels[link.dataset.nav];if(label)link.textContent=label;});
     const menuOpen=$('#menuToggle')?.getAttribute('aria-expanded')==='true';
     setAttr('#menuToggle','aria-label',menuOpen?t.menuClose:t.menuOpen);
     setAttr('.hero','aria-label',t.heroAria);
