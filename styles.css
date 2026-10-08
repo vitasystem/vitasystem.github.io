@@ -528,3 +528,11 @@ body.info-page.page-radio{background:radial-gradient(ellipse at 50% 15%,rgba(103
 /* Reset inherited label columns so each social icon centers on its circular button. */
 .connect-platforms .social-links a{grid-template-columns:minmax(0,1fr)!important;grid-auto-flow:row!important;place-items:center!important}
 .connect-platforms .social-links a svg{justify-self:center!important;align-self:center!important;transform:none!important}
+
+
+/* Make drifting door mist legible at rest and fuller before each door opens. */
+.door-fog{opacity:.42}
+.door-fog i{background:radial-gradient(ellipse at center,rgba(242,238,238,.62) 0%,rgba(204,193,198,.34) 28%,rgba(151,134,143,.16) 52%,transparent 74%);filter:blur(16px)}
+.portal.opening .door-fog{opacity:.96}
+.portal.opening .door-fog i{filter:blur(22px)}
+@media(max-width:900px){.door-fog{opacity:.55}.door-fog i{filter:blur(13px)}}
