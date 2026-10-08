@@ -433,3 +433,33 @@ body.info-page.page-radio{background:radial-gradient(ellipse at 50% 15%,rgba(103
     filter:drop-shadow(0 0 8px rgba(136,22,51,.48)) drop-shadow(0 5px 18px rgba(0,0,0,.72))!important;
   }
 }
+
+
+/* Mobile radio layout: keep the player below the boombox. */
+@media(max-width:900px){
+  .radio-stage{
+    display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+    gap:16px;min-height:0;padding:28px 12px 20px;
+  }
+  .radio-stage .boombox-wrap{width:min(95vw,680px);flex:none}
+  .radio-stage .radio-ui{
+    position:relative;inset:auto;bottom:auto;left:auto;right:auto;transform:none;
+    width:min(100%,760px);flex:none;
+  }
+  .radio-stage .radio-controls{
+    position:static;left:auto;top:auto;transform:none;justify-content:center;margin:15px 0 9px;
+  }
+}
+
+/* Keep every song row aligned, including the active track. */
+.track:hover,.track.is-active{padding-left:0}
+
+/* Center the social icons and subscription action on desktop and mobile. */
+.connect-platforms{flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.connect-platforms .social-links{width:100%;justify-content:center}
+.connect-platforms .subscribe-link{align-self:center}
+@media(max-width:700px){
+  .connect-platforms{align-items:center;gap:23px}
+  .connect-platforms .social-links{width:100%;justify-content:center}
+  .connect-platforms .subscribe-link{align-self:center}
+}
