@@ -563,3 +563,10 @@ body.info-page.page-radio{background:radial-gradient(ellipse at 50% 15%,rgba(103
   .hero-sound-toggle svg{width:14px;height:14px}
   .video-sound-toggle{min-height:32px;padding:0 9px;font-size:8px}
 }
+
+
+/* Match the supplied door artwork on mobile by removing the dark multiply tint. */
+@media(max-width:900px){.door-visual:after{opacity:0!important}}
+
+/* Keep the radio frequency legible on desktop screens. */
+@media(min-width:901px){.music-section .section-heading h2 em,.radio-page h1 em{color:#f1ece8!important}}
