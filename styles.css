@@ -570,3 +570,10 @@ body.info-page.page-radio{background:radial-gradient(ellipse at 50% 15%,rgba(103
 
 /* Keep the radio frequency legible on desktop screens. */
 @media(min-width:901px){html body .music-section .section-heading h2 em,html body .radio-page h1 em{color:#F1ECE8!important;-webkit-text-fill-color:#F1ECE8!important;text-shadow:0 0 18px rgba(241,236,232,.16)}}
+
+
+/* Keep the about heading readable without touching glyphs on mobile. */
+.about-copy h2 { letter-spacing: .01em; word-spacing: .025em; line-height: 1; }
+@media (max-width: 520px) {
+  .about-copy h2 { letter-spacing: .01em; word-spacing: .025em; line-height: 1.05; }
+}
