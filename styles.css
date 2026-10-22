@@ -675,3 +675,7 @@ body.info-page.page-radio{background:radial-gradient(ellipse at 50% 15%,rgba(103
   min-height:42px;
   margin:0;
 }
+
+/* Cinematic banner placed after the press contact block. */
+.press-banner{width:100%;max-width:1680px;margin:0 auto;overflow:hidden;background:#050506;border-top:1px solid rgba(241,236,232,.14);border-bottom:1px solid rgba(241,236,232,.14)}
+.press-banner img{display:block;width:100%;height:auto;aspect-ratio:1672/941;object-fit:contain}
