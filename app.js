@@ -110,7 +110,7 @@
     const delay = matchMedia('(prefers-reduced-motion: reduce)').matches ? 80 : 1450;
     window.setTimeout(() => { window.location.href = portal.href; }, delay);
   };
-  $('.portal[href]').forEach(p => p.addEventListener('click',e=>openPortal(p,e)));
+  document.querySelectorAll('.portal[href]').forEach(p => p.addEventListener('click',e=>openPortal(p,e)));
 
   // Scroll reveals
   const io = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target);} }), {threshold:.13, rootMargin:'0px 0px -7% 0px'});
