@@ -640,3 +640,38 @@ body.info-page.page-radio{background:radial-gradient(ellipse at 50% 15%,rgba(103
 .portal-copy{ text-shadow:0 2px 14px rgba(0,0,0,.96),0 0 3px rgba(0,0,0,.78); }
 .portal-copy h3{ -webkit-text-stroke:.35px rgba(0,0,0,.78); paint-order:stroke fill; text-shadow:0 2px 12px rgba(0,0,0,.96),0 0 3px rgba(0,0,0,.8); }
 .portal-copy>span:first-child,.portal-copy p,.portal-copy .door-enter{ text-shadow:0 1px 6px rgba(0,0,0,.96); }
+
+/* Portal caption rhythm: remove the crossing rule and align text, numbers, and actions. */
+.portals .portal-copy{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  grid-template-rows:minmax(2.1em,auto) minmax(1.35em,auto) 1em 42px;
+  justify-items:center;
+  align-content:end;
+  row-gap:4px;
+  padding-top:0;
+  border-top:0;
+}
+.portals .portal-copy h3{
+  grid-row:1;
+  width:100%;
+  min-height:2.1em;
+  margin:0;
+  align-self:end;
+}
+.portals .portal-copy p{
+  grid-row:2;
+  width:100%;
+  min-height:1.35em;
+  margin:0;
+  align-self:start;
+}
+.portals .portal-copy>span:first-child{
+  grid-row:3;
+  align-self:center;
+}
+.portals .portal-copy .door-enter{
+  grid-row:4;
+  min-height:42px;
+  margin:0;
+}
