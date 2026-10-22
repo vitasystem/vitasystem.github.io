@@ -635,3 +635,8 @@ body.info-page.page-radio{background:radial-gradient(ellipse at 50% 15%,rgba(103
 .door-page-main .door-page-caption{max-width:700px;margin-top:12px}
 .door-page-main .info-back-bottom{margin-top:auto}
 @media(max-width:600px){.door-page-main .info-kicker{margin-top:clamp(36px,7vh,70px)}}
+
+/* Door title contrast: a restrained dark edge keeps ivory labels legible over bright artwork. */
+.portal-copy{ text-shadow:0 2px 14px rgba(0,0,0,.96),0 0 3px rgba(0,0,0,.78); }
+.portal-copy h3{ -webkit-text-stroke:.35px rgba(0,0,0,.78); paint-order:stroke fill; text-shadow:0 2px 12px rgba(0,0,0,.96),0 0 3px rgba(0,0,0,.8); }
+.portal-copy>span:first-child,.portal-copy p,.portal-copy .door-enter{ text-shadow:0 1px 6px rgba(0,0,0,.96); }

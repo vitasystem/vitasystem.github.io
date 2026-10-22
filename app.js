@@ -111,6 +111,10 @@
     window.setTimeout(() => { window.location.href = portal.href; }, delay);
   };
   document.querySelectorAll('.portal[href]').forEach(p => p.addEventListener('click',e=>openPortal(p,e)));
+  // Restore closed doors when returning from a destination page (including BFCache restores).
+  window.addEventListener('pageshow', () => {
+    document.querySelectorAll('.portal.opening').forEach(portal => portal.classList.remove('opening'));
+  });
 
   // Scroll reveals
   const io = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target);} }), {threshold:.13, rootMargin:'0px 0px -7% 0px'});
