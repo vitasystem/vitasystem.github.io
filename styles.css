@@ -577,3 +577,7 @@ body.info-page.page-radio{background:radial-gradient(ellipse at 50% 15%,rgba(103
 @media (max-width: 520px) {
   .about-copy h2 { letter-spacing: .01em; word-spacing: .025em; line-height: 1.05; }
 }
+
+
+/* Give the radio frequency even, readable spacing without changing other headings. */
+.music-section .section-heading h2 em { letter-spacing: .015em; }
