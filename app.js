@@ -132,23 +132,36 @@
       portalTimer = window.setTimeout(go, reduced ? 80 : 1450);
       return;
     }
-    // Loading or playback failure must never block entry to the show.
+    // Authorize sound on the actual click, then retain the curtain's 950 ms lead-in.
+    // Mobile browsers can reject a first audible play() made only inside a timer.
+    let curtainReady = false;
     portalFallback = window.setTimeout(go, 6000);
-    doorTransitionVideo.load();
-    portalTimer = window.setTimeout(() => {
+    $$('video').forEach(video => { if (video !== doorTransitionVideo) video.muted = true; });
+    radioAudio?.pause();
+    heroSoundEnabled = false;
+    updateHeroSoundButton();
+    $$('.video-sound-toggle').forEach(updateVideoSoundButton);
+    doorTransitionVideo.muted = false;
+    doorTransitionVideo.volume = 0;
+    doorTransitionVideo.currentTime = 0;
+    doorTransitionVideo.onplaying = () => {
+      if (!curtainReady) {
+        // Prime this media element silently within the user's playback request.
+        doorTransitionVideo.pause();
+        doorTransitionVideo.currentTime = 0;
+        return;
+      }
+      doorTransitionVideo.volume = 1;
       doorTransition.hidden = false;
-      doorTransitionVideo.currentTime = 0;
-      doorTransitionVideo.onplaying = () => {
-        doorTransition.classList.add('is-visible');
-        $$('video').forEach(video => { if (video !== doorTransitionVideo) video.muted = true; });
-        radioAudio?.pause();
-        heroSoundEnabled = false;
-        updateHeroSoundButton();
-        $$('.video-sound-toggle').forEach(updateVideoSoundButton);
-      };
-      doorTransitionVideo.onended = go;
-      doorTransitionVideo.onerror = go;
-      doorTransitionVideo.play().catch(go);
+      doorTransition.classList.add('is-visible');
+    };
+    doorTransitionVideo.onended = go;
+    doorTransitionVideo.onerror = go;
+    doorTransitionVideo.play().catch(go);
+    portalTimer = window.setTimeout(() => {
+      curtainReady = true;
+      doorTransitionVideo.volume = 1;
+      if (doorTransitionVideo.paused) doorTransitionVideo.play().catch(go);
     }, 950);
   };
   $$('.portal[href]').forEach(portal => portal.addEventListener('click', event => openPortal(portal, event)));
