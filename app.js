@@ -136,6 +136,32 @@
     {title:'Leroy', src:'assets/audio/leroy.mp3'},
     {title:'Нічний Париж', src:'assets/audio/night-paris.mp3'}
   ];
+  // Extra previews belong to the expandable homepage list only.
+  if ($('#moreTracks')) tracks.push(
+    {title:"Принцеса з Іншої Планети", src:'assets/audio/04-pryncesa.MP3'},
+    {title:"Траса 224", src:'assets/audio/05-trasa-224.MP3'},
+    {title:"Не-Колишній", src:'assets/audio/06-ne-kolyshniy.MP3'},
+    {title:"На Площі Сонця", src:'assets/audio/07-na-ploshi-soncia.MP3'},
+    {title:"Теракотовий Слон", src:'assets/audio/08-terakotovyi-slon.MP3'},
+    {title:"Нічний Експрес", src:'assets/audio/09-nichnyi-ekspres.MP3'},
+    {title:"Хто Випустив Собак?", src:'assets/audio/10-hto-vypustyv-sobak.MP3'},
+    {title:"500 Років Тисячі Планет", src:'assets/audio/11-500-rokiv-tusiacha-planet.MP3'}
+  );
+  const moreTracks = $('#moreTracks'), moreTracksToggle = $('#moreTracksToggle');
+  const updateMoreTracksLabel = () => {
+    if (!moreTracksToggle) return;
+    const expanded = moreTracksToggle.getAttribute('aria-expanded') === 'true';
+    moreTracksToggle.querySelector('span').textContent = activeLanguage === 'en'
+      ? (expanded ? 'Show fewer songs' : 'Listen to more songs')
+      : (expanded ? 'Згорнути список' : 'Слухати більше пісень');
+    moreTracksToggle.querySelector('i').textContent = expanded ? '↑' : '↓';
+  };
+  moreTracksToggle?.addEventListener('click', () => {
+    const expanded = moreTracksToggle.getAttribute('aria-expanded') !== 'true';
+    moreTracks.hidden = !expanded;
+    moreTracksToggle.setAttribute('aria-expanded', String(expanded));
+    updateMoreTracksLabel();
+  });
   const audio=$('#audioPlayer'), playBtn=$('#playButton'), title=$('#trackTitle'), time=$('#trackTime'), prog=$('#trackProgress');
   radioAudio = audio;
   const videoSoundButtons = $$('.video-sound-toggle');
@@ -193,6 +219,7 @@
     activeLanguage = language === 'en' ? 'en' : 'uk';
     const t=languageCopy[activeLanguage];
     updateHeroSoundButton();
+    updateMoreTracksLabel();
     $$('.video-sound-toggle').forEach(updateVideoSoundButton);
     document.documentElement.lang=activeLanguage;
     document.title=t.title;

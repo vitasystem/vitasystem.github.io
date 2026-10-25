@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=press-banner-1">
+  <link rel="stylesheet" href="styles.css?v=more-songs-1">
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -205,7 +205,18 @@
         <button class="track is-active" data-track="0"><span>01</span><b>ДилеR</b><i>СЛУХАТИ</i></button>
         <button class="track" data-track="1"><span>02</span><b>Leroy</b><i>СЛУХАТИ</i></button>
         <button class="track" data-track="2"><span>03</span><b>Нічний Париж</b><i>СЛУХАТИ</i></button>
+        <div id="moreTracks" hidden>
+          <button class="track" type="button" data-track="3"><span>04</span><b>Принцеса з Іншої Планети</b><i>СЛУХАТИ</i></button>
+          <button class="track" type="button" data-track="4"><span>05</span><b>Траса 224</b><i>СЛУХАТИ</i></button>
+          <button class="track" type="button" data-track="5"><span>06</span><b>Не-Колишній</b><i>СЛУХАТИ</i></button>
+          <button class="track" type="button" data-track="6"><span>07</span><b>На Площі Сонця</b><i>СЛУХАТИ</i></button>
+          <button class="track" type="button" data-track="7"><span>08</span><b>Теракотовий Слон</b><i>СЛУХАТИ</i></button>
+          <button class="track" type="button" data-track="8"><span>09</span><b>Нічний Експрес</b><i>СЛУХАТИ</i></button>
+          <button class="track" type="button" data-track="9"><span>10</span><b>Хто Випустив Собак?</b><i>СЛУХАТИ</i></button>
+          <button class="track" type="button" data-track="10"><span>11</span><b>500 Років Тисячі Планет</b><i>СЛУХАТИ</i></button>
+        </div>
       </div>
+      <button class="more-tracks-toggle" id="moreTracksToggle" type="button" aria-expanded="false" aria-controls="moreTracks"><span>Слухати більше пісень</span><i aria-hidden="true">↓</i></button>
       <audio id="audioPlayer" preload="metadata"></audio>
       <a class="outline-link reveal" href="https://open.spotify.com/artist/421dXujdxnti2KuhbHpUXP" target="_blank" rel="noopener">УСЯ МУЗИКА НА SPOTIFY ↗</a>
     </section>
@@ -301,6 +312,6 @@
     <img id="lightboxImage" alt="">
   </div>
 
-  <script src="app.js?v=musicroom-title-1" defer></script>
+  <script src="app.js?v=more-songs-1" defer></script>
 </body>
 </html>
