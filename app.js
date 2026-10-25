@@ -102,7 +102,7 @@
     else { playHero(heroIndex); }
   });
 
-  // Keep the existing curtain animation; the middle door adds a brief film transition.
+  // Keep the curtain and light beam; each door has its own short film transition.
   const doorTransition = $('#showDoorTransition');
   const doorTransitionVideo = $('#showDoorTransitionVideo');
   let portalTimer = null, portalFallback = null, portalBusy = false;
@@ -128,7 +128,8 @@
     portal.classList.add('opening');
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const go = () => { clearTimeout(portalFallback); window.location.href = portal.href; };
-    if (!portal.matches('.portal-emerald') || !doorTransitionVideo || reduced) {
+    const transitionSrc = portal.dataset.transitionVideo;
+    if (!transitionSrc || !doorTransitionVideo || reduced) {
       portalTimer = window.setTimeout(go, reduced ? 80 : 1450);
       return;
     }
@@ -141,6 +142,7 @@
     heroSoundEnabled = false;
     updateHeroSoundButton();
     $$('.video-sound-toggle').forEach(updateVideoSoundButton);
+    if (doorTransitionVideo.getAttribute('src') !== transitionSrc) doorTransitionVideo.src = transitionSrc;
     doorTransitionVideo.muted = false;
     doorTransitionVideo.volume = 0;
     doorTransitionVideo.currentTime = 0;
