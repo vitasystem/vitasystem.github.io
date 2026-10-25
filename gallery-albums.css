@@ -1,0 +1,9 @@
+/* Independent album pages: covers remain intact while photo sets are prepared. */
+body.gallery-album{background:radial-gradient(ellipse at 85% 12%,rgba(93,25,47,.25),transparent 44%),linear-gradient(145deg,#0c0d10,#14070d 65%,#081018);color:#F1ECE8}
+.album-main>.info-kicker{margin-top:54px;color:#cba5b3}
+.album-main>h1{font-size:clamp(46px,7vw,104px);line-height:1.12;letter-spacing:.005em;text-wrap:balance}
+.album-cover{width:100%;max-width:900px;margin:40px auto;background:#0c0d10;border:1px solid rgba(241,236,232,.17)}
+.album-cover img{display:block;width:100%;height:auto;max-height:85vh;object-fit:contain}
+.album-return-links{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px 40px}
+.album-main .info-back:hover,.album-main .info-back-bottom:hover{color:#e6b3c5}
+@media(max-width:600px){.album-main>.info-kicker{margin-top:38px}.album-main>h1{font-size:clamp(38px,11.5vw,64px)}.album-cover{margin:28px auto}.album-return-links{justify-content:flex-start}.album-return-links a{line-height:1.7}}
