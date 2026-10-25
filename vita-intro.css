@@ -1,0 +1,10 @@
+/* The artist statement below the opening clips; no other section is affected. */
+#vita-intro{padding:clamp(80px,9vw,140px) var(--pad);min-height:76vh}
+#vita-intro .kicker{margin:0;color:#d4a7b6;font-size:clamp(10px,1vw,13px);letter-spacing:.28em}
+#vita-intro h2{display:flex;flex-direction:column;align-items:center;max-width:100%;margin:32px 0;font:500 clamp(58px,8.5vw,138px)/1.13 var(--serif);letter-spacing:.012em;color:#F1ECE8;text-shadow:0 2px 30px rgba(0,0,0,.3)}
+#vita-intro h2 span{display:block;max-width:100%}
+#vita-intro h2 span:last-child{color:#f1cbd7;text-shadow:0 0 24px rgba(173,51,88,.19)}
+#vita-intro .intro-statement{max-width:900px;margin:0;color:#e2d7dc;font:400 clamp(22px,2.6vw,40px)/1.45 var(--serif);letter-spacing:.01em}
+#vita-intro .intro-statement em{color:#c7aeb9}
+#vita-intro .intro-dna{max-width:850px;margin:30px 0 0;font:400 clamp(12px,1.2vw,17px)/1.9 var(--sans);letter-spacing:.055em;color:#bcb1b7;text-wrap:balance}
+@media(max-width:600px){#vita-intro{min-height:0;padding-top:84px;padding-bottom:84px}#vita-intro h2{font-size:clamp(43px,12vw,72px);line-height:1.19;letter-spacing:.008em;margin:28px 0}#vita-intro .intro-statement{font-size:clamp(19px,5.3vw,28px)}#vita-intro .intro-dna{margin-top:25px;font-size:12px;letter-spacing:.025em}}
