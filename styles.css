@@ -699,3 +699,6 @@ body.info-page.page-radio{background:radial-gradient(ellipse at 50% 15%,rgba(103
 .show-door-transition.is-visible .show-door-transition-mist{animation:showDoorMistOut 1.35s ease-out both}
 @keyframes showDoorMistOut{0%{opacity:0;transform:translateY(25%) scale(.7)}40%{opacity:.45}100%{opacity:.85;transform:translateY(-12%) scale(1.4)}}
 @media(prefers-reduced-motion:reduce){.show-door-transition{transition:none}.show-door-transition-mist{animation:none!important}}
+
+/* Center the radio caption within the same column as its heading. */
+#music .section-heading>p{text-align:center}
