@@ -686,6 +686,6 @@ body.info-page.page-radio{background:radial-gradient(ellipse at 50% 15%,rgba(103
 .music-section .more-tracks-toggle i{font-style:normal;font-size:18px;line-height:1}
 .music-section .more-tracks-toggle:hover{background:rgba(103,25,51,.24);border-color:#b65b73}
 .music-section .more-tracks-toggle:focus-visible{outline:2px solid #f1c3ce;outline-offset:4px}
-#moreTracks .track{gap:12px}
+#trackList .track{grid-template-columns:70px minmax(0,1fr) auto;gap:0}
 #moreTracks .track b{min-width:0;line-height:1.25;overflow-wrap:break-word}
-@media(max-width:520px){#moreTracks .track{grid-template-columns:33px minmax(0,1fr) auto;gap:8px}#moreTracks .track i{font-size:8px;letter-spacing:.12em}}
+@media(max-width:520px){#trackList .track{grid-template-columns:45px minmax(0,1fr) auto}#moreTracks .track i{font-size:8px;letter-spacing:.12em}}
