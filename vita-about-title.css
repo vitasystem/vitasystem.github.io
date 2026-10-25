@@ -1,0 +1,6 @@
+/* Artist name and secondary tagline in the about block only. */
+#about .about-copy h2{margin:30px 0 32px;line-height:1.1;letter-spacing:.01em}
+#about .about-artist-name{display:block;font:400 clamp(90px,10.5vw,180px)/1.1 var(--serif);letter-spacing:.015em;color:#F1ECE8}
+#about .about-artist-tagline{display:block;margin-top:18px;font:400 clamp(22px,2.15vw,34px)/1.35 var(--serif);letter-spacing:.015em;color:#d8c2cb}
+@media(max-width:900px){#about .about-artist-name{font-size:clamp(86px,24vw,160px)}#about .about-artist-tagline{font-size:clamp(21px,5.5vw,30px)}}
+@media(max-width:520px){#about .about-copy h2{margin:26px 0 30px}#about .about-artist-name{font-size:clamp(78px,25vw,126px)}#about .about-artist-tagline{margin-top:14px;font-size:clamp(21px,5.5vw,27px)}}
