@@ -102,19 +102,58 @@
     else { playHero(heroIndex); }
   });
 
-  // Lift the door image like a stage curtain, reveal rising mist, then open its page.
-  const openPortal = (portal, event) => {
-    event.preventDefault();
-    if(portal.classList.contains('opening')) return;
-    portal.classList.add('opening');
-    const delay = matchMedia('(prefers-reduced-motion: reduce)').matches ? 80 : 1450;
-    window.setTimeout(() => { window.location.href = portal.href; }, delay);
+  // Keep the existing curtain animation; the middle door adds a brief film transition.
+  const doorTransition = $('#showDoorTransition');
+  const doorTransitionVideo = $('#showDoorTransitionVideo');
+  let portalTimer = null, portalFallback = null, portalBusy = false;
+  const resetPortalTransition = () => {
+    clearTimeout(portalTimer);
+    clearTimeout(portalFallback);
+    portalBusy = false;
+    doorTransition?.classList.remove('is-visible');
+    if (doorTransition) doorTransition.hidden = true;
+    if (doorTransitionVideo) {
+      doorTransitionVideo.pause();
+      doorTransitionVideo.onended = null;
+      doorTransitionVideo.onplaying = null;
+      doorTransitionVideo.onerror = null;
+    }
+    $$('.portal.opening').forEach(portal => portal.classList.remove('opening'));
   };
-  document.querySelectorAll('.portal[href]').forEach(p => p.addEventListener('click',e=>openPortal(p,e)));
-  // Restore closed doors when returning from a destination page (including BFCache restores).
-  window.addEventListener('pageshow', () => {
-    document.querySelectorAll('.portal.opening').forEach(portal => portal.classList.remove('opening'));
-  });
+  const openPortal = (portal, event) => {
+    if (event.button > 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    if (portalBusy) return;
+    portalBusy = true;
+    portal.classList.add('opening');
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const go = () => { clearTimeout(portalFallback); window.location.href = portal.href; };
+    if (!portal.matches('.portal-emerald') || !doorTransitionVideo || reduced) {
+      portalTimer = window.setTimeout(go, reduced ? 80 : 1450);
+      return;
+    }
+    // Loading or playback failure must never block entry to the show.
+    portalFallback = window.setTimeout(go, 6000);
+    doorTransitionVideo.load();
+    portalTimer = window.setTimeout(() => {
+      doorTransition.hidden = false;
+      doorTransitionVideo.currentTime = 0;
+      doorTransitionVideo.onplaying = () => {
+        doorTransition.classList.add('is-visible');
+        $$('video').forEach(video => { if (video !== doorTransitionVideo) video.muted = true; });
+        radioAudio?.pause();
+        heroSoundEnabled = false;
+        updateHeroSoundButton();
+        $$('.video-sound-toggle').forEach(updateVideoSoundButton);
+      };
+      doorTransitionVideo.onended = go;
+      doorTransitionVideo.onerror = go;
+      doorTransitionVideo.play().catch(go);
+    }, 950);
+  };
+  $$('.portal[href]').forEach(portal => portal.addEventListener('click', event => openPortal(portal, event)));
+  // A return from the show must always restore all three closed door covers.
+  window.addEventListener('pageshow', resetPortalTransition);
 
   // Scroll reveals
   const io = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target);} }), {threshold:.13, rootMargin:'0px 0px -7% 0px'});
