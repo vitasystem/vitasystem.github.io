@@ -293,6 +293,12 @@
     ['.portal-burgundy','.portal-emerald','.portal-amber'].forEach((selector,i)=>{
       const portal=$(selector);if(!portal)return;
       setText(selector+' .portal-copy h3',t.portals[i].title);
+      if (portal.matches('.portal-emerald')) {
+        const wordmark = portal.querySelector('.portal-copy h3');
+        wordmark.classList.add('portal-show-wordmark');
+        wordmark.setAttribute('aria-label', t.portals[i].title);
+        wordmark.innerHTML = '<span class="portal-show-serif">F*CK</span> <span class="portal-show-script">SHOW</span>';
+      }
       setText(selector+' .portal-copy p',t.portals[i].subtitle);
       portal.setAttribute('aria-label',t.portals[i].aria);
     });
