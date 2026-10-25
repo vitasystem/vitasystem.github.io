@@ -11,3 +11,35 @@
 
 .episode-duration{position:absolute;right:10px;bottom:10px;background:#0a0509d9;border-radius:6px;padding:4px 7px;font-size:11px;line-height:1.2;color:#fff1e6;pointer-events:none}.show-video-wrap.has-played .episode-duration{display:none}
 @media(max-width:760px){.show-section-heading{display:block}.show-section-heading>a{display:inline-block;margin-top:13px}.show-section-heading h2{font-size:34px}}
+
+/* The show's manifesto and cast share the existing studio palette. */
+.show-manifesto{max-width:1800px;margin:0 auto;padding:95px var(--gutter) 105px;display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(40px,8vw,140px);border-top:1px solid #cf8e8b24;background:radial-gradient(ellipse at 0% 35%,#70182b22,transparent 65%)}
+.show-manifesto h2,.show-cast h2,.show-final-note h2{font:400 clamp(36px,4.8vw,72px)/1.08 var(--serif);letter-spacing:-.025em;margin:0}
+.show-manifesto h2 em{color:#d7a6a8;font-weight:400}
+.show-manifesto-line{display:block;margin-top:32px;width:76px;height:1px;background:linear-gradient(90deg,var(--red),#ff466500)}
+.show-manifesto-copy{align-self:center;max-width:550px}
+.show-manifesto-copy>p{font-size:15px;line-height:1.95;color:var(--muted);margin:0 0 20px}
+.show-manifesto-copy>p:last-child{margin-bottom:0}
+.show-manifesto-copy .show-manifesto-lead{font:400 clamp(25px,2.6vw,38px)/1.3 var(--serif);color:var(--ivory);margin-bottom:25px}
+.show-cast{max-width:1800px;margin:0 auto;padding:25px var(--gutter) 100px}
+.show-cast-heading{margin-bottom:42px;max-width:850px}
+.show-cast h2{font-size:clamp(36px,4.5vw,65px)}
+.show-cast-heading>p:last-child{font-size:14px;line-height:1.8;color:var(--muted);margin:20px 0 0}
+.show-cast-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.3vw,36px)}
+.show-cast-card{min-width:0;border:1px solid #c65b6740;border-radius:4px;overflow:hidden;background:linear-gradient(145deg,#271018,#12090e);transition:border-color .35s,box-shadow .35s}
+.show-cast-photo{position:relative;aspect-ratio:4/5;overflow:hidden;background:#1b0b12}
+.show-cast-photo img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.65,.3,1)}
+.show-cast-photo:after{content:'';position:absolute;inset:65% 0 0;background:linear-gradient(transparent,#10070bbd);pointer-events:none}
+.show-cast-index{position:absolute;z-index:1;bottom:20px;left:23px;right:18px;font:500 9px/1.5 var(--sans);letter-spacing:.14em;color:#f5e4dc;text-shadow:0 1px 6px #000}
+.show-cast-caption{padding:25px 23px 30px;border-top:1px solid #cf8e8b25}
+.show-cast-caption h3{font:400 clamp(35px,3.2vw,48px)/1.1 var(--serif);margin:0 0 14px;letter-spacing:-.02em}
+.show-cast-caption p{font:400 clamp(13px,1.15vw,16px)/1.8 var(--sans);color:#cdb7b7;margin:0}
+@media(hover:hover){.show-cast-card:hover{border-color:#e2657b99;box-shadow:0 15px 45px #7b112320}.show-cast-card:hover img{transform:scale(1.025)}}
+.show-final-note{position:relative;max-width:1800px;margin:0 auto;padding:85px var(--gutter) 100px;text-align:center;border-top:1px solid #cf8e8b24;overflow:hidden;background:radial-gradient(ellipse at 50% 45%,#65152b33,transparent 68%)}
+.show-final-note .show-eyebrow{color:#e09fa9;margin-bottom:25px}
+.show-final-note h2{font-size:clamp(36px,5vw,76px);line-height:1.18}
+.show-final-note h2 em{font-weight:400;color:#dba5ad}
+.show-final-links{display:flex;align-items:center;justify-content:center;gap:34px;flex-wrap:wrap;margin-top:40px}
+.show-final-links .show-back{margin:0}
+@media(max-width:900px){.show-manifesto{gap:35px;padding-top:70px;padding-bottom:75px}.show-manifesto-copy>p{font-size:14px}.show-cast{padding-bottom:75px}.show-cast-caption{padding:20px 17px 25px}.show-cast-index{left:17px;bottom:16px;font-size:8px}.show-cast-caption p br{display:none}}
+@media(max-width:760px){.show-manifesto{grid-template-columns:1fr;gap:30px;padding-top:54px;padding-bottom:64px}.show-manifesto h2{font-size:clamp(38px,9.8vw,58px)}.show-manifesto-line{margin-top:24px}.show-manifesto-copy{max-width:none}.show-manifesto-copy .show-manifesto-lead{font-size:29px}.show-manifesto-copy>p{font-size:14px}.show-cast{padding-top:8px;padding-bottom:56px}.show-cast-heading{margin-bottom:28px}.show-cast h2{font-size:clamp(34px,8.8vw,50px)}.show-cast-heading>p:last-child{font-size:13px}.show-cast-grid{grid-template-columns:1fr;gap:28px}.show-cast-caption{padding:23px 23px 28px}.show-cast-caption h3{font-size:39px}.show-cast-caption p{font-size:15px}.show-cast-index{left:23px;bottom:20px;font-size:9px}.show-final-note{padding-top:55px;padding-bottom:65px}.show-final-note h2{font-size:clamp(33px,8.8vw,48px)}.show-final-links{flex-direction:column;gap:22px;margin-top:30px}}
