@@ -316,7 +316,14 @@
         wordmark.setAttribute('aria-label', t.portals[i].title);
         wordmark.innerHTML = '<span class="portal-show-serif">F*CK</span> <span class="portal-show-script">SHOW</span>';
       }
-      setText(selector+' .portal-copy p',t.portals[i].subtitle);
+      if (i === 0 || i === 2) {
+        const wordmark = portal.querySelector('.portal-copy h3');
+        const template = i === 0 ? (activeLanguage === 'uk' ? "<h3 class=\"portal-night-wordmark\" aria-label=\"Нічна Розмова на Даху з Вітою\"><span class=\"portal-night-top\">Нічна Розмова</span><span class=\"portal-night-roof\">на Даху</span><span class=\"portal-night-with\">з Вітою</span></h3>" : "<h3 class=\"portal-night-wordmark\" aria-label=\"Night Conversation on the Rooftop with VITA\"><span class=\"portal-night-top\">Night Conversation</span><span class=\"portal-night-roof\">on the Rooftop</span><span class=\"portal-night-with\">with VITA</span></h3>") : (activeLanguage === 'uk' ? "<h3 class=\"portal-rooms-wordmark\" aria-label=\"Кімнати Віти\"><span class=\"portal-rooms-top\">Кімнати</span><span class=\"portal-rooms-name\">Віти</span></h3>" : "<h3 class=\"portal-rooms-wordmark\" aria-label=\"VITA’s Rooms\"><span class=\"portal-rooms-top\">VITA’s</span><span class=\"portal-rooms-name\">Rooms</span></h3>");
+        const holder = document.createElement('template');
+        holder.innerHTML = template;
+        wordmark.replaceWith(holder.content.firstElementChild);
+      }
+      if (i === 1) setText(selector+' .portal-copy p',t.portals[i].subtitle);
       portal.setAttribute('aria-label',t.portals[i].aria);
     });
     setText('.music-section .section-heading>span',t.musicCode);
