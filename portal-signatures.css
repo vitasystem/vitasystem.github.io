@@ -10,9 +10,8 @@
 .portals .portal-emblem{display:flex;align-items:center;justify-content:center;position:relative;height:60px;width:190px;pointer-events:none}
 .portals .portal-emblem img{display:block;object-fit:contain;max-width:none;filter:drop-shadow(0 0 5px #ed7d9f25)}
 .portals .portal-night-emblem img{width:84px;height:58px;flex-shrink:0}
-.portals .portal-olive{width:46px;height:25px;flex-shrink:0;fill:#a1a78d;stroke:#b0b29a;stroke-width:1.15;opacity:.72}
+.portals .portal-olive{width:46px;height:29px;flex-shrink:0;opacity:.95}
 .portals .portal-olive:last-child{transform:scaleX(-1)}
-.portals .portal-olive ellipse{fill:#495044;stroke:#9a9f87;stroke-width:1}
 .portals .portal-rooms-emblem img{width:62px;height:62px;filter:brightness(1.35) drop-shadow(0 0 5px #ed7d9f25);animation:portalAtomDrift 9s ease-in-out infinite}
 .portals .portal-rooms-emblem i{position:absolute;width:2px;height:2px;background:#fff9f4;border-radius:50%;box-shadow:0 0 5px 1px #fff8ed80;animation:portalStarGlow 4s ease-in-out infinite}
 .portals .portal-rooms-emblem i:nth-of-type(1){left:36px;top:14px;animation-delay:-1s}
@@ -20,6 +19,11 @@
 .portals .portal-rooms-emblem i:nth-of-type(3){right:40px;top:7px;animation-delay:-3.4s;width:3px;height:3px}
 .portals .portal-rooms-emblem i:nth-of-type(4){right:23px;bottom:15px;animation-delay:-.6s;width:1px;height:1px}
 .portals .portal-rooms-emblem i:nth-of-type(5){left:19px;bottom:22px;animation-delay:-2s;width:1px;height:1px}
+.portals .portal-rooms-emblem i:nth-of-type(6){left:47px;top:2px;animation-delay:-1.8s;width:1px;height:1px}
+.portals .portal-rooms-emblem i:nth-of-type(7){right:11px;top:22px;animation-delay:-3.1s}
+.portals .portal-rooms-emblem i:nth-of-type(8){left:8px;top:9px;animation-delay:-.3s;width:1px;height:1px}
+.portals .portal-rooms-emblem i:nth-of-type(9){right:54px;bottom:0;animation-delay:-2.3s;width:1px;height:1px}
+.portals .portal-rooms-emblem i:nth-of-type(10){left:30px;bottom:3px;animation-delay:-1.4s}
 @keyframes portalStarGlow{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:.95;transform:scale(1.15)}}
 @keyframes portalAtomDrift{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-2px) rotate(5deg)}}
 @media(max-width:900px){.portals .portal-copy .portal-emblem-slot:empty{display:none}.portals .portal-copy .portal-emblem-slot{display:flex;min-height:62px}.portals .portal-night-wordmark .portal-night-top{font-size:clamp(27px,6.7vw,38px)}.portals .portal-night-wordmark .portal-night-roof{font-size:clamp(35px,8.5vw,48px)}.portals .portal-night-wordmark .portal-night-with{font-size:12px}.portals .portal-rooms-wordmark .portal-rooms-top{font-size:32px}.portals .portal-rooms-wordmark .portal-rooms-name{font-size:46px}}
