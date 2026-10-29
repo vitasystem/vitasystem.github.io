@@ -185,3 +185,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--blush-soft);outline
 .modal-dialog h2{padding-right:15px;font-size:clamp(30px,5vw,45px)}
 @media(max-width:750px){.hero-cinematic .hero-actions{flex-wrap:wrap}.editorial-img{height:auto;aspect-ratio:3/4}.nav{gap:14px}.nav .nav-special{white-space:nowrap}.modal{padding:16px}.modal-dialog{padding:40px 24px 26px}}
 
+
+/* Native video is loaded only after an episode cover is selected. */
+.rooftop-player{display:block;width:100%;max-height:65vh;margin-top:22px;background:#000}
+.rooftop-player[hidden],#modal-description[hidden],.modal-note[hidden],.video-error[hidden]{display:none}
+.video-error a{text-decoration:underline;text-underline-offset:3px}

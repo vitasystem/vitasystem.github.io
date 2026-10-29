@@ -9,7 +9,7 @@
   <link rel="apple-touch-icon" href="assets/img/vita-icon-512-v9.png">
   <meta name="description" content="Нічна розмова на даху з Вітою. Інтерв’ю на віллі: відео, життя, музика та особисті історії.">
   <title>Нічна розмова на даху з Вітою — VITA SYSTEM</title>
-  <link rel="stylesheet" href="rooftop-vita.css?v=1">
+  <link rel="stylesheet" href="rooftop-vita.css?v=video-1">
 </head>
 <body id="top">
   <header class="masthead">
@@ -54,9 +54,9 @@
       </div>
       <div class="video-grid">
         <article class="video-card">
-          <button class="video-thumb" type="button" data-video="1" aria-label="Відкрити перший відеоблок">
+          <button class="video-thumb" type="button" data-video="1" data-video-src="assets/video/1-video-vita-roman_encoded.mp4" aria-label="Дивитися першу частину — Розмова без поспіху">
             <img src="assets/img/rooftop-cover-video-1.webp" loading="lazy" alt="Віта й Ро́ман розмовляють під час нічних зйомок">
-            <span class="coming">Відео · скоро</span><span class="play" aria-hidden="true">▶</span>
+            <span class="coming">Дивитися · 01</span><span class="play" aria-hidden="true">▶</span>
           </button>
           <div class="video-info"><div class="micro-label">Частина 01 / Основна розмова</div><h3>Розмова без поспіху</h3><p>На даху вілли. Перші запитання, погляди та момент, коли формальне інтерв’ю стає особистим.</p></div>
         </article>
@@ -122,9 +122,11 @@
       <div class="micro-label" id="modal-number">Частина 01</div>
       <h2 id="modal-title">Відео незабаром</h2>
       <p id="modal-description">Ця частина розмови з’явиться тут незабаром.</p>
+      <video class="rooftop-player" id="rooftop-player" controls playsinline preload="none" hidden aria-label="Розмова без поспіху — відеоінтерв’ю Віти й Ро́мана"></video>
+      <p class="video-error" id="video-error" role="status" hidden>Не вдалося завантажити відео. <a id="video-direct" href="assets/video/1-video-vita-roman_encoded.mp4">Відкрити відео окремо ↗</a></p>
       <p class="modal-note">ВІДЕО · СКОРО</p>
     </div>
   </dialog>
-  <script src="rooftop-vita.js?v=1" defer></script>
+  <script src="rooftop-vita.js?v=video-1" defer></script>
 </body>
 </html>
