@@ -702,3 +702,6 @@ body.info-page.page-radio{background:radial-gradient(ellipse at 50% 15%,rgba(103
 
 /* Center the radio caption within the same column as its heading. */
 #music .section-heading>p{text-align:center}
+
+/* Portrait door films fill the mobile viewport; desktop films keep their original framing. */
+.show-door-transition.is-portrait-video video{object-fit:cover;object-position:center}

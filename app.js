@@ -110,7 +110,7 @@
     clearTimeout(portalTimer);
     clearTimeout(portalFallback);
     portalBusy = false;
-    doorTransition?.classList.remove('is-visible');
+    doorTransition?.classList.remove('is-visible', 'is-portrait-video');
     if (doorTransition) doorTransition.hidden = true;
     if (doorTransitionVideo) {
       doorTransitionVideo.pause();
@@ -128,11 +128,14 @@
     portal.classList.add('opening');
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const go = () => { clearTimeout(portalFallback); window.location.href = portal.href; };
-    const transitionSrc = portal.dataset.transitionVideo;
+    const useMobileFilm = matchMedia('(max-width: 900px) and (orientation: portrait)').matches
+      && Boolean(portal.dataset.transitionVideoMobile);
+    const transitionSrc = useMobileFilm ? portal.dataset.transitionVideoMobile : portal.dataset.transitionVideo;
     if (!transitionSrc || !doorTransitionVideo || reduced) {
       portalTimer = window.setTimeout(go, reduced ? 80 : 1450);
       return;
     }
+    doorTransition.classList.toggle('is-portrait-video', useMobileFilm);
     // Authorize sound on the actual click, then retain the curtain's 950 ms lead-in.
     // Mobile browsers can reject a first audible play() made only inside a timer.
     let curtainReady = false;
