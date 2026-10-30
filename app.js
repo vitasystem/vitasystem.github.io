@@ -335,6 +335,7 @@
     setText('.now-playing small',t.nowPlaying);
     setAttr('#boomboxVideo','aria-label',activeLanguage==='uk'?'Анімований бумбокс Радіо ВІТА 224 FM':'Animated VITA 224 FM boombox');
     setText('.doctrine-banner-caption h2',activeLanguage==='uk'?'Доктрина Системи Віта':'VITA System Doctrine');
+    setText('.doctrine-banner-cta-label',activeLanguage==='uk'?'Ознайомитися':'Explore');
     setAttr('.doctrine-banner-link','href','doctrine-system-vita.html?lang='+activeLanguage);
     setAttr('.doctrine-banner-link','aria-label',activeLanguage==='uk'?'Відкрити: Доктрина Системи Віта':'Open: VITA System Doctrine');
     setAttr('#prevTrack','aria-label',t.previous);
