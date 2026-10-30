@@ -1,7 +1,7 @@
 (() => {
   // Draw the same transparent image pixels on a canvas so browser icon
-  // recoloring does not invert these two decorative photographs.
-  document.querySelectorAll('.portal-emblem img').forEach(image => {
+  // recoloring does not invert the decorative emblems.
+  document.querySelectorAll('.portal-emblem img, .about-atom img').forEach(image => {
     const preserveColors = () => {
       if (!image.isConnected || !image.naturalWidth || !image.naturalHeight) return;
       const canvas = document.createElement('canvas');
