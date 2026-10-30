@@ -247,7 +247,7 @@
   let trackIndex=0;
   const fmt = s => { if(!isFinite(s)) return '00:00'; const m=Math.floor(s/60), r=Math.floor(s%60); return `${String(m).padStart(2,'0')}:${String(r).padStart(2,'0')}`; };
   const setTrack = (i, autoplay=false) => { trackIndex=(i+tracks.length)%tracks.length; audio.src=tracks[trackIndex].src; title.textContent=tracks[trackIndex].title; $$('.track').forEach((t,j)=>t.classList.toggle('is-active',j===trackIndex)); if(autoplay) audio.play().catch(()=>{}); };
-  setTrack(0);
+  if (audio) setTrack(0);
   playBtn?.addEventListener('click',()=> audio.paused ? audio.play().catch(()=>{}) : audio.pause());
   $('#prevTrack')?.addEventListener('click',()=>setTrack(trackIndex-1,true));
   $('#nextTrack')?.addEventListener('click',()=>setTrack(trackIndex+1,true));
