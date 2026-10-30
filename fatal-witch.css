@@ -1,5 +1,5 @@
 #fatal-witch-banner{position:relative}
-#fatal-witch-banner .fatal-witch-cta{position:absolute;z-index:1;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:5px;width:max-content;max-width:calc(100% - 36px);padding:20px 36px;border:1px solid rgba(241,236,232,.8);border-radius:999px;background:rgba(5,5,7,.64);color:#f1ece8;font:400 clamp(12px,1.1vw,17px)/1.5 Manrope,sans-serif;letter-spacing:.08em;text-align:center;text-decoration:none;text-shadow:0 1px 4px #000;transition:background .25s,border-color .25s}
+#fatal-witch-banner .fatal-witch-cta{position:absolute;z-index:1;top:clamp(18px,4vw,64px);left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:5px;width:max-content;max-width:calc(100% - 36px);padding:20px 36px;border:1px solid rgba(241,236,232,.8);border-radius:999px;background:rgba(5,5,7,.64);color:#f1ece8;font:400 clamp(12px,1.1vw,17px)/1.5 Manrope,sans-serif;letter-spacing:.08em;text-align:center;text-decoration:none;text-shadow:0 1px 4px #000;transition:background .25s,border-color .25s}
 #fatal-witch-banner .fatal-witch-cta:hover{background:rgba(50,12,28,.85);border-color:#e3aebd}
 #fatal-witch-banner .fatal-witch-cta:focus-visible{outline:2px solid #e3aebd;outline-offset:5px}
 .fatal-witch-page .info-main{min-height:85vh}
