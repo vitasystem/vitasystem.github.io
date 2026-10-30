@@ -5,11 +5,14 @@
 @media(max-width:900px){#about .about-artist-name{font-size:clamp(86px,24vw,160px)}#about .about-artist-tagline{font-size:clamp(21px,5.5vw,30px)}}
 @media(max-width:520px){#about .about-copy h2{margin:26px 0 30px}#about .about-artist-name{font-size:clamp(78px,25vw,126px)}#about .about-artist-tagline{margin-top:14px;font-size:clamp(21px,5.5vw,27px)}}
 
-/* Graphite and emblem apply only to the About section. */
-#about{background:linear-gradient(180deg,#08090b 0%,#202226 15%,#24262a 48%,#202226 85%,#08090b 100%)}
-#about .about-title-group{position:relative;--about-atom-size:clamp(110px,14vw,260px)}
-#about .about-title-group .about-artist-name{padding-right:calc(var(--about-atom-size) + 18px);white-space:nowrap}
-#about .about-atom{position:absolute;right:0;top:0;width:var(--about-atom-size);aspect-ratio:1;pointer-events:none;color-scheme:only light;forced-color-adjust:none}
-#about .about-atom :is(img,canvas){display:block;width:100%;height:auto;max-width:100%;color-scheme:only light;forced-color-adjust:none}
-@media(max-width:900px){#about .about-title-group{--about-atom-size:clamp(100px,23vw,190px)}}
-@media(max-width:520px){#about .about-title-group{--about-atom-size:clamp(82px,26vw,136px)}#about .about-title-group .about-artist-name{padding-right:calc(var(--about-atom-size) + 12px)}}
+/* Dark graphite and rotating watermark apply only to the About section. */
+#about{background:linear-gradient(180deg,#08090b 0%,#121418 15%,#17191d 48%,#121418 85%,#08090b 100%)}
+#about .about-copy{position:relative;isolation:isolate;overflow:hidden}
+#about .about-copy>:not(.about-atom){position:relative;z-index:1}
+#about .about-title-group .about-artist-name{padding-right:0}
+#about .about-atom{position:absolute;z-index:0;right:0;top:45px;width:min(88%,620px);aspect-ratio:1;opacity:.28;pointer-events:none;color-scheme:only light;forced-color-adjust:none}
+#about .about-atom :is(img,canvas){display:block;width:100%;height:auto;max-width:100%;color-scheme:only light;forced-color-adjust:none;animation:aboutAtomOrbit 60s linear infinite;transform-origin:50% 50%}
+@keyframes aboutAtomOrbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@media(max-width:900px){#about .about-atom{width:min(88%,540px);top:35px}}
+@media(max-width:520px){#about .about-atom{width:94%;top:75px;right:-3%;opacity:.23}}
+@media(prefers-reduced-motion:reduce){#about .about-atom :is(img,canvas){animation:none}}
