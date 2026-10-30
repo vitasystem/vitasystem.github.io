@@ -72,3 +72,22 @@
 }
 
 .show-cast-heading h2{text-wrap:balance}
+
+/* Episode navigation stays local to the existing three show players. */
+.episode-switcher{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:8px;margin:12px 0 0;padding:10px 0;border-bottom:1px solid #cf8e8b24}
+.episode-switcher button{min-height:40px;padding:8px 10px;border:1px solid #c65b6755;border-radius:100px;background:#230c16;font:500 11px/1.4 var(--sans);cursor:pointer;white-space:nowrap;transition:background .2s,border-color .2s}
+.episode-switcher button:not(:disabled):hover{background:#63152c;border-color:#ff657e}
+.episode-switcher button:disabled{opacity:.3;cursor:default}
+.episode-previous{justify-self:start}.episode-next{justify-self:end}
+.episode-position{font:500 10px/1.5 var(--sans);letter-spacing:.1em;color:#d2adaf;white-space:nowrap}
+.episode-end{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:18px;text-align:center;background:linear-gradient(135deg,#160912f2,#080507ed);backdrop-filter:blur(8px)}
+.episode-end-label{margin:0;color:#d5aaa9;font:500 9px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase}
+.episode-end-title{margin:0;max-width:330px;font:400 clamp(18px,1.6vw,25px)/1.25 var(--serif);color:var(--ivory)}
+.episode-end-next{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:42px;padding:10px 18px;border:1px solid #ed5271;border-radius:100px;background:#69172fc9;color:#fff0e6;font:600 11px/1.4 var(--sans);cursor:pointer}
+.episode-end-next:hover{background:#8e183a}
+.episode-replay{padding:5px 0;min-height:28px;border:0;border-bottom:1px solid #b87c7c66;background:transparent;color:#d1b4b6;font:400 10px/1.5 var(--sans);cursor:pointer}
+@media(min-width:761px) and (max-width:1050px){.episode-switcher{gap:4px}.episode-switcher button{font-size:9px;padding:6px}.episode-position{font-size:9px}.episode-end{gap:6px;padding:10px}.episode-end-title{font-size:17px}.episode-end-next{min-height:34px;font-size:9px;padding:7px 12px}.episode-replay{font-size:9px;min-height:24px}}
+@media(max-width:760px){.episode-switcher button{padding:9px 15px;font-size:11px}.episode-end{gap:7px;padding:12px}.episode-end-title{font-size:21px}}
+@media(max-width:370px){.episode-switcher button{font-size:10px;padding:8px 11px}.episode-end{gap:7px;padding:12px}.episode-end-title{font-size:20px}}
+
+@media(min-width:761px) and (max-width:950px){.episode-end-title{display:none}.episode-end{gap:5px;padding:8px}.episode-end-label{font-size:8px}}
