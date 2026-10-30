@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050507">
+<title>Доктрина Системи Віта</title>
+<link rel="icon" type="image/png" sizes="512x512" href="assets/img/vita-icon-512-v9.png">
+<link rel="apple-touch-icon" href="assets/img/vita-icon-512-v9.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=mobile-door-films-1">
+<style>.doctrine-main{min-height:85vh}.doctrine-main>h1{line-height:1.12;letter-spacing:0;overflow-wrap:break-word}</style>
+</head>
+<body class="info-page">
+<header class="site-header info-header"><a class="brand" href="index.html#top">ВІТА</a><div class="header-actions"><a class="info-home" href="index.html#doctrine">НА ГОЛОВНУ</a></div></header>
+<main class="info-main doctrine-main"><a class="info-back" href="index.html#doctrine">← ПОВЕРНУТИСЯ ДО ВІТИ</a><h1>Доктрина Системи Віта</h1></main>
+<footer><a class="footer-brand" href="index.html#top">ВІТА</a><p>© Victoria Sidney Records</p><p>VITA SYSTEM / 224 FM</p></footer>
+<script>
+(() => {
+const lang=new URLSearchParams(location.search).get('lang') || localStorage.getItem('vita-language') || 'uk';
+if(lang!=='en')return;
+document.documentElement.lang='en';
+document.title='VITA System Doctrine';
+document.querySelector('h1').textContent='VITA System Doctrine';
+document.querySelector('.info-home').textContent='HOME';
+document.querySelector('.info-back').textContent='← BACK TO VITA';
+document.querySelectorAll('a[href^="index.html"]').forEach(a=>{a.href=a.getAttribute('href').replace('index.html#','index.html?lang=en#')});
+})();
+</script>
+</body></html>

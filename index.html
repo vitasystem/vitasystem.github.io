@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="vita-intro.css?v=1">
   <link rel="stylesheet" href="vita-about-title.css?v=1">
   <link rel="stylesheet" href="vita-gallery.css?v=mosaic-3">
+  <link rel="stylesheet" href="doctrine-banner.css?v=1">
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -255,9 +256,11 @@
       <div class="world-codes" aria-hidden="true"><span>224</span><span>V/S</span><span>∞</span></div>
     </section>
 
-    <figure class="world-banner reveal">
-      <video class="world-banner-video ambient-video" id="systemVideo" src="assets/video/07-system-vita.mp4" muted loop playsinline preload="none" aria-label="Відеосцена Системи Віта"></video>
-      <button class="video-sound-toggle world-video-sound" type="button" data-sound-for="systemVideo" aria-pressed="false" aria-label="Увімкнути звук відео Системи Віта"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h3l4 3V7l-4 3H4Zm10-1a4 4 0 0 1 0 6m2-8a7 7 0 0 1 0 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>ЗВУК</span></button>
+    <figure class="world-banner doctrine-banner reveal" id="doctrine">
+      <a class="doctrine-banner-link" href="doctrine-system-vita.html?lang=uk" aria-label="Відкрити: Доктрина Системи Віта">
+        <img src="assets/img/doctrine-system-vita-banner.webp" alt="Віта та чорний слон у світі Системи Віта" width="1920" height="1080" loading="lazy" decoding="async">
+        <figcaption class="doctrine-banner-caption"><h2>Доктрина Системи Віта</h2><span aria-hidden="true">↗</span></figcaption>
+      </a>
     </figure>
 
     
@@ -327,6 +330,6 @@
     <div class="show-door-transition-mist"></div>
   </div>
 
-  <script src="app.js?v=mobile-door-films-1" defer></script>
+  <script src="app.js?v=doctrine-banner-1" defer></script>
 </body>
 </html>

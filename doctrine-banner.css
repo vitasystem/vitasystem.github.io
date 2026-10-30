@@ -1,0 +1,9 @@
+.doctrine-banner .doctrine-banner-link{position:relative;display:block;color:#f1ece8;isolation:isolate}
+.doctrine-banner .doctrine-banner-link::after{content:"";position:absolute;inset:38% 0 0;background:linear-gradient(transparent,rgba(5,5,7,.82));pointer-events:none}
+.doctrine-banner .doctrine-banner-caption{position:absolute;z-index:1;bottom:clamp(22px,4vw,76px);left:var(--pad);right:var(--pad);display:flex;align-items:center;justify-content:space-between;gap:20px;line-height:1.1}
+.doctrine-banner .doctrine-banner-caption h2{max-width:1100px;margin:0;font:400 clamp(28px,4.8vw,88px)/1.08 var(--serif);letter-spacing:.005em;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.doctrine-banner .doctrine-banner-caption>span{flex:none;font-size:clamp(22px,3vw,44px);transition:transform .25s}
+.doctrine-banner-link:hover .doctrine-banner-caption>span{transform:translate(3px,-3px)}
+.doctrine-banner-link:focus-visible{outline:2px solid #d39ba9;outline-offset:-5px}
+@media(max-width:600px){.doctrine-banner .doctrine-banner-caption{bottom:20px;gap:12px}.doctrine-banner .doctrine-banner-caption h2{max-width:280px;font-size:clamp(26px,7.5vw,40px)}}
+@media(prefers-reduced-motion:reduce){.doctrine-banner .doctrine-banner-caption>span{transition:none}}
