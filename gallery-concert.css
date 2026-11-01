@@ -1,0 +1,248 @@
+/* Concert Archive — editorial photo album */
+body.gallery-album-concert{
+  background:
+    radial-gradient(circle at 12% 18%,rgba(91,16,43,.28),transparent 34%),
+    radial-gradient(circle at 88% 52%,rgba(25,46,63,.18),transparent 38%),
+    linear-gradient(145deg,#07080a 0%,#11070b 52%,#070b0f 100%);
+}
+
+.gallery-album-concert .concert-album-main{
+  width:min(1480px,calc(100% - 64px));
+  max-width:none;
+  margin-inline:auto;
+  padding-bottom:84px;
+}
+
+.gallery-album-concert .concert-album-main>h1{
+  max-width:1100px;
+  margin-bottom:10px;
+}
+
+.concert-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  margin:12px 0 34px;
+  padding-top:16px;
+  border-top:1px solid rgba(241,236,232,.14);
+  color:rgba(241,236,232,.58);
+  font:500 11px/1.5 Manrope,sans-serif;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+.gallery-album-concert .concert-banner{
+  width:100%;
+  max-width:none;
+  margin:0 auto 22px;
+  border:1px solid rgba(241,236,232,.13);
+  background:#08090b;
+  overflow:hidden;
+}
+
+.concert-banner a,
+.concert-banner img{
+  display:block;
+  width:100%;
+}
+
+.gallery-album-concert .concert-banner img{
+  height:auto;
+  max-height:none;
+  object-fit:contain;
+  transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .7s ease;
+}
+
+.concert-banner a:hover img{
+  transform:scale(1.008);
+  filter:brightness(1.035);
+}
+
+.concert-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+  align-items:start;
+}
+
+.concert-photo{
+  position:relative;
+  display:block;
+  min-width:0;
+  overflow:hidden;
+  background:#090a0c;
+  border:1px solid rgba(241,236,232,.11);
+  text-decoration:none;
+  isolation:isolate;
+}
+
+.concert-photo::after{
+  content:"↗";
+  position:absolute;
+  right:14px;
+  bottom:12px;
+  z-index:2;
+  width:31px;
+  height:31px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.34);
+  border-radius:50%;
+  color:#fff;
+  background:rgba(5,5,7,.38);
+  backdrop-filter:blur(8px);
+  font:400 14px/1 Manrope,sans-serif;
+  opacity:0;
+  transform:translateY(6px);
+  transition:opacity .25s ease,transform .25s ease;
+}
+
+.concert-photo img{
+  display:block;
+  width:100%;
+  height:auto;
+  transition:transform .65s cubic-bezier(.2,.7,.2,1),filter .65s ease;
+}
+
+.concert-photo:hover img{
+  transform:scale(1.018);
+  filter:brightness(1.045);
+}
+
+.concert-photo:hover::after,
+.concert-photo:focus-visible::after{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.concert-photo:focus-visible{
+  outline:1px solid rgba(255,255,255,.7);
+  outline-offset:4px;
+}
+
+.concert-divider{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin:44px 0 24px;
+  color:rgba(241,236,232,.46);
+  font:500 10px/1 Manrope,sans-serif;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+
+.concert-divider::before,
+.concert-divider::after{
+  content:"";
+  height:1px;
+  flex:1;
+  background:rgba(241,236,232,.12);
+}
+
+.gallery-album-concert .album-return-links{
+  margin-top:52px;
+  padding-top:24px;
+  border-top:1px solid rgba(241,236,232,.13);
+}
+
+.concert-lightbox{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:none;
+  place-items:center;
+  padding:68px 76px 54px;
+  background:rgba(2,3,5,.96);
+  backdrop-filter:blur(16px);
+}
+
+.concert-lightbox.is-open{display:grid}
+
+.concert-lightbox-stage{
+  width:100%;
+  height:100%;
+  display:grid;
+  place-items:center;
+}
+
+.concert-lightbox img{
+  display:block;
+  max-width:100%;
+  max-height:calc(100vh - 128px);
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  box-shadow:0 24px 80px rgba(0,0,0,.45);
+}
+
+.concert-lightbox-close,
+.concert-lightbox-nav{
+  position:absolute;
+  z-index:2;
+  border:1px solid rgba(255,255,255,.22);
+  color:#fff;
+  background:rgba(12,13,16,.5);
+  backdrop-filter:blur(12px);
+  cursor:pointer;
+  transition:background .2s ease,border-color .2s ease;
+}
+
+.concert-lightbox-close:hover,
+.concert-lightbox-nav:hover{
+  background:rgba(45,20,30,.72);
+  border-color:rgba(255,255,255,.5);
+}
+
+.concert-lightbox-close{
+  top:18px;
+  right:22px;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  font:300 25px/1 Manrope,sans-serif;
+}
+
+.concert-lightbox-nav{
+  top:50%;
+  width:48px;
+  height:64px;
+  transform:translateY(-50%);
+  font:300 25px/1 Manrope,sans-serif;
+}
+.concert-lightbox-prev{left:18px}
+.concert-lightbox-next{right:18px}
+
+.concert-lightbox-count{
+  position:absolute;
+  left:50%;
+  bottom:18px;
+  transform:translateX(-50%);
+  color:rgba(255,255,255,.66);
+  font:500 10px/1 Manrope,sans-serif;
+  letter-spacing:.18em;
+}
+
+@media(max-width:900px){
+  .gallery-album-concert .concert-album-main{width:min(100% - 36px,1100px)}
+  .concert-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .concert-lightbox{padding:58px 18px 52px}
+  .concert-lightbox-nav{width:42px;height:56px;background:rgba(12,13,16,.68)}
+  .concert-lightbox-prev{left:8px}.concert-lightbox-next{right:8px}
+}
+
+@media(max-width:600px){
+  .gallery-album-concert .concert-album-main{width:min(100% - 24px,760px);padding-bottom:58px}
+  .concert-meta{margin:8px 0 24px;font-size:9px;letter-spacing:.14em}
+  .gallery-album-concert .concert-banner{margin-bottom:10px}
+  .concert-grid{grid-template-columns:1fr;gap:10px}
+  .concert-photo::after{display:none}
+  .concert-divider{margin:34px 0 18px;font-size:9px}
+  .gallery-album-concert .album-return-links{margin-top:38px}
+  .concert-lightbox{padding:54px 10px 48px}
+  .concert-lightbox img{max-height:calc(100vh - 108px)}
+  .concert-lightbox-close{top:10px;right:10px;width:38px;height:38px}
+  .concert-lightbox-nav{top:auto;bottom:8px;width:42px;height:36px;transform:none;border-radius:20px}
+  .concert-lightbox-prev{left:10px}.concert-lightbox-next{right:10px}
+  .concert-lightbox-count{bottom:20px}
+}
