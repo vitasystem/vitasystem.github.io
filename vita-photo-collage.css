@@ -12,3 +12,11 @@
 .vita-photo-collage .collage-frame-5{grid-area:7/5/14/9}
 .vita-photo-collage .collage-frame-6{grid-area:9/9/14/13}
 @media(max-width:700px){.vita-photo-collage{padding:10px var(--pad,18px) 25px}.vita-photo-collage-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none;aspect-ratio:auto;gap:8px;align-items:start}.vita-photo-collage figure{grid-area:auto!important;aspect-ratio:3/4}.vita-photo-collage figure:nth-child(even){transform:translateY(22px)}.vita-photo-collage-grid{padding-bottom:22px}}
+
+.vita-photo-collage .vita-collage-heading{font:400 clamp(42px,6.8vw,108px)/1.04 var(--serif,Georgia,serif);letter-spacing:-.035em;text-align:center;color:#f1ece8;margin:0 0 clamp(34px,5vw,76px);padding:0}
+.vita-photo-collage .vita-collage-heading em{display:block;color:#c99ba8;font-weight:400;font-style:italic;margin-top:.09em}
+.vita-photo-collage .collage-heading-en{display:none}
+html[lang="en"] .vita-photo-collage .collage-heading-uk{display:none}
+html[lang="en"] .vita-photo-collage .collage-heading-en{display:block}
+.vita-photo-collage .collage-heading-en em{font-size:.86em}
+@media(max-width:400px){.vita-photo-collage .vita-collage-heading{font-size:clamp(31px,10.7vw,42px)}}
