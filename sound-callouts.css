@@ -1,0 +1,6 @@
+.hero-sound-toggle,.video-sound-toggle{min-height:44px;padding:7px 13px;gap:9px}
+.hero-sound-toggle>span,.video-sound-toggle>span{white-space:pre-line;line-height:1.35;text-align:center;font-size:9px;letter-spacing:.1em}
+.hero-sound-toggle[aria-pressed="true"],.video-sound-toggle[aria-pressed="true"]{min-width:44px;min-height:44px}
+.hero-sound-toggle[aria-pressed="true"]>span,.video-sound-toggle[aria-pressed="true"]>span{display:none}
+.hero-sound-toggle svg,.video-sound-toggle svg{width:18px;height:18px}
+@media(max-width:700px){.hero-sound-toggle,.video-sound-toggle{min-height:44px;padding:6px 10px}.hero-sound-toggle>span,.video-sound-toggle>span{font-size:8px}}

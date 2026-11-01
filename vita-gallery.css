@@ -18,3 +18,11 @@
 #gallery .gallery-item span{right:18px;text-align:left;font-size:clamp(9px,.85vw,12px);letter-spacing:.12em;line-height:1.6;text-shadow:0 1px 8px #000}
 #gallery .gallery-item:focus-visible{outline:2px solid #e2a8bc;outline-offset:4px}
 @media(max-width:700px){#gallery .section-heading h2{font-size:clamp(32px,8.7vw,48px)}#gallery .section-heading p{font-size:clamp(18px,4.8vw,24px)}#gallery .gallery-grid{--mosaic-step:calc((100vw - 2 * var(--pad) - 12px) * .32);gap:12px}#gallery .gallery-item span{left:10px;right:10px;bottom:10px;font-size:9px;letter-spacing:.025em;line-height:1.5}#gallery .gallery-item:after{background:linear-gradient(0deg,rgba(0,0,0,.78),transparent 52%)}}
+
+/* Album names and two-line cover links. */
+#gallery .gallery-item .gallery-album-name{left:20px;right:20px;bottom:100px;display:block;text-align:center;font:400 clamp(20px,2.1vw,34px)/1.12 var(--serif,Georgia,serif);letter-spacing:0;text-wrap:balance;z-index:2}
+#gallery .gallery-album-cta{position:absolute;z-index:2;left:50%;bottom:22px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:12px 25px;min-height:58px;max-width:calc(100% - 30px);border:1px solid rgba(241,236,232,.7);border-radius:999px;background:rgba(8,7,10,.56);backdrop-filter:blur(7px);text-align:center;white-space:nowrap;transition:background .2s,border-color .2s}
+#gallery .gallery-album-cta b{font:400 clamp(10px,.9vw,14px)/1.2 var(--sans,Arial,sans-serif);letter-spacing:.06em}
+#gallery .gallery-item:hover .gallery-album-cta{background:rgba(48,12,27,.8);border-color:#e2a8bc}
+#gallery .gallery-item:after{background:linear-gradient(0deg,rgba(0,0,0,.88),rgba(0,0,0,.12) 45%,transparent 68%)}
+@media(max-width:700px){#gallery .gallery-grid{--mosaic-step:clamp(220px,55vw,330px)}#gallery .gallery-item .gallery-album-name{left:8px;right:8px;bottom:82px;font-size:clamp(17px,4.6vw,24px)}#gallery .gallery-album-cta{bottom:14px;padding:9px 13px;min-height:54px;max-width:calc(100% - 16px)}#gallery .gallery-album-cta b{font-size:10px;letter-spacing:.015em}}
