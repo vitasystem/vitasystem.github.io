@@ -6,7 +6,7 @@
   const note = modal.querySelector('.modal-note');
   const error = document.getElementById('video-error');
   const direct = document.getElementById('video-direct');
-  const titles = ['Розмова без поспіху', 'Дорогою на дах', 'Запитання, що залишаються'];
+  const titles = ['Надто особиста розмова.', 'На даху.', 'Запитання, що залишаються'];
   let lastTrigger = null;
   const stopVideo = () => {
     player.pause();
