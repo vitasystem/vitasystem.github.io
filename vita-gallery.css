@@ -26,3 +26,9 @@
 #gallery .gallery-item:hover .gallery-album-cta{background:rgba(48,12,27,.8);border-color:#e2a8bc}
 #gallery .gallery-item:after{background:linear-gradient(0deg,rgba(0,0,0,.88),rgba(0,0,0,.12) 45%,transparent 68%)}
 @media(max-width:700px){#gallery .gallery-grid{--mosaic-step:clamp(220px,55vw,330px)}#gallery .gallery-item .gallery-album-name{left:8px;right:8px;bottom:82px;font-size:clamp(17px,4.6vw,24px)}#gallery .gallery-album-cta{bottom:14px;padding:9px 13px;min-height:54px;max-width:calc(100% - 16px)}#gallery .gallery-album-cta b{font-size:10px;letter-spacing:.015em}}
+
+/* Center the complete gallery heading across the full section. */
+#gallery .section-heading{display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center}
+#gallery .section-heading>span,#gallery .section-heading h2,#gallery .section-heading p{align-self:center;text-align:center}
+#gallery .section-heading h2{margin:0;width:100%}
+#gallery .section-heading p{margin:8px auto 0;width:100%}

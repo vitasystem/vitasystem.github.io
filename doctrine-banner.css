@@ -1,9 +1,11 @@
-.doctrine-banner .doctrine-banner-link{position:relative;display:block;color:#f1ece8;isolation:isolate}
-.doctrine-banner .doctrine-banner-link::after{content:"";position:absolute;inset:38% 0 0;background:linear-gradient(transparent,rgba(5,5,7,.82));pointer-events:none}
-.doctrine-banner .doctrine-banner-caption{position:absolute;z-index:1;bottom:clamp(22px,4vw,76px);left:var(--pad);right:var(--pad);display:flex;flex-direction:column;align-items:center;gap:clamp(16px,2vw,30px);text-align:center;line-height:1.1}
-.doctrine-banner .doctrine-banner-caption h2{max-width:1100px;margin:0;font:400 clamp(28px,4.8vw,88px)/1.08 var(--serif);letter-spacing:.005em;text-shadow:0 2px 12px rgba(0,0,0,.6)}
-.doctrine-banner .doctrine-banner-cta{display:inline-flex;align-items:center;justify-content:center;gap:18px;min-height:52px;padding:14px 30px;border:1px solid rgba(241,236,232,.7);border-radius:999px;background:transparent;font:400 11px/1.4 var(--sans,Manrope,sans-serif);letter-spacing:.2em;transition:background .25s,border-color .25s}
-.doctrine-banner-link:hover .doctrine-banner-cta{background:rgba(5,5,7,.3);border-color:#f1ece8}
-.doctrine-banner-link:focus-visible{outline:2px solid #d39ba9;outline-offset:-5px}
-@media(max-width:600px){.doctrine-banner .doctrine-banner-caption{bottom:18px;gap:12px}.doctrine-banner .doctrine-banner-caption h2{max-width:310px;font-size:clamp(25px,7vw,40px)}.doctrine-banner .doctrine-banner-cta{min-height:42px;padding:10px 22px;font-size:9px;gap:12px}}
+.doctrine-banner .doctrine-banner-link{display:block;color:#f1ece8}
+.doctrine-banner .doctrine-banner-link::after{content:none}
+.doctrine-banner .doctrine-banner-caption{position:static;display:flex;flex-direction:column;align-items:center;gap:28px;padding:clamp(42px,6vw,88px) var(--pad,24px);text-align:center;color:#f1ece8;background:#08090b}
+.doctrine-banner .doctrine-banner-caption h2{margin:0;max-width:1100px;font:400 clamp(42px,6vw,100px)/1.05 var(--serif,Georgia,serif);letter-spacing:.005em}
+.doctrine-banner-title-top,.doctrine-banner-title-bottom{display:block}
+.doctrine-banner-title-bottom{margin-top:.14em;font-size:.78em;font-style:italic;color:#dbc5ce}
+.doctrine-banner .doctrine-banner-cta{display:inline-flex;align-items:center;justify-content:center;gap:18px;min-height:52px;padding:14px 30px;border:1px solid rgba(241,236,232,.7);border-radius:999px;background:transparent;color:#f1ece8;font:400 11px/1.4 var(--sans,Manrope,sans-serif);letter-spacing:.2em;transition:background .25s,border-color .25s}
+.doctrine-banner .doctrine-banner-cta:hover{background:rgba(63,15,32,.45);border-color:#f1ece8}
+.doctrine-banner-link:focus-visible,.doctrine-banner-cta:focus-visible{outline:2px solid #d39ba9;outline-offset:5px}
+@media(max-width:600px){.doctrine-banner .doctrine-banner-caption{gap:24px;padding:36px 18px 44px}.doctrine-banner .doctrine-banner-caption h2{font-size:clamp(36px,10vw,56px)}.doctrine-banner .doctrine-banner-cta{min-height:46px;padding:12px 24px;font-size:10px;gap:14px}}
 @media(prefers-reduced-motion:reduce){.doctrine-banner .doctrine-banner-cta{transition:none}}

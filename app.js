@@ -338,9 +338,11 @@
     setText('.music-section .section-heading p',t.musicBody);
     setText('.now-playing small',t.nowPlaying);
     setAttr('#boomboxVideo','aria-label',activeLanguage==='uk'?'Анімований бумбокс Радіо ВІТА 224 FM':'Animated VITA 224 FM boombox');
-    setText('.doctrine-banner-caption h2',activeLanguage==='uk'?'Доктрина Системи Віта':'VITA System Doctrine');
+    setText('.doctrine-banner-title-top',activeLanguage==='uk'?'ДОКТРИНА':'DOCTRINE');
+    setText('.doctrine-banner-title-bottom',activeLanguage==='uk'?'Системи Віта':'of the VITA System');
     setText('.doctrine-banner-cta-label',activeLanguage==='uk'?'Ознайомитися':'Explore');
     setAttr('.doctrine-banner-link','href','doctrine-system-vita.html?lang='+activeLanguage);
+    setAttr('.doctrine-banner-cta','href','doctrine-system-vita.html?lang='+activeLanguage);
     setAttr('.doctrine-banner-link','aria-label',activeLanguage==='uk'?'Відкрити: Доктрина Системи Віта':'Open: VITA System Doctrine');
     setAttr('#prevTrack','aria-label',t.previous);
     setAttr('#nextTrack','aria-label',t.next);
