@@ -55,6 +55,32 @@ a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 56px
 }
 
 @media (max-width:1080px){.directive-grid{grid-template-columns:1fr}.directive-image{justify-content:flex-start}.directive-image img{width:100%;max-width:100%}.feature-banner{min-height:56vh}}
+
+/* Keep the mobile document inside the device viewport. */
+@media(max-width:960px){
+ html{overflow-x:clip;overscroll-behavior-x:none}
+ body{overflow-x:clip;min-width:0}
+ .wrap{min-width:0}
+ .hero-grid{width:calc(100% - 30px);grid-template-columns:minmax(0,1fr)}
+ .preamble,.directive-grid,.split-visual,.section-head,.articles,.evidence-grid{grid-template-columns:minmax(0,1fr)}
+ .hero-grid>*,.preamble>*,.directive-grid>*,.split-visual>*,.section-head>*,.articles>*,.evidence-grid>*{min-width:0}
+ .hero h1{font-size:clamp(42px,15vw,68px)}
+ .directive-copy .giant{font-size:clamp(42px,14vw,76px)}
+ .hero-meta{max-width:100%}
+ .hero-meta .line>*{min-width:0;overflow-wrap:anywhere}
+ .prow{grid-template-columns:95px minmax(0,1fr)}
+ .prow>*{min-width:0;overflow-wrap:anywhere}
+ .paper h3{font-size:clamp(28px,8.5vw,42px)}
+ .article h3{font-size:clamp(28px,8.4vw,36px)}
+ .order h3{font-size:clamp(34px,10vw,54px)}
+ .eco h2{font-size:clamp(42px,11vw,118px)}
+ .final{grid-template-columns:minmax(0,1fr)}
+ .final-inner{min-width:0;max-width:100%;justify-self:center}
+ .final h2{font-size:clamp(42px,12vw,100px)}
+ .final-stamp{max-width:100%;overflow-wrap:anywhere}
+ h1,h2,h3{overflow-wrap:anywhere}
+ img{max-width:100%}
+}
 </style>
 </head>
 <body>
