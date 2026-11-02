@@ -71,6 +71,14 @@ a{color:inherit;text-decoration:none}
 }
 @keyframes fog{to{transform:translateX(4%) scale(1.05);opacity:.7}}
 
+.teaser{position:relative;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#020405}
+.teaser video{display:block;width:100%;height:min(72vh,820px);object-fit:cover;filter:saturate(.9) contrast(1.08) brightness(.78)}
+.teaser:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,6,9,.08),rgba(3,6,9,.18) 55%,rgba(3,6,9,.7));pointer-events:none}
+.teaser-copy{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:0 0 34px}
+.teaser-copy .wrap{display:flex;justify-content:space-between;align-items:end;gap:30px}
+.teaser-title{font:400 clamp(34px,5vw,72px)/.9 Georgia,serif;margin:0}
+.teaser-code{font:10px "Courier New",monospace;letter-spacing:.19em;color:#7cecff;text-align:right}
+
 .section{padding:110px 0;border-top:1px solid var(--line)}
 .section-head{display:grid;grid-template-columns:170px 1fr;gap:32px;margin-bottom:48px}
 .no{font:11px "Courier New",monospace;color:#53d9ff;letter-spacing:.2em;padding-top:9px}
@@ -81,13 +89,15 @@ a{color:inherit;text-decoration:none}
 .formula-visual{min-height:650px;position:relative;overflow:hidden;border:1px solid var(--line)}
 .formula-visual img{width:100%;height:100%;object-fit:cover;filter:saturate(.95) contrast(1.08)}
 .formula-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(3,7,11,.65),transparent 52%)}
-.formula-card{background:linear-gradient(145deg,rgba(9,19,30,.92),rgba(5,10,16,.94));border:1px solid var(--line);padding:38px;display:flex;flex-direction:column;justify-content:space-between}
-.formula-card h3{font:400 46px/1 Georgia,serif;margin:0 0 18px}
-.formula-card p{color:#9db0c2;line-height:1.7;max-width:560px}
-.specs{margin-top:24px;border-top:1px solid var(--line)}
-.spec{display:grid;grid-template-columns:160px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--line);align-items:center}
-.spec span{font:10px "Courier New",monospace;letter-spacing:.15em;color:#6ee7ff}
-.spec b{font-weight:500;color:#edf8ff}
+.formula-card{background:linear-gradient(145deg,rgba(9,19,30,.92),rgba(5,10,16,.94));border:1px solid var(--line);padding:38px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.recipe-paper{position:relative;background:linear-gradient(180deg,#f5fbfd 0%,#dceff5 100%);color:#08131d;padding:42px 38px 34px;box-shadow:0 24px 80px rgba(0,0,0,.42);transform:rotate(-1deg);border:1px solid rgba(255,255,255,.7)}
+.recipe-paper:before{content:"";position:absolute;top:-14px;left:50%;width:112px;height:28px;transform:translateX(-50%) rotate(1deg);background:rgba(212,237,244,.78);border:1px solid rgba(114,167,181,.28);box-shadow:0 4px 10px rgba(0,0,0,.12)}
+.recipe-paper .memo{font:10px "Courier New",monospace;letter-spacing:.19em;color:#24728b}
+.recipe-paper h3{font:400 46px/1 Georgia,serif;margin:14px 0 8px;color:#06131d}
+.recipe-paper .recipe-sub{font:italic 17px Georgia,serif;color:#3c5965;margin:0 0 24px}
+.recipe-list{list-style:none;padding:0;margin:0;border-top:1px solid rgba(11,57,73,.18)}
+.recipe-list li{padding:14px 0;border-bottom:1px solid rgba(11,57,73,.16);font:500 18px/1.35 Georgia,serif;color:#0b2230}
+.recipe-sign{margin-top:24px;font:10px "Courier New",monospace;letter-spacing:.17em;color:#24728b}
 .note{margin-top:26px;padding:14px 16px;border-left:2px solid var(--cyan);background:rgba(17,217,255,.05);font-size:13px;color:#b9d2e2}
 
 .protocol{background:linear-gradient(180deg,#05080c,#08111a)}
@@ -151,6 +161,9 @@ a{color:inherit;text-decoration:none}
  .formula-visual,.vita-photo{min-height:520px}
  .video-frame,.video-frame img{min-height:480px}
  .section{padding:78px 0}
+ .teaser video{height:56vh;min-height:420px}
+ .teaser-copy .wrap{display:block}.teaser-code{text-align:left;margin-top:12px}
+ .recipe-paper{transform:none;padding:36px 28px 30px}
 }
 </style>
 </head>
@@ -163,7 +176,7 @@ a{color:inherit;text-decoration:none}
 
 <main>
 <section class="hero">
- <img src="assets/img/03-goluba-laguna.png" alt="Віта готує Голубу Лагуну">
+ <img src="assets/img/blakytna-laguna-page (1).jpg" alt="Віта готує Голубу Лагуну">
  <div class="fog"></div>
  <div class="wrap hero-copy">
   <div class="kicker">03 / КІМНАТИ ВІТИ · COLD COCKTAIL PROTOCOL</div>
@@ -173,20 +186,34 @@ a{color:inherit;text-decoration:none}
  </div>
 </section>
 
+<section class="teaser" aria-label="Відеозаставка Блакитної Лагуни">
+ <video autoplay muted loop playsinline preload="metadata" poster="assets/img/blakytna-laguna-page (1).png">
+  <source src="assets/video/blakytna-laguna-zastavka.mp4" type="video/mp4">
+ </video>
+ <div class="teaser-copy"><div class="wrap">
+  <h2 class="teaser-title">BLUE LAGOON / ROOM 03</h2>
+  <div class="teaser-code">VITA / 224<br>COLD OPEN</div>
+ </div></div>
+</section>
+
 <section class="section" id="formula"><div class="wrap">
- <div class="section-head reveal"><div class="no">01 / FORMULA</div><h2>Формула Голубої Лагуни<small>Точні пропорції додамо з твого рецепта</small></h2></div>
+ <div class="section-head reveal"><div class="no">01 / FORMULA</div><h2>Формула Голубої Лагуни<small>VITA / BLUE LAGOON / RECIPE</small></h2></div>
  <div class="formula-grid reveal">
-  <div class="formula-visual"><img src="assets/img/03-kuhnia.png" alt="Інгредієнти Голубої Лагуни"></div>
+  <div class="formula-visual"><img src="assets/img/blakytna-laguna-page (2).png" alt="Інгредієнти Голубої Лагуни"></div>
   <article class="formula-card">
-   <div><div class="kicker">COLD LAB / INGREDIENT MAP</div><h3>Не список.<br>Склад системи.</h3><p>У фінальній версії тут буде твоя точна формула — без вигаданих пропорцій. Кожен компонент подається як частина холодного протоколу.</p>
-   <div class="specs">
-    <div class="spec"><span>BASE</span><b>твоя основа</b></div>
-    <div class="spec"><span>COLOR AGENT</span><b>синій компонент</b></div>
-    <div class="spec"><span>SPARK</span><b>газована частина / твій варіант</b></div>
-    <div class="spec"><span>ICE LOAD</span><b>лід</b></div>
-    <div class="spec"><span>CITRUS MARK</span><b>лимон / лайм</b></div>
-   </div></div>
-   <div class="note">PROTOTYPE NOTE: точні мл та порядок внесемо після того, як ти даси свій рецепт.</div>
+   <div class="recipe-paper">
+    <div class="memo">ПАМ’ЯТКА / ROOM 03</div>
+    <h3>ВІТА / Блакитна Лагуна</h3>
+    <p class="recipe-sub">Холодна формула на один келих.</p>
+    <ul class="recipe-list">
+     <li>5 великих кубиків льоду</li>
+     <li>25 ml Blue Curaçao</li>
+     <li>15 ml CARUSO Gorilka</li>
+     <li>Sprite — доверху</li>
+     <li>тонка скибочка лимона / лайму</li>
+    </ul>
+    <div class="recipe-sign">VITA / 224 / BLUE LAGOON</div>
+   </div>
   </article>
  </div>
 </div></section>
@@ -194,17 +221,17 @@ a{color:inherit;text-decoration:none}
 <section class="section protocol" id="protocol"><div class="wrap">
  <div class="section-head reveal"><div class="no">02 / ACTIVATION</div><h2>Протокол приготування<small>Не блог. Послідовність активації.</small></h2></div>
  <div class="steps">
-  <article class="step reveal"><img src="assets/img/03-kuhnia.png" alt="Вимірювання інгредієнтів"><div class="step-copy"><span class="step-no">STEP 01</span><h3>Охолодити</h3><p>Келих, метал і лід мають виглядати так, ніби температура відчувається прямо з екрана.</p></div></article>
-  <article class="step reveal"><img src="assets/img/03-goluba-laguna.png" alt="Лід у Голубій Лагуні"><div class="step-copy"><span class="step-no">STEP 02</span><h3>Додати лід</h3><p>Великий прозорий лід, вода на мармурі, конденсат і різкий білий блиск.</p></div></article>
-  <article class="step reveal"><img src="assets/img/03-goluba-laguna.png" alt="Віта наливає коктейль"><div class="step-copy"><span class="step-no">STEP 03</span><h3>Активувати синій</h3><p>Головний момент сторінки — синя рідина входить у кадр як світлова подія.</p></div></article>
-  <article class="step reveal"><img src="assets/img/03-goluba-laguna.png" alt="Готова Голуба Лагуна"><div class="step-copy"><span class="step-no">STEP 04</span><h3>Фінальний знак</h3><p>Цитрус, холодне скло, чистий колір. Без жовтого світла та ресторанної банальності.</p></div></article>
-  <article class="step reveal"><img src="assets/img/03-goluba-laguna.png" alt="Віта з коктейлем"><div class="step-copy"><span class="step-no">STEP 05</span><h3>Спробувати</h3><p>Не рекламна усмішка. Спокійний fashion-кадр — ніби Віта перевіряє результат.</p></div></article>
-  <article class="step reveal"><img src="assets/img/03-kuhnia.png" alt="Портрет Віти"><div class="step-copy"><span class="step-no">STEP 06</span><h3>Blue State</h3><p>Після рецепта сторінка переходить від дії до атмосфери — холод, тиша, дим і ніч.</p></div></article>
+  <article class="step reveal"><img src="assets/img/blakytna-laguna-page (3).png" alt="Вимірювання інгредієнтів"><div class="step-copy"><span class="step-no">STEP 01</span><h3>Охолодити</h3><p>Келих, метал і лід мають виглядати так, ніби температура відчувається прямо з екрана.</p></div></article>
+  <article class="step reveal"><img src="assets/img/blakytna-laguna-page (4).png" alt="Лід у Голубій Лагуні"><div class="step-copy"><span class="step-no">STEP 02</span><h3>Додати лід</h3><p>Великий прозорий лід, вода на мармурі, конденсат і різкий білий блиск.</p></div></article>
+  <article class="step reveal"><img src="assets/img/blakytna-laguna-page (5).png" alt="Віта наливає коктейль"><div class="step-copy"><span class="step-no">STEP 03</span><h3>Активувати синій</h3><p>Головний момент сторінки — синя рідина входить у кадр як світлова подія.</p></div></article>
+  <article class="step reveal"><img src="assets/img/blakytna-laguna-page (6).png" alt="Готова Голуба Лагуна"><div class="step-copy"><span class="step-no">STEP 04</span><h3>Фінальний знак</h3><p>Цитрус, холодне скло, чистий колір. Без жовтого світла та ресторанної банальності.</p></div></article>
+  <article class="step reveal"><img src="assets/img/blakytna-laguna-page (7).png" alt="Віта з коктейлем"><div class="step-copy"><span class="step-no">STEP 05</span><h3>Спробувати</h3><p>Не рекламна усмішка. Спокійний fashion-кадр — ніби Віта перевіряє результат.</p></div></article>
+  <article class="step reveal"><img src="assets/img/blakytna-laguna-page (8).png" alt="Портрет Віти"><div class="step-copy"><span class="step-no">STEP 06</span><h3>Blue State</h3><p>Після рецепта сторінка переходить від дії до атмосфери — холод, тиша, дим і ніч.</p></div></article>
  </div>
 </div></section>
 
 <section class="atmosphere">
- <img src="assets/img/03-goluba-laguna.png" alt="Крижаний коктейль">
+ <img src="assets/img/blakytna-laguna-page (9).png" alt="Крижаний коктейль">
  <div class="wrap atm-copy reveal">
    <div class="kicker">03 / ICE LANGUAGE</div>
    <h2>Лід — не декор.<br><span>Це графічна мова.</span></h2>
@@ -215,7 +242,7 @@ a{color:inherit;text-decoration:none}
 <section class="section" id="vita"><div class="wrap">
  <div class="section-head reveal"><div class="no">04 / VITA NOTE</div><h2>ВІТА рекомендує<small>Особиста репліка замість стандартної поради бармена</small></h2></div>
  <div class="vita-block reveal">
-  <div class="vita-photo"><img src="assets/img/03-kuhnia.png" alt="Віта біля барної стійки"></div>
+  <div class="vita-photo"><img src="assets/img/blakytna-laguna-page (10).png" alt="Віта біля барної стійки"></div>
   <div class="vita-copy">
     <div class="kicker">PERSONAL NOTE / ROOM 03</div>
     <div class="quote">«Не поспішай. <span>Голуба Лагуна працює тоді, коли келих справді холодний.</span>»</div>
@@ -228,14 +255,14 @@ a{color:inherit;text-decoration:none}
 <section class="video" id="video"><div class="wrap">
  <div class="section-head reveal"><div class="no">05 / VIDEO</div><h2>ВІТА приготувала<small>Cinematic player section</small></h2></div>
  <div class="video-frame reveal">
-  <img src="assets/img/03-goluba-laguna.png" alt="Відео ВІТИ — Голуба Лагуна">
+  <img src="assets/img/blakytna-laguna-page (11).png" alt="Відео ВІТИ — Голуба Лагуна">
   <div class="play" aria-label="Місце під кнопку відтворення"></div>
   <div class="video-label"><span>VIDEO / SOON</span><b>Blue Lagoon / Room 03</b></div>
  </div>
 </div></section>
 
 <section class="final">
- <img src="assets/img/03-goluba-laguna.png" alt="Фінал Голубої Лагуни">
+ <img src="assets/img/blakytna-laguna-page (1).png" alt="Фінал Голубої Лагуни">
  <div class="final-inner reveal">
   <div class="code">AFTERTASTE / ROOM 03 / 224</div>
   <h2>BLUE STATE<span>ON.</span></h2>
