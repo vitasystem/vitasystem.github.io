@@ -2,63 +2,125 @@
 <html lang="uk">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#050507">
-<title>Доктрина Системи Віта</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Доктрина Системи Віта — Протокол 224</title>
 <link rel="icon" type="image/png" sizes="512x512" href="assets/img/vita-icon-512-v9.png">
-<link rel="apple-touch-icon" href="assets/img/vita-icon-512-v9.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=mobile-door-films-1">
-<style>.doctrine-main{min-height:85vh}.doctrine-main>h1{margin:clamp(34px,5vw,64px) 0 0;line-height:1.12;letter-spacing:0;font-size:clamp(32px,7.8vw,108px)}.doctrine-title>span{display:block;white-space:nowrap}.doctrine-title>span+span{margin-top:.12em}.doctrine-video-banner{position:relative;margin:0;overflow:hidden;background:#081018;line-height:0}.doctrine-video-banner video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain}.doctrine-video-sound{position:absolute;right:clamp(12px,3vw,28px);bottom:clamp(12px,3vw,24px);z-index:1;display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border:1px solid rgba(241,236,232,.5);border-radius:999px;background:rgba(5,5,7,.65);color:#f1ece8;font:400 10px/1.4 Manrope,sans-serif;letter-spacing:.14em;cursor:pointer}.doctrine-video-sound:focus-visible{outline:2px solid #d39ba9;outline-offset:3px}.doctrine-video-sound[hidden]{display:none}@media(max-width:600px){.doctrine-video-sound{padding:9px 13px;font-size:9px}}</style>
-</head>
-<body class="info-page">
-<header class="site-header info-header"><a class="brand" href="index.html#top">ВІТА</a><div class="header-actions"><a class="info-home" href="index.html#doctrine">НА ГОЛОВНУ</a></div></header>
-<main class="info-main doctrine-main"><a class="info-back" href="index.html#doctrine">← ПОВЕРНУТИСЯ ДО ВІТИ</a>
-<figure class="doctrine-video-banner">
-<video id="doctrine-video" src="assets/video/doktryna-video-baner.mp4" width="1920" height="1080" autoplay muted loop playsinline preload="metadata" controls aria-label="Відеобанер Доктрини Системи Віта"></video>
-<button class="doctrine-video-sound" type="button" aria-controls="doctrine-video" aria-pressed="false" aria-label="Увімкнути звук" hidden><span aria-hidden="true">♪</span><span class="doctrine-sound-label">Увімкнути звук</span></button>
-</figure>
-<h1 class="doctrine-title"><span>ДОКТРИНА</span><span>Системи Віта</span></h1>
-</main>
-<footer><a class="footer-brand" href="index.html#top">ВІТА</a><p>© Victoria Sidney Records</p><p>VITA SYSTEM / 224 FM</p></footer>
-<script>
-(() => {
-const lang=new URLSearchParams(location.search).get('lang') || localStorage.getItem('vita-language') || 'uk';
-const video=document.querySelector('#doctrine-video');
-const sound=document.querySelector('.doctrine-video-sound');
-const english=lang==='en';
-const updateSound=()=>{
-const on=!video.muted;
-sound.setAttribute('aria-pressed',String(on));
-const label=on?(english?'Mute':'Вимкнути звук'):(english?'Enable sound':'Увімкнути звук');
-sound.setAttribute('aria-label',label);
-sound.querySelector('.doctrine-sound-label').textContent=label;
-};
-video.controls=false;
-sound.hidden=false;
-updateSound();
-video.addEventListener('volumechange',updateSound);
-sound.addEventListener('click',()=>{
-video.muted=!video.muted;
-video.play().catch(()=>{video.controls=true;sound.hidden=true});
-});
-if(matchMedia('(prefers-reduced-motion: reduce)').matches){
-video.autoplay=false;video.pause();video.controls=true;sound.hidden=true;
-}else{
-video.play().catch(()=>{video.controls=true;sound.hidden=true});
+<meta name="description" content="Доктрина Системи Віта. Протокол 224 — офіційний маніфест Нової Ери.">
+<style>
+:root{
+  --bg:#050607; --panel:#0a0c0f; --panel2:#101318; --paper:#e8e5dc; --ink:#111317;
+  --white:#f3f1eb; --muted:#989da5; --line:#2a2e34; --signal:#f17724; --signal2:#ff9a45;
+  --danger:#8e2131; --max:1440px;
 }
-window.addEventListener('pagehide',()=>video.pause());
-if(!english)return;
-video.setAttribute('aria-label','VITA System Doctrine video banner');
-document.documentElement.lang='en';
-document.title='VITA System Doctrine';
-document.querySelector('.doctrine-title>span').textContent='DOCTRINE';
-document.querySelector('.doctrine-title>span+span').textContent='of the VITA System';
-document.querySelector('.info-home').textContent='HOME';
-document.querySelector('.info-back').textContent='← BACK TO VITA';
-document.querySelectorAll('a[href^="index.html"]').forEach(a=>{a.href=a.getAttribute('href').replace('index.html#','index.html?lang=en#')});
-})();
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.12;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);background-size:4px 4px;mix-blend-mode:screen}
+a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 56px));margin:auto}.mono{font-family:"Courier New",monospace}
+
+.topbar{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #22262b;background:rgba(5,6,7,.92);position:sticky;top:0;z-index:40;backdrop-filter:blur(14px)}
+.brand{font-family:Georgia,serif;font-size:26px;letter-spacing:.08em}.brand b{color:var(--signal);font-weight:400}.topcode{font:11px "Courier New",monospace;letter-spacing:.18em;color:#a6abb2}.topcode span{color:var(--signal)}
+
+.hero{position:relative;min-height:calc(100vh - 76px);display:flex;align-items:flex-end;overflow:hidden;border-bottom:1px solid #25292f}
+.hero-media{position:absolute;inset:0}.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 42%;filter:saturate(.8) contrast(1.07) brightness(.72)}
+.hero-media:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 72% 48%,rgba(255,190,120,.18) 0%,rgba(255,190,120,.08) 20%,transparent 48%);mix-blend-mode:screen;opacity:.65;z-index:1}
+.hero-media:after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(5,6,7,.96) 0%,rgba(5,6,7,.82) 24%,rgba(5,6,7,.28) 56%,rgba(5,6,7,.08) 100%),linear-gradient(0deg,#050607 0%,transparent 36%,rgba(0,0,0,.12) 100%)}
+.hero-grid{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:end;padding:110px 0 88px}.kicker{font:12px "Courier New",monospace;letter-spacing:.28em;color:var(--signal);margin-bottom:20px}.hero h1{margin:0;font:400 clamp(64px,9vw,148px)/.82 Georgia,serif;letter-spacing:-.045em}.hero h1 em{display:block;font-size:.47em;color:#c8c8c7;font-weight:400}.hero .lead{max-width:760px;margin:30px 0 0;font:20px/1.55 Georgia,serif;color:#d6d2cb}.hero-meta{justify-self:end;width:min(440px,100%);border:1px solid #3a3e45;background:rgba(6,7,9,.72);padding:24px}.hero-meta .line{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #282c31;padding:11px 0;font:11px "Courier New",monospace;letter-spacing:.08em}.hero-meta .line:last-child{border-bottom:0}.hero-meta .key{color:#777d86}.hero-meta .value{color:#e1ded8;text-align:right}.stamp{display:inline-block;margin-top:18px;border:2px solid var(--signal);color:var(--signal2);padding:10px 14px;transform:rotate(-2deg);font:700 17px "Courier New",monospace;letter-spacing:.15em}
+
+.signal-strip{border-bottom:1px solid #262a30;background:#080a0d;overflow:hidden}.ticker{display:flex;gap:44px;white-space:nowrap;padding:16px 0;font:11px "Courier New",monospace;letter-spacing:.2em;color:#9da2aa;animation:tick 30s linear infinite}.ticker b{color:var(--signal);font-weight:400}@keyframes tick{to{transform:translateX(-50%)}}
+
+.section{padding:110px 0;border-bottom:1px solid #24282e}.section-head{display:grid;grid-template-columns:180px 1fr;gap:40px;align-items:start;margin-bottom:46px}.section-no{font:11px "Courier New",monospace;letter-spacing:.2em;color:var(--signal);padding-top:10px}.section h2{font:400 clamp(44px,6vw,88px)/.95 Georgia,serif;margin:0;letter-spacing:-.03em}.section h2 small{display:block;margin-top:13px;font:13px/1.5 "Courier New",monospace;letter-spacing:.18em;color:#888e96;text-transform:uppercase}
+
+.preamble{display:grid;grid-template-columns:.86fr 1.14fr;gap:34px;align-items:stretch}.paper{background:var(--paper);color:var(--ink);padding:clamp(32px,5vw,68px);position:relative;box-shadow:0 30px 80px rgba(0,0,0,.32)}.paper:before{content:"VITA SYSTEM / PROTOCOL 224";position:absolute;right:30px;top:24px;color:#76736c;font:10px "Courier New",monospace;letter-spacing:.17em}.paper h3{font:400 42px/1 Georgia,serif;margin:0 0 30px}.paper p{font:16px/1.78 "Courier New",monospace}.paper .legal{font-size:12px;color:#5e5b56;border-top:1px solid #c1bdb3;margin-top:30px;padding-top:18px}.seal{position:absolute;right:35px;bottom:34px;width:110px;height:110px;border:2px solid #9b3138;border-radius:50%;display:grid;place-items:center;text-align:center;color:#9b3138;font:700 10px/1.25 "Courier New";letter-spacing:.11em;transform:rotate(-9deg);opacity:.82}.preamble-img{position:relative;min-height:640px}.preamble-img img{width:100%;height:100%;object-fit:cover;filter:saturate(.72) contrast(1.08)}.photo-tag{position:absolute;left:18px;bottom:18px;background:#050607dc;border:1px solid #383c42;padding:10px 13px;font:10px "Courier New",monospace;letter-spacing:.16em;color:#d8d5cf}
+
+.directive{background:#090b0e}.directive-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:22px;align-items:start}.directive-copy .giant{font:700 clamp(76px,11vw,170px)/.74 Arial Black,Impact,sans-serif;letter-spacing:-.055em;color:#f0eee8}.directive-copy .giant span{display:block;color:var(--signal)}.directive-copy p{max-width:650px;color:#aeb2b8;font:17px/1.75 Georgia,serif}.directive-image{display:flex;justify-content:flex-end;align-items:flex-start}.directive-image img{width:min(820px,135%);max-width:none;display:block;filter:saturate(.76) contrast(1.05) brightness(.94);box-shadow:0 28px 80px rgba(0,0,0,.28)}
+
+.articles{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.article{position:relative;min-height:390px;border:1px solid #30343a;background:linear-gradient(145deg,#0b0d10,#07090b);padding:34px;overflow:hidden}.article:before{content:attr(data-code);position:absolute;right:20px;top:18px;color:#555b64;font:10px "Courier New",monospace;letter-spacing:.15em}.article-no{font:11px "Courier New",monospace;color:var(--signal);letter-spacing:.2em}.article h3{font:400 36px/1.04 Georgia,serif;margin:54px 0 20px}.article p{max-width:560px;color:#a9adb4;font:15px/1.72 Arial,sans-serif}.article .rule{margin-top:28px;padding-top:18px;border-top:1px solid #2a2e34;color:#e2dfd8;font:700 13px/1.6 "Courier New",monospace;letter-spacing:.08em}.article.hot{border-color:#5c3826;background:radial-gradient(circle at 90% 10%,rgba(241,119,36,.12),transparent 28%),#0b0d10}.article.hot h3{color:#f3f0ea}
+
+.split-visual{display:grid;grid-template-columns:1.15fr .85fr;gap:20px}.split-visual img{width:100%;height:660px;object-fit:cover;filter:saturate(.74) contrast(1.06)}.order{border:1px solid #34383f;background:#0a0c0f;padding:40px;display:flex;flex-direction:column;justify-content:space-between}.order .over{font:11px "Courier New",monospace;color:var(--signal);letter-spacing:.22em}.order h3{font:400 54px/.95 Georgia,serif;margin:20px 0 30px}.order ol{margin:0;padding-left:24px}.order li{padding:14px 0 14px 8px;border-bottom:1px solid #292d33;color:#b1b5bc;line-height:1.6}.order li:last-child{border-bottom:0}.approval{margin-top:34px;display:flex;align-items:center;justify-content:space-between;gap:20px;font:10px "Courier New",monospace;color:#7f858e}.approval b{font-size:18px;color:var(--signal);border:2px solid var(--signal);padding:10px 13px;transform:rotate(-3deg)}
+
+.feature-banner{position:relative;min-height:74vh;display:flex;align-items:flex-end;overflow:hidden;border:1px solid #2d3137;background:#080a0d;margin-top:8px}.feature-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.86) contrast(1.02) brightness(.88)}.feature-banner:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,6,7,.86),rgba(5,6,7,.12) 55%),linear-gradient(90deg,rgba(5,6,7,.3),transparent 44%)}.feature-copy{position:relative;z-index:2;padding:64px 0 56px}.feature-copy h3{font:400 clamp(42px,6vw,82px)/.92 Georgia,serif;margin:0 0 18px}.feature-copy p{max-width:760px;font:18px/1.7 Georgia,serif;color:#d7d3cb}.evidence-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.ev{position:relative;min-height:480px;overflow:hidden;border:1px solid #2d3137}.ev img{width:100%;height:100%;object-fit:cover;filter:saturate(.72) contrast(1.05);transition:.6s transform}.ev:hover img{transform:scale(1.025)}.ev:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,5,6,.85),transparent 48%)}.evcap{position:absolute;z-index:2;left:20px;right:20px;bottom:18px}.evcap b{display:block;font:22px Georgia,serif;margin-bottom:8px}.evcap span{font:10px "Courier New",monospace;letter-spacing:.13em;color:#a8adb4}
+
+.eco{position:relative;min-height:82vh;display:flex;align-items:end;overflow:hidden}.eco img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.78) contrast(1.04) brightness(.75)}.eco:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#050607 0%,rgba(5,6,7,.65) 24%,rgba(5,6,7,.1) 60%)}.eco-copy{position:relative;z-index:2;padding:90px 0}.eco h2{max-width:1000px;font:400 clamp(54px,8vw,118px)/.86 Georgia,serif;margin:0}.eco h2 span{color:var(--signal)}.eco p{max-width:680px;font:18px/1.7 Georgia,serif;color:#d2cec6}
+
+.protocol{background:#f0ede4;color:#101216}.protocol .section-no{color:#8c3a1b}.protocol .section-head h2 small{color:#67645e}.protocol-table{border-top:2px solid #17191d}.prow{display:grid;grid-template-columns:180px 1fr 220px;gap:24px;padding:23px 0;border-bottom:1px solid #aaa69d;align-items:center}.pid{font:700 12px "Courier New",monospace;letter-spacing:.12em}.pname{font:24px/1.15 Georgia,serif}.pstatus{text-align:right;font:11px "Courier New",monospace;letter-spacing:.12em;color:#6d6a64}.pstatus b{color:#8d3b1c}
+
+.quote-section{padding:120px 0;background:#07090b;text-align:center}.quote-section .symbol{font:11px "Courier New",monospace;letter-spacing:.25em;color:var(--signal)}.quote{max-width:1150px;margin:36px auto 0;font:italic 400 clamp(48px,7vw,96px)/.98 Georgia,serif;letter-spacing:-.025em}.quote span{color:var(--signal)}.subquote{max-width:760px;margin:30px auto 0;color:#8f949b;line-height:1.7}
+
+.final{position:relative;min-height:86vh;display:grid;place-items:center;overflow:hidden;text-align:center}.final img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.68) contrast(1.06) brightness(.58)}.final:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at center,rgba(5,6,7,.12),rgba(5,6,7,.82) 78%)}.final-inner{position:relative;z-index:2;width:min(1100px,calc(100% - 44px));padding:90px 0}.final .code{font:11px "Courier New",monospace;letter-spacing:.22em;color:#b4b8be}.final h2{font:400 clamp(66px,10vw,150px)/.8 Georgia,serif;margin:26px 0 32px}.final h2 span{display:block;color:var(--signal);font-style:italic;font-size:.56em;margin-top:18px}.final p{max-width:720px;margin:auto;color:#a6abb2;line-height:1.75}.final-stamp{display:inline-block;margin-top:38px;border:2px solid var(--signal);color:var(--signal);padding:13px 19px;font:700 15px "Courier New",monospace;letter-spacing:.16em;transform:rotate(-2deg)}
+
+.boot{position:fixed;z-index:100;inset:0;background:#040506;display:grid;place-items:center;transition:.8s opacity,.8s visibility}.boot.off{opacity:0;visibility:hidden}.bootbox{width:min(680px,calc(100% - 44px));font:13px/1.8 "Courier New",monospace;color:#a7adb4}.bootbox b{color:var(--signal);font-weight:400}.bar{height:2px;background:#24282d;margin-top:18px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:var(--signal);animation:load 1.6s ease forwards}@keyframes load{to{width:100%}}
+.reveal{opacity:0;transform:translateY(24px);transition:.8s ease}.reveal.on{opacity:1;transform:none}
+
+@media(max-width:960px){
+ .wrap{width:min(100% - 30px,var(--max))}.topcode{display:none}.hero-grid,.preamble,.directive-grid,.split-visual{grid-template-columns:1fr}.hero-grid{padding:80px 0 58px}.hero-meta{justify-self:start}.hero h1{font-size:68px}.section{padding:76px 0}.section-head{grid-template-columns:1fr;gap:10px}.articles{grid-template-columns:1fr}.preamble-img{min-height:460px}.split-visual img{height:auto}.evidence-grid{grid-template-columns:1fr}.ev{min-height:520px}.prow{grid-template-columns:95px 1fr}.pstatus{grid-column:2;text-align:left}.eco{min-height:720px}.final{min-height:720px}
+}
+
+@media (max-width:1080px){.directive-grid{grid-template-columns:1fr}.directive-image{justify-content:flex-start}.directive-image img{width:100%;max-width:100%}.feature-banner{min-height:56vh}}
+</style>
+</head>
+<body>
+<div class="boot" id="boot"><div class="bootbox"><b>SYSTEM VITA / 224</b><br>&gt; doctrine archive requested<br>&gt; validating protocol<br>&gt; human priority layer: ACTIVE<br>&gt; opening document 224-D<span id="dots">...</span><div class="bar"><i></i></div></div></div>
+<header class="topbar"><div class="wrap" style="display:flex;align-items:center;justify-content:space-between"><a class="brand" href="index.html#doctrine" aria-label="Повернутися на головну">ВІТА <b>224</b></a><div class="topcode">DOCTRINE / PUBLIC RELEASE / <span>NEW ERA PROTOCOL</span></div></div></header>
+
+<main>
+<section class="hero">
+ <div class="hero-media"><img src="assets/img/dlia-doktryna-storinka%20(1).jpg" alt="Віта у зруйнованому місті"></div>
+ <div class="wrap hero-grid">
+  <div><div class="kicker">SYSTEM VITA / OFFICIAL DOCTRINE / 224-D</div><h1>ДОКТРИНА <em>СИСТЕМИ ВІТА</em></h1><p class="lead">Кодекс Нової Ери про людину, свободу, технології, планету і право переписувати правила, які більше не працюють.</p></div>
+  <aside class="hero-meta"><div class="line"><span class="key">ДОКУМЕНТ</span><span class="value">224-D / SYSTEM VITA</span></div><div class="line"><span class="key">СТАТУС</span><span class="value">ПУБЛІЧНИЙ МАНІФЕСТ</span></div><div class="line"><span class="key">РІВЕНЬ</span><span class="value">NEW ERA / OPEN</span></div><div class="line"><span class="key">ПРІОРИТЕТ</span><span class="value">HUMAN &gt; ALGORITHM</span></div><div class="stamp">RATIFIED / 224</div></aside>
+ </div>
+</section>
+<div class="signal-strip"><div class="ticker"><span><b>HUMAN &gt; ALGORITHM</b></span><span>ZERO WAR</span><span>RESTORE FORESTS</span><span>CLEAN RIVERS</span><span>OPEN MOVEMENT</span><span>PLANET EARTH / ONE HOME</span><span><b>HUMAN &gt; ALGORITHM</b></span><span>ZERO WAR</span><span>RESTORE FORESTS</span><span>CLEAN RIVERS</span><span>OPEN MOVEMENT</span><span>PLANET EARTH / ONE HOME</span></div></div>
+
+<section class="section"><div class="wrap"><div class="section-head reveal"><div class="section-no">00 / PREAMBLE</div><h2>Преамбула<small>Основоположне положення Доктрини 224</small></h2></div>
+ <div class="preamble reveal"><article class="paper"><h3>ПОСТАНОВА 224-D</h3><p><b>Система Віта</b> виходить із положення, що будь-яка система — технологічна, економічна, інформаційна чи політична — має сенс лише доти, доки вона служить людині та не забирає в неї свободу вибору.</p><p>Людина не є контентом. Увага не є безмежним ресурсом. Планета не є витратним матеріалом. Війна не є інструментом управління. Технологія не є вищою за життя.</p><p>Коли правило перестає захищати життя, свободу і майбутнє, воно підлягає перегляду. Коли система вимагає поклоніння замість служіння — вона підлягає перезапуску.</p><p class="legal">Документ має статус художньо-філософської доктрини музичного проєкту ВІТА та не є актом державного права.</p><div class="seal">SYSTEM VITA<br>PROTOCOL<br>224</div></article><div class="preamble-img"><img src="assets/img/dlia-doktryna-storinka%20(1).png" alt="Командний центр Системи Віта"><div class="photo-tag">ARCHIVE IMAGE / COMMAND LAYER</div></div></div>
+</div></section>
+
+<section class="section directive"><div class="wrap directive-grid reveal"><div class="directive-copy"><div class="kicker">PRIMARY DIRECTIVE / 224-01</div><div class="giant">HUMAN <span>&gt; ALGORITHM</span></div><p>Жоден алгоритм, рейтинг, платформа, тренд або метрика не мають права визначати цінність людини. Технологія може рекомендувати. Людина вирішує.</p></div><div class="directive-image"><img src="assets/img/dlia-doktryna-storinka%20(3).png" alt="Маніфест людина понад алгоритмом"></div></div></section>
+
+<section class="section"><div class="wrap"><div class="section-head reveal"><div class="section-no">01–08 / ARTICLES</div><h2>Основні положення<small>Вісім статей Системи Віта</small></h2></div>
+<div class="articles">
+ <article class="article hot reveal" data-code="224-01"><div class="article-no">СТАТТЯ 01</div><h3>Суверенність уваги</h3><p>Людина має право не бути доступною алгоритмам постійно. Вихід із мережі, тиша, приватність і відмова від участі не потребують виправдання.</p><div class="rule">ПРАВИЛО: ТВОЯ УВАГА НАЛЕЖИТЬ ТОБІ.</div></article>
+ <article class="article reveal" data-code="224-02"><div class="article-no">СТАТТЯ 02</div><h3>Право вийти</h3><p>Жодна система не має утримувати людину страхом втрати статусу, переглядів, контактів або доступу. Якщо середовище руйнує — з нього дозволено піти.</p><div class="rule">НЕ ТРИМАЙСЯ ЗА ТЕ, ЩО ТРИМАЄ ТЕБЕ.</div></article>
+ <article class="article reveal" data-code="224-03"><div class="article-no">СТАТТЯ 03</div><h3>Право переписати правило</h3><p>Перед відмовою від системи допускається спроба змінити її правило — не руйнувати людей, а ламати механізм, який робить систему несправедливою або безглуздою.</p><div class="rule">ЗЛАМАТИ ПРАВИЛО ≠ ЗЛАМАТИ ЛЮДИНУ.</div></article>
+ <article class="article hot reveal" data-code="224-04"><div class="article-no">СТАТТЯ 04</div><h3>Нульова війна</h3><p>Війна не визнається допустимою нормою політики, престижу або економіки. Життя має вищий статус за територіальну амбіцію, рейтинг і владу.</p><div class="rule">STOP WAR / LIFE PRIORITY ACTIVE.</div></article>
+ <article class="article reveal" data-code="224-05"><div class="article-no">СТАТТЯ 05</div><h3>Економічна гідність</h3><p>Економіка існує для забезпечення життя, а не життя для обслуговування економіки. Базові ресурси, праця і можливості не можуть бути привілеєм вузького кола.</p><div class="rule">ГРОШІ — ІНСТРУМЕНТ. ЛЮДИНА — НЕ РЕСУРС.</div></article>
+ <article class="article reveal" data-code="224-06"><div class="article-no">СТАТТЯ 06</div><h3>Свобода руху</h3><p>Походження не визначає цінність. Вільне переміщення, культурний обмін і право шукати безпечне життя визнаються нормою майбутнього в межах права і безпеки.</p><div class="rule">КОРДОН НЕ МАЄ СТАВАТИ ВИРОКОМ.</div></article>
+ <article class="article hot reveal" data-code="224-07"><div class="article-no">СТАТТЯ 07</div><h3>Відновлення планети</h3><p>Ліси, річки, океани і повітря мають статус інфраструктури життя. Їх відновлення є обов’язком систем, які користуються ресурсами Землі.</p><div class="rule">RESTORE / CLEAN / REBUILD.</div></article>
+ <article class="article reveal" data-code="224-08"><div class="article-no">СТАТТЯ 08</div><h3>Громадянин планети Земля</h3><p>До будь-яких паспортів, статусів і належностей людина має первинну ідентичність — людина планети Земля. Це не скасовує держав, а встановлює спільну межу відповідальності.</p><div class="rule">PRIMARY ID: HUMAN / PLANET EARTH.</div></article>
+</div></div></section>
+
+<section class="section"><div class="wrap"><div class="section-head reveal"><div class="section-no">09 / EXECUTIVE ORDER</div><h2>Протокол перезапуску<small>Що робить Система, коли старий код більше не працює</small></h2></div>
+<div class="split-visual reveal"><img src="assets/img/dlia-doktryna-storinka%20(2).png" alt="Віта активує протокол"><article class="order"><div><div class="over">EXECUTIVE ORDER / RESET SEQUENCE</div><h3>Не знищити світ.<br>Змінити його код.</h3><ol><li>Зупинити механізм, який множить шкоду.</li><li>Від’єднати людську цінність від рейтингів і переглядів.</li><li>Повернути технології роль інструменту, а не судді.</li><li>Перенаправити ресурси на життя, відновлення і доступ.</li><li>Відновити природні системи до стану, в якому вони можуть жити без постійного порятунку.</li><li>Після перезапуску — не будувати новий культ. Залишити людині свободу.</li></ol></div><div class="approval"><span>AUTHORIZED BY / SYSTEM VITA 224</span><b>RESET APPROVED</b></div></article></div>
+</div></section>
+
+<section class="section"><div class="wrap"><div class="section-head reveal"><div class="section-no">10 / EVIDENCE</div><h2>Візуальний код доктрини<small>Не декорація. Символи положень 224.</small></h2></div>
+<div class="feature-banner reveal"><img src="assets/img/dlia-doktryna-storinka%20(4).png" alt="Віта і світловий слон"><div class="wrap feature-copy"><div class="kicker">ICON / CORE EMBLEM / 224-ELEPHANT</div><h3>Сила без руйнування</h3><p>Слон у Системі Віта — не про окупацію простору, а про пам’ять, силу, витримку і відповідальність. Це образ потужності, яка не нищить, а тримає курс, несе вагу змін і захищає життя.</p></div></div>
+<div class="evidence-grid">
+<div class="ev reveal"><img src="assets/img/dlia-doktryna-storinka%20(10).png" alt="Людина керує Системою Віта"><div class="evcap"><b>Людина керує системою</b><span>CONTROL / HUMAN / COMMAND</span></div></div>
+<div class="ev reveal"><img src="assets/img/dlia-doktryna-storinka%20(6).png" alt="Відбудова світу"><div class="evcap"><b>Відбудова замість захоплення</b><span>PROTOCOL / REBUILD</span></div></div>
+<div class="ev reveal"><img src="assets/img/dlia-doktryna-storinka%20(7).png" alt="Атом Системи Віта"><div class="evcap"><b>Енергія під контролем людини</b><span>CORE / ATOM / SYSTEM VITA</span></div></div>
+</div></div></section>
+
+<section class="eco"><img src="assets/img/dlia-doktryna-storinka%20(9).png" alt="Відновлений ліс"><div class="wrap eco-copy reveal"><div class="kicker">PLANETARY RESTORATION / 224-GREEN</div><h2>Ліс — не фон.<br><span>Річка — не ресурс.</span><br>Це система життя.</h2><p>Екологічний блок Доктрини не формулюється як благодійність. Це інфраструктурне відновлення: вода, ґрунт, ліс, повітря та біорізноманіття мають бути включені в будь-яку модель майбутнього як базові умови існування.</p></div></section>
+
+<section class="section protocol"><div class="wrap"><div class="section-head reveal"><div class="section-no">11 / STATUS BOARD</div><h2>Реєстр протоколів<small>Операційна карта Нової Ери</small></h2></div><div class="protocol-table reveal">
+<div class="prow"><div class="pid">224-A01</div><div class="pname">Людина понад алгоритмом</div><div class="pstatus"><b>ACTIVE</b> / PRIORITY</div></div>
+<div class="prow"><div class="pid">224-W00</div><div class="pname">Нульова війна</div><div class="pstatus"><b>MANDATORY</b> / LIFE</div></div>
+<div class="prow"><div class="pid">224-E07</div><div class="pname">Відновлення природних систем</div><div class="pstatus"><b>ACTIVE</b> / PLANET</div></div>
+<div class="prow"><div class="pid">224-M06</div><div class="pname">Свобода руху та безпечного життя</div><div class="pstatus"><b>OPEN</b> / HUMAN</div></div>
+<div class="prow"><div class="pid">224-ID1</div><div class="pname">Первинний статус: людина планети Земля</div><div class="pstatus"><b>GLOBAL</b> / ID</div></div>
+<div class="prow"><div class="pid">224-RST</div><div class="pname">Право на перезапуск несправної системи</div><div class="pstatus"><b>READY</b> / RESET</div></div>
+</div></div></section>
+
+<section class="quote-section"><div class="wrap reveal"><div class="symbol">SYSTEM VITA / CORE PHRASE</div><div class="quote">«Якщо система більше не служить людині — <span>людина не зобов’язана служити системі.</span>»</div><p class="subquote">Музичний трек «Система Віта» — це емоційна, груба і навмисно перевантажена версія цього документа. Доктрина — його холодний офіційний код.</p></div></section>
+
+<section class="final"><img src="assets/img/dlia-doktryna-storinka%20(8).png" alt="Нова система життя"><div class="final-inner reveal"><div class="code">FINAL PROVISION / 224-F</div><h2>СИСТЕМА ВІТА<span>не просить дозволу на майбутнє.</span></h2><p>Вона формулює умови, за яких майбутнє має сенс: людина не нижча за алгоритм, життя не нижче за владу, планета не нижче за прибуток, свобода не нижче за систему.</p><div class="final-stamp">SYSTEM INITIALIZED / 3 · 2 · 1 · GO</div></div></section>
+</main>
+
+<script>
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('boot').classList.add('off'),1750));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
-</body></html>
+</body>
+</html>
