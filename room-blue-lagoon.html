@@ -2,27 +2,250 @@
 <html lang="uk">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#050507">
-<title>Голуба Лагуна — ВІТА</title>
-<meta name="description" content="Голуба Лагуна — кімната Системи Віта.">
-<link rel="icon" type="image/png" sizes="512x512" href="assets/img/vita-icon-512-v9.png">
-<link rel="apple-touch-icon" href="assets/img/vita-icon-512-v9.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=show-door-fog-1">
-<link rel="stylesheet" href="rooms-vita.css?v=1">
-<script src="site-language.js?v=1" defer></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Голуба Лагуна — VITA / Room 03 Prototype</title>
+<style>
+:root {
+  --bg:#040608;
+  --panel:#08101a;
+  --panel2:#0b1622;
+  --ink:#f6f8fb;
+  --muted:#98a9ba;
+  --cyan:#17d9ff;
+  --blue:#168cff;
+  --ice:#dff8ff;
+  --line:rgba(174,228,255,.22);
+  --glass:rgba(9,21,34,.56);
+  --max:1420px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:
+  radial-gradient(circle at 20% 10%, rgba(20,80,120,.22), transparent 30%),
+  radial-gradient(circle at 80% 25%, rgba(0,180,255,.12), transparent 28%),
+  #040608;
+  color:var(--ink);font-family:Inter,Arial,Helvetica,sans-serif;overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:90;
+  background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);
+  background-size:4px 4px;opacity:.32;mix-blend-mode:screen
+}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(var(--max),calc(100% - 48px));margin:auto}
+.top{
+  height:72px;display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--line);position:fixed;left:0;right:0;top:0;z-index:50;
+  background:rgba(3,6,9,.72);backdrop-filter:blur(18px)
+}
+.logo{font:400 28px Georgia,serif;letter-spacing:.08em}
+.logo span{color:var(--cyan)}
+.nav{display:flex;gap:28px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#c4d4e2}
+
+.hero{min-height:100vh;position:relative;display:flex;align-items:end;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.88) contrast(1.12) brightness(.74)}
+.hero:before{content:"";position:absolute;inset:0;z-index:1;background:
+ linear-gradient(90deg,rgba(2,5,8,.95) 0%,rgba(2,5,8,.73) 27%,rgba(2,5,8,.14) 60%,rgba(2,5,8,.06) 100%),
+ linear-gradient(0deg,#040608 0%,rgba(4,6,8,.35) 35%,rgba(4,6,8,.06) 76%);
+}
+.hero:after{content:"";position:absolute;inset:-20%;z-index:1;background:
+ radial-gradient(ellipse at 72% 78%,rgba(13,192,255,.16),transparent 24%),
+ radial-gradient(ellipse at 63% 18%,rgba(255,255,255,.12),transparent 17%);
+ filter:blur(18px)}
+.hero-copy{position:relative;z-index:4;padding:150px 0 90px;max-width:920px}
+.kicker{font:12px "Courier New",monospace;letter-spacing:.28em;color:#74eaff;margin-bottom:20px}
+.hero h1{font:400 clamp(74px,10vw,158px)/.8 Georgia,serif;letter-spacing:-.045em;margin:0}
+.hero h1 em{display:block;color:var(--cyan);font-size:.38em;font-style:italic;margin-top:18px}
+.hero p{max-width:650px;font:19px/1.6 Georgia,serif;color:#c9d8e3;margin:30px 0 0}
+.hero-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.pill{padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(4,11,18,.48);font:10px "Courier New",monospace;letter-spacing:.15em;color:#cfefff}
+
+.fog{position:absolute;z-index:3;left:-10%;right:-10%;bottom:-10%;height:38%;pointer-events:none;opacity:.58;
+ background:
+ radial-gradient(ellipse at 15% 50%,rgba(232,250,255,.22),transparent 45%),
+ radial-gradient(ellipse at 52% 60%,rgba(232,250,255,.24),transparent 46%),
+ radial-gradient(ellipse at 88% 42%,rgba(232,250,255,.22),transparent 42%);
+ filter:blur(28px);animation:fog 12s ease-in-out infinite alternate
+}
+@keyframes fog{to{transform:translateX(4%) scale(1.05);opacity:.7}}
+
+.section{padding:110px 0;border-top:1px solid var(--line)}
+.section-head{display:grid;grid-template-columns:170px 1fr;gap:32px;margin-bottom:48px}
+.no{font:11px "Courier New",monospace;color:#53d9ff;letter-spacing:.2em;padding-top:9px}
+.section h2{font:400 clamp(46px,6vw,88px)/.92 Georgia,serif;margin:0}
+.section h2 small{display:block;font:11px "Courier New",monospace;letter-spacing:.17em;color:#7c91a5;margin-top:15px;text-transform:uppercase}
+
+.formula-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:20px}
+.formula-visual{min-height:650px;position:relative;overflow:hidden;border:1px solid var(--line)}
+.formula-visual img{width:100%;height:100%;object-fit:cover;filter:saturate(.95) contrast(1.08)}
+.formula-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(3,7,11,.65),transparent 52%)}
+.formula-card{background:linear-gradient(145deg,rgba(9,19,30,.92),rgba(5,10,16,.94));border:1px solid var(--line);padding:38px;display:flex;flex-direction:column;justify-content:space-between}
+.formula-card h3{font:400 46px/1 Georgia,serif;margin:0 0 18px}
+.formula-card p{color:#9db0c2;line-height:1.7;max-width:560px}
+.specs{margin-top:24px;border-top:1px solid var(--line)}
+.spec{display:grid;grid-template-columns:160px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--line);align-items:center}
+.spec span{font:10px "Courier New",monospace;letter-spacing:.15em;color:#6ee7ff}
+.spec b{font-weight:500;color:#edf8ff}
+.note{margin-top:26px;padding:14px 16px;border-left:2px solid var(--cyan);background:rgba(17,217,255,.05);font-size:13px;color:#b9d2e2}
+
+.protocol{background:linear-gradient(180deg,#05080c,#08111a)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.step{border:1px solid var(--line);background:rgba(7,15,24,.82);overflow:hidden;min-height:460px;display:flex;flex-direction:column}
+.step img{width:100%;height:240px;object-fit:cover;filter:saturate(.9) contrast(1.08)}
+.step-copy{padding:24px;display:flex;flex-direction:column;gap:12px}
+.step-no{font:10px "Courier New",monospace;letter-spacing:.17em;color:#69e7ff}
+.step h3{font:400 28px/1 Georgia,serif;margin:0}
+.step p{color:#8fa3b5;line-height:1.6;margin:0;font-size:14px}
+
+.atmosphere{position:relative;min-height:78vh;display:flex;align-items:end;overflow:hidden}
+.atmosphere img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.07) brightness(.72)}
+.atmosphere:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#040608 0%,rgba(4,6,8,.62) 30%,rgba(4,6,8,.12) 70%)}
+.atm-copy{position:relative;z-index:2;padding:90px 0}
+.atm-copy h2{max-width:900px;font:400 clamp(58px,8vw,116px)/.84 Georgia,serif;margin:0}
+.atm-copy h2 span{color:#3ee6ff}
+.atm-copy p{max-width:680px;color:#b8c7d3;font:18px/1.65 Georgia,serif}
+
+.vita-block{display:grid;grid-template-columns:.86fr 1.14fr;gap:18px;align-items:stretch}
+.vita-photo{position:relative;min-height:650px;border:1px solid var(--line);overflow:hidden}
+.vita-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.86) contrast(1.1)}
+.vita-copy{border:1px solid var(--line);background:rgba(8,18,29,.8);padding:44px;display:flex;flex-direction:column;justify-content:center}
+.vita-copy .quote{font:italic 400 clamp(38px,5vw,68px)/1.02 Georgia,serif;margin:0 0 26px}
+.vita-copy .quote span{color:#65e8ff}
+.vita-copy p{color:#95aabd;line-height:1.75;max-width:600px}
+.signature{margin-top:26px;font:11px "Courier New",monospace;letter-spacing:.16em;color:#69e8ff}
+
+.video{padding:110px 0;background:#030506}
+.video-frame{position:relative;min-height:620px;border:1px solid var(--line);overflow:hidden;background:#06101a}
+.video-frame img{width:100%;height:100%;min-height:620px;object-fit:cover;filter:saturate(.8) brightness(.58) contrast(1.12)}
+.video-frame:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at center,rgba(0,0,0,.05),rgba(0,0,0,.45) 72%)}
+.play{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);width:110px;height:110px;border-radius:50%;border:1px solid rgba(222,249,255,.55);display:grid;place-items:center;background:rgba(4,13,22,.45);backdrop-filter:blur(8px)}
+.play:before{content:"";margin-left:8px;border-left:28px solid #dff9ff;border-top:17px solid transparent;border-bottom:17px solid transparent}
+.video-label{position:absolute;z-index:3;left:28px;bottom:28px}
+.video-label b{display:block;font:400 42px Georgia,serif}
+.video-label span{font:10px "Courier New",monospace;letter-spacing:.18em;color:#6fe7ff}
+
+.final{position:relative;min-height:82vh;display:grid;place-items:center;text-align:center;overflow:hidden}
+.final img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.94) contrast(1.08) brightness(.55)}
+.final:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at center,rgba(3,8,12,.2),rgba(3,8,12,.88) 78%)}
+.final-inner{position:relative;z-index:2;width:min(920px,calc(100% - 40px))}
+.final .code{font:11px "Courier New",monospace;letter-spacing:.2em;color:#72e8ff}
+.final h2{font:400 clamp(66px,10vw,142px)/.82 Georgia,serif;margin:26px 0}
+.final h2 span{display:block;color:#37defa;font-style:italic;font-size:.48em;margin-top:18px}
+.final p{color:#a8bdcd;line-height:1.75;max-width:660px;margin:auto}
+
+.icebits{position:fixed;inset:0;pointer-events:none;z-index:80;overflow:hidden;opacity:.36}
+.icebits i{position:absolute;width:18px;height:18px;border:1px solid rgba(196,244,255,.7);background:rgba(197,242,255,.08);backdrop-filter:blur(2px);transform:rotate(45deg);animation:float 12s linear infinite}
+.icebits i:nth-child(1){left:5%;top:18%;animation-delay:-3s}
+.icebits i:nth-child(2){left:86%;top:28%;width:12px;height:12px;animation-delay:-7s}
+.icebits i:nth-child(3){left:73%;top:70%;width:24px;height:24px;animation-delay:-5s}
+@keyframes float{50%{transform:translateY(-26px) rotate(75deg)}}
+
+.reveal{opacity:0;transform:translateY(24px);transition:.8s ease}
+.reveal.on{opacity:1;transform:none}
+@media(max-width:940px){
+ .wrap{width:min(var(--max),calc(100% - 28px))} .nav{display:none}
+ .section-head,.formula-grid,.vita-block{grid-template-columns:1fr}
+ .steps{grid-template-columns:1fr} .hero h1{font-size:70px}
+ .formula-visual,.vita-photo{min-height:520px}
+ .video-frame,.video-frame img{min-height:480px}
+ .section{padding:78px 0}
+}
+</style>
 </head>
-<body class="info-page room-detail room-detail-3">
-<header class="site-header info-header"><a class="brand" href="index.html#top">ВІТА</a><nav class="desktop-nav" aria-label="Навігація"><a href="index.html#portals">ДВЕРІ</a><a href="index.html#music">РАДІО 224 FM</a></nav><div class="header-actions"><a class="info-home" href="index.html#portals">НА ГОЛОВНУ</a></div></header>
-<main class="info-main rooms-main">
-<a class="info-back" href="music-room-vita.html">← КІМНАТИ ВІТИ</a>
-<p class="info-kicker">03 / КІМНАТИ ВІТИ</p>
-<h1>Голуба Лагуна</h1>
-<figure class="room-scene"><img src="assets/img/03-goluba-laguna.png" alt="Голуба Лагуна" fetchpriority="high" decoding="async" width="1672" height="941"></figure>
-<div class="room-return-links"><a class="info-back-bottom" href="music-room-vita.html">← ДО КІМНАТ ВІТИ</a><a class="info-back-bottom" href="index.html#portals">НА ГОЛОВНУ ↗</a></div>
+<body>
+<div class="icebits"><i></i><i></i><i></i></div>
+<header class="top"><div class="wrap" style="display:flex;align-items:center;justify-content:space-between">
+  <a class="logo" href="music-room-vita.html?lang=uk">ВІТА <span>224</span></a>
+  <nav class="nav"><a href="music-room-vita.html?lang=uk">Кімнати</a><a href="#formula">Формула</a><a href="#protocol">Протокол</a><a href="#video">Відео</a><a href="index.html?lang=uk">На головну</a></nav>
+</div></header>
+
+<main>
+<section class="hero">
+ <img src="assets/img/03-goluba-laguna.png" alt="Віта готує Голубу Лагуну">
+ <div class="fog"></div>
+ <div class="wrap hero-copy">
+  <div class="kicker">03 / КІМНАТИ ВІТИ · COLD COCKTAIL PROTOCOL</div>
+  <h1>ГОЛУБА<br>ЛАГУНА<em>BLUE STATE / ON</em></h1>
+  <p>Нічна формула холоду: чорний мармур, білий туман, лід, скло і електричний синій. Тут рецепт працює як ритуал.</p>
+  <div class="hero-meta"><span class="pill">ICE / 04°C</span><span class="pill">GLASS / FROSTED</span><span class="pill">MODE / NIGHT</span><span class="pill">ROOM / 03</span></div>
+ </div>
+</section>
+
+<section class="section" id="formula"><div class="wrap">
+ <div class="section-head reveal"><div class="no">01 / FORMULA</div><h2>Формула Голубої Лагуни<small>Точні пропорції додамо з твого рецепта</small></h2></div>
+ <div class="formula-grid reveal">
+  <div class="formula-visual"><img src="assets/img/03-kuhnia.png" alt="Інгредієнти Голубої Лагуни"></div>
+  <article class="formula-card">
+   <div><div class="kicker">COLD LAB / INGREDIENT MAP</div><h3>Не список.<br>Склад системи.</h3><p>У фінальній версії тут буде твоя точна формула — без вигаданих пропорцій. Кожен компонент подається як частина холодного протоколу.</p>
+   <div class="specs">
+    <div class="spec"><span>BASE</span><b>твоя основа</b></div>
+    <div class="spec"><span>COLOR AGENT</span><b>синій компонент</b></div>
+    <div class="spec"><span>SPARK</span><b>газована частина / твій варіант</b></div>
+    <div class="spec"><span>ICE LOAD</span><b>лід</b></div>
+    <div class="spec"><span>CITRUS MARK</span><b>лимон / лайм</b></div>
+   </div></div>
+   <div class="note">PROTOTYPE NOTE: точні мл та порядок внесемо після того, як ти даси свій рецепт.</div>
+  </article>
+ </div>
+</div></section>
+
+<section class="section protocol" id="protocol"><div class="wrap">
+ <div class="section-head reveal"><div class="no">02 / ACTIVATION</div><h2>Протокол приготування<small>Не блог. Послідовність активації.</small></h2></div>
+ <div class="steps">
+  <article class="step reveal"><img src="assets/img/03-kuhnia.png" alt="Вимірювання інгредієнтів"><div class="step-copy"><span class="step-no">STEP 01</span><h3>Охолодити</h3><p>Келих, метал і лід мають виглядати так, ніби температура відчувається прямо з екрана.</p></div></article>
+  <article class="step reveal"><img src="assets/img/03-goluba-laguna.png" alt="Лід у Голубій Лагуні"><div class="step-copy"><span class="step-no">STEP 02</span><h3>Додати лід</h3><p>Великий прозорий лід, вода на мармурі, конденсат і різкий білий блиск.</p></div></article>
+  <article class="step reveal"><img src="assets/img/03-goluba-laguna.png" alt="Віта наливає коктейль"><div class="step-copy"><span class="step-no">STEP 03</span><h3>Активувати синій</h3><p>Головний момент сторінки — синя рідина входить у кадр як світлова подія.</p></div></article>
+  <article class="step reveal"><img src="assets/img/03-goluba-laguna.png" alt="Готова Голуба Лагуна"><div class="step-copy"><span class="step-no">STEP 04</span><h3>Фінальний знак</h3><p>Цитрус, холодне скло, чистий колір. Без жовтого світла та ресторанної банальності.</p></div></article>
+  <article class="step reveal"><img src="assets/img/03-goluba-laguna.png" alt="Віта з коктейлем"><div class="step-copy"><span class="step-no">STEP 05</span><h3>Спробувати</h3><p>Не рекламна усмішка. Спокійний fashion-кадр — ніби Віта перевіряє результат.</p></div></article>
+  <article class="step reveal"><img src="assets/img/03-kuhnia.png" alt="Портрет Віти"><div class="step-copy"><span class="step-no">STEP 06</span><h3>Blue State</h3><p>Після рецепта сторінка переходить від дії до атмосфери — холод, тиша, дим і ніч.</p></div></article>
+ </div>
+</div></section>
+
+<section class="atmosphere">
+ <img src="assets/img/03-goluba-laguna.png" alt="Крижаний коктейль">
+ <div class="wrap atm-copy reveal">
+   <div class="kicker">03 / ICE LANGUAGE</div>
+   <h2>Лід — не декор.<br><span>Це графічна мова.</span></h2>
+   <p>Краї секцій можуть “замерзати”, текст — проступати крізь запітніле скло, а туман і конденсат працюють як переходи між блоками.</p>
+ </div>
+</section>
+
+<section class="section" id="vita"><div class="wrap">
+ <div class="section-head reveal"><div class="no">04 / VITA NOTE</div><h2>ВІТА рекомендує<small>Особиста репліка замість стандартної поради бармена</small></h2></div>
+ <div class="vita-block reveal">
+  <div class="vita-photo"><img src="assets/img/03-kuhnia.png" alt="Віта біля барної стійки"></div>
+  <div class="vita-copy">
+    <div class="kicker">PERSONAL NOTE / ROOM 03</div>
+    <div class="quote">«Не поспішай. <span>Голуба Лагуна працює тоді, коли келих справді холодний.</span>»</div>
+    <p>Це може бути не фінальний текст — тут важлива сама механіка: одна коротка жива фраза ВІТИ, яка дає сторінці характер і відділяє її від звичайних рецептів.</p>
+    <div class="signature">VITA / 224 / BLUE LAGOON</div>
+  </div>
+ </div>
+</div></section>
+
+<section class="video" id="video"><div class="wrap">
+ <div class="section-head reveal"><div class="no">05 / VIDEO</div><h2>ВІТА приготувала<small>Cinematic player section</small></h2></div>
+ <div class="video-frame reveal">
+  <img src="assets/img/03-goluba-laguna.png" alt="Відео ВІТИ — Голуба Лагуна">
+  <div class="play" aria-label="Місце під кнопку відтворення"></div>
+  <div class="video-label"><span>VIDEO / SOON</span><b>Blue Lagoon / Room 03</b></div>
+ </div>
+</div></section>
+
+<section class="final">
+ <img src="assets/img/03-goluba-laguna.png" alt="Фінал Голубої Лагуни">
+ <div class="final-inner reveal">
+  <div class="code">AFTERTASTE / ROOM 03 / 224</div>
+  <h2>BLUE STATE<span>ON.</span></h2>
+  <p>Смак увімкнено. Лід тримає форму. Ніч — теж.</p>
+ </div>
+</section>
 </main>
-<footer><a class="footer-brand" href="index.html#top">ВІТА</a><p>© Victoria Sidney Records</p><p>VITA SYSTEM / 224 FM</p></footer>
-</body></html>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
