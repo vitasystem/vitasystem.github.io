@@ -69,7 +69,7 @@
     enemies.forEach(e=>{e.x+=e.vx*dt;e.y=e.baseY+Math.sin(elapsed*1.25+e.phase)*22;if(e.x<W*.38)e.vx=Math.abs(e.vx);if(e.x>W*.9)e.vx=-Math.abs(e.vx);});
     for(const b of bullets){const oldX=b.x,oldY=b.y;if(b.target){const e=enemies.find(e=>e.id===b.target&&!e.dead);if(e){const a=Math.atan2(e.y-b.y,e.x-b.x);b.vx=Math.cos(a)*850;b.vy=Math.sin(a)*850;}}b.x+=b.vx*dt;b.y+=b.vy*dt;b.life-=dt;const hit=enemies.find(e=>!e.dead&&segmentDistance(e.x,e.y,oldX,oldY,b.x,b.y)<e.r+5);if(hit){b.life=0;explode(hit);}}
     enemies=enemies.filter(e=>!e.dead);bullets=bullets.filter(b=>b.life>0&&b.x>-50&&b.x<W+50&&b.y>-50&&b.y<H+50);
-    particles.forEach(p=>{p.x+=p.vx*dt;p.y+=p.vy*dt;p.vy+=110*dt;p.life-=dt;});particles=particles.filter(p=>p.life>0);smoke.forEach(p=>{p.r+=dt*36;p.y-=dt*24;p.life-=dt;});smoke=smoke.filter(p=>p.life>0);if(mode==='playing'&&shieldButton.disabled&&elapsed>=shieldUntil&&!paused)shieldButton.disabled=false;
+    particles.forEach(p=>{p.x+=p.vx*dt;p.y+=p.vy*dt;p.vy+=110*dt;p.life-=dt;});particles=particles.filter(p=>p.life>0);smoke.forEach(p=>{p.r+=dt*36;p.y-=dt*24;p.life-=dt;});smoke=smoke.filter(p=>p.life>0);if(mode==='playing'&&shieldButton.disabled&&elapsed>=shieldUntil&&!paused){shieldButton.disabled=false;labels();}
   }
   function line(points,stroke,width=1){ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(...p):ctx.moveTo(...p));ctx.strokeStyle=stroke;ctx.lineWidth=width;ctx.stroke();}
   function bug(e){ctx.save();ctx.translate(e.x,e.y);const s=e.r/34;ctx.scale(s,s);const flap=reduced?0:Math.sin(elapsed*17+e.phase)*9;
