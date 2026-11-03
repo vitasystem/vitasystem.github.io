@@ -75,6 +75,15 @@
 /* Smaller, balanced page title for the longer estate name. */
 .room-detail-6 .rooms-main>h1{font-size:clamp(36px,5.1vw,67px);line-height:1.12;letter-spacing:-.027em;max-width:1120px;text-wrap:balance}
 @media(max-width:600px){.room-detail-6 .rooms-main>h1{font-size:clamp(32px,8.2vw,43px);line-height:1.16}}
+/* Preserve every photo's original framing, including the top of the image. */
+.caruso-photo img,
+.caruso-gallery--three .caruso-photo:first-child img,
+.caruso-gallery--one .caruso-photo img{
+ height:auto;max-height:none;aspect-ratio:auto;object-fit:contain;object-position:center top
+}
+.caruso-photo a:hover img{transform:none}
+.caruso-intro{grid-template-columns:1fr;text-align:center;gap:22px}
+.caruso-intro p{margin:0 auto}
 </style>
 </head>
 <body class="info-page room-detail room-detail-6">
@@ -85,7 +94,7 @@
 <h1>Сімейний маєток родини Карузо</h1>
 <figure class="room-scene"><img src="assets/img/simeynii-maetok-rodynu-karuso.png" alt="Сімейний маєток родини Карузо над морем" fetchpriority="high" decoding="async"></figure>
 <section class="caruso-album" aria-label="Сімейний альбом Віти">
-<div class="caruso-intro"><div><span class="caruso-eyebrow">VITA SYSTEM / FAMILY ARCHIVE</span><h2>Сімейний <em>альбом.</em></h2></div>
+<div class="caruso-intro"><div><span class="caruso-eyebrow">VITA SYSTEM / FAMILY ARCHIVE</span><h2>Фотоальбом</h2></div>
 <p>За кадром — найближчі люди Віти. Італійське й українське коріння, родинні світлини та моменти, які хочеться зберегти.</p></div>
 <nav class="caruso-index" aria-label="Навігація сімейним альбомом">
 <a href="#caruso-francesca"><b>01</b> Франческа</a><a href="#caruso-stefania"><b>02</b> Стефанія</a><a href="#caruso-parents"><b>03</b> Ерік і Ясмін</a><a href="#caruso-marko"><b>04</b> Марко</a>
