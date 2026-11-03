@@ -14,7 +14,65 @@
 <link rel="stylesheet" href="styles.css?v=show-door-fog-1">
 <link rel="stylesheet" href="rooms-vita.css?v=1">
 <script src="site-language.js?v=rooms-names-3" defer></script>
-<link rel="canonical" href="https://vitasystem.github.io/room-caruso.html"></head>
+<link rel="canonical" href="https://vitasystem.github.io/room-caruso.html"><style>
+/* Only room-caruso.html: local overrides; shared site files remain intact. */
+.room-detail-6 .rooms-main{width:min(1240px,calc(100% - 2*var(--pad)))}
+.room-detail-6 .rooms-main>.info-kicker{color:#d9a6ba}
+.room-detail-6 .room-scene{max-width:100%;margin-bottom:56px;box-shadow:0 24px 75px #0004}
+.caruso-album{position:relative;margin:0 0 74px;color:#f3ebf0}
+.caruso-album *{box-sizing:border-box}
+.caruso-album:before{content:"";position:absolute;z-index:-1;inset:16% -10% 10%;pointer-events:none;background:radial-gradient(ellipse at 12% 22%,#5c193527,transparent 34%),radial-gradient(ellipse at 87% 68%,#495d6d1b,transparent 35%)}
+.caruso-intro{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:22px 64px;padding:37px 0;border-top:1px solid #efdae950;border-bottom:1px solid #efdae928}
+.caruso-eyebrow,.caruso-id{display:block;font:500 10px/1.5 Manrope,Arial,sans-serif;letter-spacing:.26em;color:#e6b6c8;text-transform:uppercase}
+.caruso-intro h2{margin:12px 0 0;font:400 clamp(45px,6vw,82px)/.96 "Bodoni Moda",Georgia,serif;letter-spacing:-.035em}
+.caruso-intro h2 em,.caruso-head h3 em{color:#e0adc2;font-weight:400}
+.caruso-intro p{margin:0 0 4px;color:#cfc5cc;max-width:510px;font:400 clamp(14px,1.5vw,17px)/1.85 Manrope,Arial,sans-serif}
+.caruso-index{display:flex;gap:10px;flex-wrap:wrap;margin:25px 0 8px}
+.caruso-index a{display:inline-flex;align-items:center;gap:9px;border:1px solid #ffffff38;border-radius:40px;background:#ffffff08;padding:10px 16px;color:#f1e9ee;font:500 11px/1.45 Manrope,Arial,sans-serif;text-decoration:none;transition:background .2s,border-color .2s}
+.caruso-index a b{font-weight:500;color:#e3b0c6;font-size:10px}
+.caruso-index a:hover,.caruso-index a:focus-visible{background:#672e473d;border-color:#e5b0c6}
+.caruso-story{margin-top:82px;position:relative;scroll-margin-top:115px}
+.caruso-story:before{content:"";display:block;height:1px;background:linear-gradient(90deg,#e5b5cb9c,#ffffff22,transparent)}
+.caruso-story:after{content:"";position:absolute;top:-3px;left:0;width:7px;height:7px;border-radius:50%;background:#f5e4f0;box-shadow:0 0 19px #fae5f9ad}
+.caruso-head{display:flex;justify-content:space-between;align-items:end;gap:26px;margin:26px 0 25px}
+.caruso-head h3{margin:10px 0 11px;font:400 clamp(37px,5.5vw,70px)/1.01 "Bodoni Moda",Georgia,serif;letter-spacing:-.032em}
+.caruso-head p{margin:0;color:#cfc5ce;font:400 14px/1.6 Manrope,Arial,sans-serif}
+.caruso-head small{color:#a9a4b0;font:500 10px/1.6 Manrope,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.caruso-pet{display:inline-flex;gap:7px;margin:15px 0 0;border:1px solid #f5cde537;border-radius:999px;padding:8px 13px;background:#5b223340;color:#f6d9e5;font:500 11px/1.4 Manrope,Arial,sans-serif}
+.caruso-pet:before{content:"✧";color:#f6d9e5}
+.caruso-gallery{display:grid;gap:16px;align-items:start}
+.caruso-gallery--two,.caruso-gallery--three{grid-template-columns:repeat(2,minmax(0,1fr))}
+.caruso-gallery--three .caruso-photo:first-child{grid-column:1 / -1}
+.caruso-gallery--one{grid-template-columns:1fr}
+.caruso-photo{margin:0;min-width:0;border:1px solid #f0e5f02d;background:#121016;overflow:hidden;box-shadow:0 14px 34px #0004}
+.caruso-photo a{display:block;overflow:hidden;position:relative;outline-offset:-4px}
+.caruso-photo img{width:100%;display:block;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:center;filter:saturate(1.03) contrast(1.01);transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.caruso-gallery--three .caruso-photo:first-child img,.caruso-gallery--one .caruso-photo img{aspect-ratio:16/9}
+.caruso-photo figcaption{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:15px 19px;min-height:60px;border-top:1px solid #ffffff20;background:linear-gradient(110deg,#441a2bdc,#0c111aea);font:400 12px/1.55 Manrope,Arial,sans-serif;color:#f4eef2}
+.caruso-photo figcaption span{font:400 20px/1 Georgia,serif;color:#e8bed0}
+.caruso-photo a:hover img{transform:scale(1.025)}
+.caruso-photo a:focus-visible{outline:2px solid #ffdbec}
+.caruso-story--stefania .caruso-head h3 em{color:#d0d7e0}
+.caruso-story--marko .caruso-head h3 em{color:#ced4e4}
+.caruso-outro{display:flex;align-items:center;gap:14px;margin:77px 0 0;color:#b9afb8;font:500 10px Manrope,Arial,sans-serif;letter-spacing:.21em;text-transform:uppercase}
+.caruso-outro:before,.caruso-outro:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,#ffffff4a,transparent)}
+.room-detail-6 .room-return-links{padding-top:26px;border-top:1px solid #ead7e42b}
+@media(max-width:760px){
+ .room-detail-6 .room-scene{margin-bottom:35px}
+ .caruso-intro{grid-template-columns:1fr;gap:20px;padding:27px 0}
+ .caruso-intro h2{font-size:clamp(43px,11vw,65px)}
+ .caruso-story{margin-top:56px}
+ .caruso-head{align-items:start;flex-direction:column;gap:8px}
+ .caruso-head small{display:none}
+ .caruso-gallery--two,.caruso-gallery--three{grid-template-columns:1fr}
+ .caruso-gallery--three .caruso-photo:first-child{grid-column:auto}
+ .caruso-photo img,.caruso-gallery--three .caruso-photo:first-child img,.caruso-gallery--one .caruso-photo img{aspect-ratio:16/10}
+ .caruso-photo figcaption{min-height:54px;padding:12px 15px}
+ .caruso-outro{margin-top:55px}
+}
+@media(prefers-reduced-motion:reduce){.caruso-index a,.caruso-photo img{transition:none}}
+</style>
+</head>
 <body class="info-page room-detail room-detail-6">
 <header class="site-header info-header"><a class="brand" href="index.html#top">ВІТА</a><nav class="desktop-nav" aria-label="Навігація"><a href="index.html#portals">ДВЕРІ</a><a href="index.html#music">РАДІО 224 FM</a></nav><div class="header-actions"><a class="info-home" href="index.html#portals">НА ГОЛОВНУ</a></div></header>
 <main class="info-main rooms-main">
@@ -22,6 +80,88 @@
 <p class="info-kicker">05 / КІМНАТИ ВІТИ</p>
 <h1>Сім’я Карузо</h1>
 <figure class="room-scene"><img src="assets/img/06-muzychna-kimnata.png" alt="Сім’я Карузо" fetchpriority="high" decoding="async" width="1672" height="941"></figure>
+<section class="caruso-album" aria-label="Сімейний альбом Віти">
+<div class="caruso-intro"><div><span class="caruso-eyebrow">VITA SYSTEM / FAMILY ARCHIVE</span><h2>Сімейний <em>альбом.</em></h2></div>
+<p>За кадром — найближчі люди Віти. Італійське й українське коріння, родинні світлини та моменти, які хочеться зберегти.</p></div>
+<nav class="caruso-index" aria-label="Навігація сімейним альбомом">
+<a href="#caruso-francesca"><b>01</b> Франческа</a><a href="#caruso-stefania"><b>02</b> Стефанія</a><a href="#caruso-parents"><b>03</b> Ерік і Ясмін</a><a href="#caruso-marko"><b>04</b> Марко</a>
+</nav>
+<section class="caruso-story caruso-story--francesca" id="caruso-francesca" aria-labelledby="caruso-title-francesca">
+ <div class="caruso-head"><div><span class="caruso-id">01 / ІТАЛІЙСЬКА РОДИНА</span>
+ <h3 id="caruso-title-francesca">Франческа <em>Карузо</em></h3>
+ <p>Італійська бабуся Віти</p><span class="caruso-pet">Тобі — песик родини</span></div>
+ <small>Сімейні світлини / 02</small></div>
+ <div class="caruso-gallery caruso-gallery--two"><figure class="caruso-photo">
+ <a href="assets/img/ital-babusia-vita%20%281%29.png" target="_blank" rel="noopener" aria-label="Відкрити фото Франческа Карузо у повному розмірі">
+  <img src="assets/img/ital-babusia-vita%20%281%29.png" alt="Франческа Карузо, фотографія 1" loading="lazy" decoding="async">
+ </a>
+ <figcaption>Франческа Карузо<span aria-hidden="true">↗</span></figcaption>
+ </figure>
+<figure class="caruso-photo">
+ <a href="assets/img/ital-babusia-vita%20%282%29.png" target="_blank" rel="noopener" aria-label="Відкрити фото Італійська бабуся Віти у повному розмірі">
+  <img src="assets/img/ital-babusia-vita%20%282%29.png" alt="Італійська бабуся Віти, фотографія 2" loading="lazy" decoding="async">
+ </a>
+ <figcaption>Італійська бабуся Віти<span aria-hidden="true">↗</span></figcaption>
+ </figure></div>
+</section>
+
+<section class="caruso-story caruso-story--stefania" id="caruso-stefania" aria-labelledby="caruso-title-stefania">
+ <div class="caruso-head"><div><span class="caruso-id">02 / УКРАЇНСЬКА РОДИНА</span>
+ <h3 id="caruso-title-stefania"><em>Стефанія</em></h3>
+ <p>Українська бабуся Віти</p></div>
+ <small>Сімейні світлини / 03</small></div>
+ <div class="caruso-gallery caruso-gallery--three"><figure class="caruso-photo">
+ <a href="assets/img/ukr-babusia-vita%20%281%29.png" target="_blank" rel="noopener" aria-label="Відкрити фото Стефанія — українська бабуся Віти у повному розмірі">
+  <img src="assets/img/ukr-babusia-vita%20%281%29.png" alt="Стефанія — українська бабуся Віти, фотографія 1" loading="lazy" decoding="async">
+ </a>
+ <figcaption>Стефанія — українська бабуся Віти<span aria-hidden="true">↗</span></figcaption>
+ </figure>
+<figure class="caruso-photo">
+ <a href="assets/img/ukr-babusia-vita%20%282%29.png" target="_blank" rel="noopener" aria-label="Відкрити фото Разом зі Стефанією у повному розмірі">
+  <img src="assets/img/ukr-babusia-vita%20%282%29.png" alt="Разом зі Стефанією, фотографія 2" loading="lazy" decoding="async">
+ </a>
+ <figcaption>Разом зі Стефанією<span aria-hidden="true">↗</span></figcaption>
+ </figure>
+<figure class="caruso-photo">
+ <a href="assets/img/ukr-babusia-vita%20%283%29.png" target="_blank" rel="noopener" aria-label="Відкрити фото Сімейні миті у повному розмірі">
+  <img src="assets/img/ukr-babusia-vita%20%283%29.png" alt="Сімейні миті, фотографія 3" loading="lazy" decoding="async">
+ </a>
+ <figcaption>Сімейні миті<span aria-hidden="true">↗</span></figcaption>
+ </figure></div>
+</section>
+
+<section class="caruso-story caruso-story--parents" id="caruso-parents" aria-labelledby="caruso-title-parents">
+ <div class="caruso-head"><div><span class="caruso-id">03 / БАТЬКИ ВІТИ</span>
+ <h3 id="caruso-title-parents">Ерік та <em>Ясмін Карузо</em></h3>
+ <p>Батько й мати Віти</p></div>
+ <small>Сімейні світлини / 02</small></div>
+ <div class="caruso-gallery caruso-gallery--two"><figure class="caruso-photo">
+ <a href="assets/img/vita-z-batkamy.png" target="_blank" rel="noopener" aria-label="Відкрити фото Віта з батьками — Еріком та Ясмін у повному розмірі">
+  <img src="assets/img/vita-z-batkamy.png" alt="Віта з батьками — Еріком та Ясмін, фотографія 1" loading="lazy" decoding="async">
+ </a>
+ <figcaption>Віта з батьками — Еріком та Ясмін<span aria-hidden="true">↗</span></figcaption>
+ </figure>
+<figure class="caruso-photo">
+ <a href="assets/img/vita-z-batkamy-2.png" target="_blank" rel="noopener" aria-label="Відкрити фото Родина Карузо у повному розмірі">
+  <img src="assets/img/vita-z-batkamy-2.png" alt="Родина Карузо, фотографія 2" loading="lazy" decoding="async">
+ </a>
+ <figcaption>Родина Карузо<span aria-hidden="true">↗</span></figcaption>
+ </figure></div>
+</section>
+
+<section class="caruso-story caruso-story--marko" id="caruso-marko" aria-labelledby="caruso-title-marko">
+ <div class="caruso-head"><div><span class="caruso-id">04 / БРАТ ВІТИ</span>
+ <h3 id="caruso-title-marko">Марко <em>Карузо</em></h3>
+ <p>Віта з братом Марком</p></div>
+ <small>Сімейні світлини / 01</small></div>
+ <div class="caruso-gallery caruso-gallery--one"><figure class="caruso-photo">
+ <a href="assets/img/vita-marko.png" target="_blank" rel="noopener" aria-label="Відкрити фото Віта та Марко Карузо у повному розмірі">
+  <img src="assets/img/vita-marko.png" alt="Віта та Марко Карузо, фотографія 1" loading="lazy" decoding="async">
+ </a>
+ <figcaption>Віта та Марко Карузо<span aria-hidden="true">↗</span></figcaption>
+ </figure></div>
+</section>
+<div class="caruso-outro" aria-hidden="true">VITA / FAMILY ARCHIVE</div></section>
 <div class="room-return-links"><a class="info-back-bottom" href="rooms-vita.html">← ДО КІМНАТ ВІТИ</a><a class="info-back-bottom" href="index.html#portals">НА ГОЛОВНУ ↗</a></div>
 </main>
 <footer><a class="footer-brand" href="index.html#top">ВІТА</a><p>© Victoria Sidney Records</p><p>VITA SYSTEM / 224 FM</p></footer>
