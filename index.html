@@ -55,7 +55,19 @@
   </style>
 <script src="site-language.js?v=1" defer></script>
 <link rel="stylesheet" href="discography.css?v=1">
-</head>
+<style id="vita-signoff-style">
+/* Closing signature: scoped to the homepage signoff only. */
+#vita-signoff{position:relative;isolation:isolate;padding:65px 6vw 58px;background:#080709;border-top:1px solid #c795a51c;text-align:center}
+#vita-signoff .vita-signoff-inner{display:flex;justify-content:center;align-items:center;gap:38px;max-width:1050px;margin:auto}
+#vita-signoff .vita-signoff-emblem{display:block;width:170px;height:auto;flex:none;filter:drop-shadow(0 8px 22px #0009)}
+#vita-signoff .vita-signoff-copy{text-align:left;min-width:0}
+#vita-signoff .vita-signoff-code{margin:0 0 18px;color:#b49aa6;font:400 9px/1.5 Manrope,Arial,sans-serif;letter-spacing:.32em}
+#vita-signoff .vita-signoff-line{width:74px;height:1px;background:#783146;margin:0 0 22px;box-shadow:0 0 14px #78314640}
+#vita-signoff .vita-signoff-phrase{margin:0;color:#eee7eb;font:400 clamp(27px,3vw,43px)/1.35 Georgia,'Times New Roman',serif;letter-spacing:-.025em;text-wrap:balance}
+#vita-signoff .vita-signoff-phrase span{display:block}
+#vita-signoff .vita-signoff-phrase span+span{font-size:.75em;color:#c2b2bc;margin-top:6px;letter-spacing:0}
+@media(max-width:650px){#vita-signoff{padding:40px 22px 45px}#vita-signoff .vita-signoff-inner{flex-direction:column;gap:10px}#vita-signoff .vita-signoff-emblem{width:140px}#vita-signoff .vita-signoff-copy{text-align:center}#vita-signoff .vita-signoff-code{font-size:8px;margin-bottom:14px}#vita-signoff .vita-signoff-line{margin:0 auto 18px;width:58px}#vita-signoff .vita-signoff-phrase{font-size:29px}#vita-signoff .vita-signoff-phrase span+span{font-size:23px;line-height:1.45;max-width:320px}}
+</style></head>
 <body>
   <div class="noise" aria-hidden="true"></div>
   <div class="preloader" id="preloader" aria-hidden="true">
@@ -272,8 +284,8 @@
     <section class="gallery-section" id="gallery">
       <div class="section-heading reveal">
         <span>ГАЛЕРЕЯ</span>
-        <h2>ВІТА — ГАЛЕРЕЯ</h2>
-        <p>Вона не уявляє майбутнє. Вона у ньому живе.</p>
+        <h2>Фотоальбоми ВІТИ</h2>
+        <p>ВІТА не уявляє майбутнє. Вона у ньому живе.</p>
       </div>
       <div class="gallery-grid">
         <a class="gallery-item g1 reveal" href="gallery-concert.html?lang=uk" data-album-page="gallery-concert.html" aria-label="Відкрити альбом: Концертний архів"><img src="assets/img/gallery-cover-1.webp" alt="ВІТА — Концертний архів" loading="lazy"><span class="gallery-album-name">01 / Концертний архів</span><div class="gallery-album-cta" aria-hidden="true"><b>Дивитися</b><b>фотоальбом ↗</b></div></a>
@@ -372,6 +384,7 @@
     </figure>
 
     
+    <section id="vita-signoff" aria-label="VITA SYSTEM"><div class="vita-signoff-inner"><img class="vita-signoff-emblem" src="assets/img/vita-system-closing-emblem.webp" alt="" width="704" height="768" loading="lazy" decoding="async"><div class="vita-signoff-copy"><p class="vita-signoff-code">VITA SYSTEM / 224</p><div class="vita-signoff-line" aria-hidden="true"></div><p class="vita-signoff-phrase" data-vita-signoff-copy><span>ВІТА — простір,</span><span>у якому ти залипнеш надовго.</span></p></div></div></section>
   </main>
 
   <footer>
@@ -390,10 +403,11 @@
     <div class="show-door-transition-mist"></div>
   </div>
 
-  <script src="app.js?v=site-language-1" defer></script>
+  <script src="app.js?v=gallery-signoff-1" defer></script>
   <script src="section-navigation.js?v=1" defer></script>
   <script src="youtube-vita.js?v=1" defer></script>
   <script src="fatal-witch.js?v=1" defer></script>
 <script src="discography.js?v=1" defer></script>
 </body>
 </html>
+
