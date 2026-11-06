@@ -1,0 +1,2 @@
+/* Show only fully decoded gallery covers; other site imagery is untouched. */
+.gallery-image-guard img[data-gallery-image]:not(.gallery-image-ready){visibility:hidden}
