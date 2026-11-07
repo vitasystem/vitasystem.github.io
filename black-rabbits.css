@@ -24,6 +24,7 @@
 #black-rabbit-room .room-intro h1 em{color:#bc93d2}
 #black-rabbit-room .room-grid{margin:0;grid-template-columns:240px 1fr}
 #black-rabbit-room .room-content{min-height:480px}
+#black-rabbit-room .room-panel-copy h2{font:400 clamp(34px,4vw,60px)/1.08 var(--serif);letter-spacing:-.04em;margin:18px 0;color:#eee6ed}
 #black-rabbit-room .room-menu button{min-height:85px}
 #black-rabbit-room .locked-room{max-width:650px;margin:80px auto;text-align:center;padding:45px 25px;border:1px solid #c39ed840;background:#120b19}
 #black-rabbit-room [hidden]{display:none!important}
