@@ -1,4 +1,4 @@
-/* Atomic first paint for the four original album banners and their covers. */
+/* Complete-image reveal with a bounded decode wait on mobile browsers. */
 (() => {
   const root=document.documentElement, selector='img[data-gallery-image]';
   const pending=new WeakMap();
@@ -19,9 +19,16 @@
     let decoding;
     try{decoding=typeof image.decode==='function'?image.decode():Promise.resolve();}
     catch{decoding=Promise.resolve();}
-    Promise.resolve(decoding).then(()=>reveal(image,source),()=>{
+    // A loaded image must not stay hidden if a browser leaves decode() pending.
+    let settled=false;
+    const finish=()=>{
+      if(settled) return;
+      settled=true;
+      clearTimeout(timer);
       if(image.complete&&image.naturalWidth) reveal(image,source);
-    });
+    };
+    const timer=setTimeout(finish,700);
+    Promise.resolve(decoding).then(finish,finish);
   }
   document.addEventListener('load',event=>prepare(event.target),true);
   document.addEventListener('error',event=>{
@@ -30,4 +37,5 @@
   function init(){document.querySelectorAll(selector).forEach(prepare);}
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true});
   else init();
+  window.addEventListener('pageshow',init);
 })();
