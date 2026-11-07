@@ -37,3 +37,6 @@
 #black-rabbit-portal.br-rant .lantern-warning{transform:translateX(-50%)}
 #black-rabbit-portal .promise-button{position:fixed;left:calc(50% - 145px);bottom:30px;width:290px;margin:0;z-index:1201;box-shadow:0 10px 35px #000b}
 #black-rabbit-portal:not(.br-rant) .lantern-warning,#black-rabbit-portal:not(.br-rant) .promise-button{position:fixed}
+
+/* White halo lifts the burgundy lettering off the purple door. */
+#black-rabbit-portal .door-word{filter:drop-shadow(0 0 1px #fff) drop-shadow(0 0 4px #ffffffd9) drop-shadow(0 0 12px #ffffff8c)}
