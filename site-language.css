@@ -1,0 +1,28 @@
+/* Shared language controls only; page artwork and motion remain page-owned. */
+.site-language-switch{display:inline-flex;flex:none;align-items:center;gap:7px;white-space:nowrap;line-height:1;vertical-align:middle}
+.site-language-switch button{display:inline-block;min-width:30px;min-height:36px;padding:8px 2px;border:0;border-radius:0;background:transparent;color:#b9b1b2;font:500 10px/1.2 Arial,sans-serif;letter-spacing:.08em;cursor:pointer}
+.site-language-switch button[aria-pressed="true"]{color:#fff;text-decoration:underline;text-underline-offset:5px}
+.site-language-switch button:hover{color:#fff}
+.site-language-switch button:focus-visible{outline:1px solid currentColor;outline-offset:3px}
+.site-language-switch>span{font:400 9px/1 Arial,sans-serif;color:#777}
+.header-actions:has(>.site-language-switch),.nav-right:has(>.site-language-switch),.header-right:has(>.site-language-switch){display:flex;align-items:center;gap:14px}
+html[data-language-page="secret-file-224.html"] .wrap.top{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+@media(max-width:700px){
+ .site-language-switch{gap:4px}
+ .site-language-switch button{min-width:27px;font-size:9px}
+ .header-actions:has(>.site-language-switch),.nav-right:has(>.site-language-switch),.header-right:has(>.site-language-switch){gap:10px}
+ html[data-language-page="radio.html"] .top{gap:10px}
+ html[data-language-page="radio.html"] .top nav{gap:10px}
+ html[data-language-page="radio.html"] .top .badge{display:none}
+ html[data-language-page="room-blue-lagoon.html"] .top>.wrap{flex-wrap:wrap;gap:8px}
+ html[data-language-page="room-blue-lagoon.html"] .top .nav{order:3;width:100%;justify-content:space-between;gap:8px}
+ html[data-language-page="room-blue-lagoon.html"] .top .nav a{font-size:9px;letter-spacing:.06em}
+ html[data-language-page="doctrine-system-vita.html"] .topcode{display:none}
+ html[data-language-page="fuck-show.html"] .show-subscribe{display:none}
+ html[data-language-page="nichna-rozmova-vita.html"] .masthead{gap:12px;flex-wrap:wrap}
+ html[data-language-page="nichna-rozmova-vita.html"] .masthead>.nav{order:3;width:100%}
+ html[data-language-page="gallery-musicians-artists.html"] header>.back,html[data-language-page="gallery-2525.html"] header>.gallery-link{font-size:8px;letter-spacing:.05em}
+ html[data-language-page="room-kitchen-vita.html"] .live-label{display:none}
+}
+
+html[lang="en"][data-language-page="gallery-musicians-artists.html"] h1 em{margin-left:.08em}

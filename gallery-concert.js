@@ -55,6 +55,11 @@
     });
   });
 
+  new MutationObserver(()=>{
+    items.forEach(syncAlt);
+    if(lightbox.classList.contains('is-open')) image.alt=syncAlt(items[index]);
+  }).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+
   closeBtn.addEventListener('click',close);
   prevBtn.addEventListener('click',()=>{ index=(index-1+items.length)%items.length; render(); });
   nextBtn.addEventListener('click',()=>{ index=(index+1)%items.length; render(); });
@@ -67,3 +72,4 @@
     if(event.key==='ArrowRight'){ index=(index+1)%items.length; render(); }
   });
 })();
+

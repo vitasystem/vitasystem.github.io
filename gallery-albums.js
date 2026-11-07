@@ -3,8 +3,9 @@
   let saved='uk';
   try { saved=localStorage.getItem('vita-language')||'uk'; } catch {}
   const lang=query==='en'?'en':query==='uk'?'uk':saved==='en'?'en':'uk';
+  function localize(lang){
   const en=lang==='en', name=en?body.dataset.albumEn:body.dataset.albumUk;
-  document.documentElement.lang=lang;
+  if(document.documentElement.lang!==lang) document.documentElement.lang=lang;
   document.title=name+(en?' — VITA Gallery':' — Галерея ВІТИ');
   document.querySelector('meta[name="description"]').content=name+(en?' — VITA photo album.':' — фотоальбом ВІТИ.');
   document.querySelector('[data-album-title]').textContent=name;
@@ -17,4 +18,8 @@
     url.searchParams.set('lang',lang);
     a.href=url.href;
   });
+  }
+  localize(lang);
+  new MutationObserver(()=>localize(document.documentElement.lang==='en'?'en':'uk')).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
 })();
+
