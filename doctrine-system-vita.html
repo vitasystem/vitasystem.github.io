@@ -81,6 +81,86 @@ a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 56px
  h1,h2,h3{overflow-wrap:anywhere}
  img{max-width:100%}
 }
+
+/* Doctrine visual refinement: keep the opening scene and expose the full visual story. */
+section[id],.feature-banner[id],.ocean-frame[id]{scroll-margin-top:76px}
+.preamble{grid-template-columns:minmax(0,1fr);gap:0}
+.preamble-img{grid-row:1;min-height:0;margin:0;background:#0a0c0f}
+.preamble-img img{display:block;width:100%;height:auto;object-fit:contain;filter:none}
+.preamble-img .photo-tag{bottom:22px;left:26px}
+.paper{padding:clamp(36px,6vw,82px);padding-bottom:140px;box-shadow:none}
+.paper h3{font-size:clamp(36px,4.5vw,64px);line-height:1.03;margin:12px 0 34px;white-space:nowrap}
+.paper p{max-width:1060px;font-size:clamp(15px,1.3vw,18px);line-height:1.9}
+.paper .legal{max-width:850px;padding-right:60px}
+.seal{bottom:22px;right:32px}
+.directive{position:relative;isolation:isolate;overflow:hidden;padding:0;background:#08090b}
+.directive-grid{position:static;display:block;padding:clamp(280px,29vw,520px) 0 60px}
+.directive-image{position:absolute;inset:0;z-index:-2;display:block}
+.directive-image img{width:100%;max-width:100%;height:100%;object-fit:cover;object-position:center;box-shadow:none;filter:none}
+.directive:after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(0deg,#050607 0%,#050607d9 16%,#05060770 42%,transparent 72%),linear-gradient(90deg,#05060785,transparent 76%)}
+.directive-copy{width:74%;max-width:1050px}
+.directive-copy .giant{font-size:clamp(60px,7.8vw,118px);line-height:.98;letter-spacing:-.055em;overflow-wrap:normal}
+.directive-copy .giant span{white-space:nowrap}
+.directive-copy p{max-width:700px;color:#dedbd5;font-size:clamp(17px,1.5vw,21px);line-height:1.7;margin-bottom:0}
+.directive .kicker{margin-bottom:24px}
+.split-visual{align-items:start}
+.split-visual>img{display:block;height:auto;object-fit:contain;filter:none;position:sticky;top:100px}
+.order{padding:clamp(28px,3.5vw,48px)}
+.order h3{line-height:1.02}
+.evidence-section>.wrap{width:100%;max-width:none}
+.evidence-section .section-head,.evidence-grid{width:min(var(--max),calc(100% - 56px));margin-left:auto;margin-right:auto}
+.feature-banner{display:block;min-height:0;border-left:0;border-right:0;overflow:visible;margin:0 0 28px}
+.feature-banner img{position:relative;inset:auto;display:block;width:100%;height:auto;object-fit:contain;filter:none}
+.feature-banner:after{display:none}
+.feature-banner.reveal{transform:none}
+.feature-copy{padding:44px 0 48px}
+.feature-copy h3{font-size:clamp(42px,6vw,86px);line-height:1.04}
+.feature-copy p{max-width:950px;margin-bottom:0;color:#c9c7c3}
+.ev{min-height:0;margin:0;display:flex;flex-direction:column;background:#0a0c0f}
+.ev img{display:block;aspect-ratio:1672/941;height:auto;object-fit:contain;filter:none}
+.ev:after{display:none}
+.evcap{position:relative;left:auto;right:auto;bottom:auto;padding:24px 22px 26px}
+.evcap b{line-height:1.15}
+.eco{min-height:clamp(680px,60vw,960px);isolation:isolate;align-items:flex-end;background:#050607}
+.eco-media{position:absolute;inset:0;z-index:-2}
+.eco video{display:block;width:100%;height:100%;object-fit:cover}
+.eco:after{z-index:-1;background:linear-gradient(0deg,#050607 0%,#050607cf 20%,#0506073d 70%,#05060718)}
+.eco-copy{padding:160px 0 64px}
+.eco h2{max-width:1060px;font-size:clamp(46px,6.6vw,94px);line-height:1.02}
+.eco p{max-width:850px;line-height:1.8;margin-top:26px}
+.forest-toggle{position:absolute;z-index:3;top:28px;right:28px;padding:12px 16px;background:#050607c9;color:#f3f1eb;border:1px solid #ffffff65;letter-spacing:.12em;font-size:10px;cursor:pointer}
+.forest-toggle:focus-visible{outline:2px solid var(--signal);outline-offset:4px}
+.ocean-frame{position:relative;margin:0;background:#080a0c;border-bottom:1px solid var(--line)}
+.ocean-frame img{display:block;width:100%;height:auto}
+.ocean-frame figcaption{display:flex;justify-content:space-between;gap:20px;padding:22px 28px;color:#b5bbc1;font:10px/1.6 "Courier New",monospace;letter-spacing:.18em}
+.final{display:block;min-height:0;background:#080a0b}
+.final img{position:relative;inset:auto;display:block;width:100%;height:auto;object-fit:contain;filter:none}
+.final:after{display:none}
+.final-inner{margin:auto;padding:68px 0 90px;width:min(1200px,calc(100% - 56px))}
+.final h2{font-size:clamp(55px,8.5vw,128px);line-height:.98;margin:26px 0 32px}
+.final h2 span{font-size:.58em;line-height:1.05;margin-top:22px}
+.final p{max-width:860px;line-height:1.8;color:#b7bbc1}
+@media(max-width:960px){
+ .paper{padding:54px 26px 148px}.paper:before{font-size:8px;right:24px}.paper h3{font-size:clamp(22px,6.6vw,48px)}.paper .legal{padding-right:0}.seal{right:24px;bottom:24px}
+ .preamble-img .photo-tag{position:relative;bottom:auto;left:auto;display:block;border:0;padding:15px 18px;font-size:8px}
+ .directive-grid{display:flex;flex-direction:column;padding:0;width:100%}
+ .directive-image{position:relative;inset:auto;order:-1;z-index:0;width:100%}
+ .directive-image img{height:auto;object-fit:contain}
+ .directive:after{display:none}.directive-copy{width:100%;max-width:none;padding:30px 22px 48px}
+ .directive-copy .giant{font-size:clamp(42px,10.7vw,94px);line-height:1}.directive-copy p{font-size:17px}
+ .directive-copy .kicker{font-size:9px;letter-spacing:.17em}.directive-copy .giant span{white-space:normal}
+ .split-visual>img{position:relative;top:auto;height:auto}.order h3{font-size:clamp(35px,8vw,56px)}
+ .evidence-section .section-head,.evidence-grid{width:calc(100% - 30px)}
+ .feature-banner{min-height:0}.feature-copy{padding:30px 0 38px}.feature-copy h3{font-size:clamp(37px,9vw,60px)}.feature-copy p{font-size:17px;line-height:1.7}
+ .ev{min-height:0}.evcap{padding:20px}.evidence-grid{gap:20px}
+ .eco{display:block;min-height:0}.eco-media{position:relative;inset:auto;aspect-ratio:1672/941;z-index:0}.eco video{height:100%;object-fit:contain}.eco:after{display:none}
+ .eco-copy{padding:32px 0 42px}.eco h2{font-size:clamp(38px,9.3vw,76px);line-height:1.06}.eco p{font-size:17px;line-height:1.7}
+ .forest-toggle{top:16px;right:16px;padding:10px 12px;font-size:9px}
+ .ocean-frame figcaption{padding:18px 16px;font-size:8px;letter-spacing:.1em;flex-wrap:wrap}
+ .final{min-height:0}.final-inner{width:calc(100% - 36px);padding:42px 0 60px}.final h2{font-size:clamp(41px,10.5vw,80px);line-height:1.03}.final h2 span{font-size:.7em;line-height:1.1}.final .code{font-size:9px}.final-stamp{font-size:11px;line-height:1.6;padding:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ticker{animation:none}.reveal{opacity:1;transform:none;transition:none}.boot{transition:none}.ev:hover img{transform:none}}
+
 </style>
 <script src="site-language.js?v=all-pages-2" defer></script>
 <link rel="stylesheet" href="site-language.css?v=all-pages-2"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/vita-planet-icon-v2-16.png">
@@ -95,7 +175,7 @@ a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 56px
 
 <main>
 <section class="hero">
- <div class="hero-media"><img src="assets/img/dlia-doktryna-storinka%20(1).jpg" alt="Віта у зруйнованому місті"></div>
+ <div class="hero-media"><img src="assets/img/dlia-doktryna-storinka%20(1).webp" alt="Віта у зруйнованому місті" width="1672" height="941" fetchpriority="high" decoding="async"></div>
  <div class="wrap hero-grid">
   <div><div class="kicker">SYSTEM VITA / OFFICIAL DOCTRINE / 224-D</div><h1>ДОКТРИНА <em>СИСТЕМИ ВІТА</em></h1><p class="lead">Кодекс Нової Ери про людину, свободу, технології, планету і право переписувати правила, які більше не працюють.</p></div>
   <aside class="hero-meta"><div class="line"><span class="key">ДОКУМЕНТ</span><span class="value">224-D / SYSTEM VITA</span></div><div class="line"><span class="key">СТАТУС</span><span class="value">ПУБЛІЧНИЙ МАНІФЕСТ</span></div><div class="line"><span class="key">РІВЕНЬ</span><span class="value">NEW ERA / OPEN</span></div><div class="line"><span class="key">ПРІОРИТЕТ</span><span class="value">HUMAN &gt; ALGORITHM</span></div><div class="stamp">RATIFIED / 224</div></aside>
@@ -103,11 +183,11 @@ a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 56px
 </section>
 <div class="signal-strip"><div class="ticker"><span><b>HUMAN &gt; ALGORITHM</b></span><span>ZERO WAR</span><span>RESTORE FORESTS</span><span>CLEAN RIVERS</span><span>OPEN MOVEMENT</span><span>PLANET EARTH / ONE HOME</span><span><b>HUMAN &gt; ALGORITHM</b></span><span>ZERO WAR</span><span>RESTORE FORESTS</span><span>CLEAN RIVERS</span><span>OPEN MOVEMENT</span><span>PLANET EARTH / ONE HOME</span></div></div>
 
-<section class="section"><div class="wrap"><div class="section-head reveal"><div class="section-no">00 / PREAMBLE</div><h2>Преамбула<small>Основоположне положення Доктрини 224</small></h2></div>
- <div class="preamble reveal"><article class="paper"><h3>ПОСТАНОВА 224-D</h3><p><b>Система Віта</b> виходить із положення, що будь-яка система — технологічна, економічна, інформаційна чи політична — має сенс лише доти, доки вона служить людині та не забирає в неї свободу вибору.</p><p>Людина не є контентом. Увага не є безмежним ресурсом. Планета не є витратним матеріалом. Війна не є інструментом управління. Технологія не є вищою за життя.</p><p>Коли правило перестає захищати життя, свободу і майбутнє, воно підлягає перегляду. Коли система вимагає поклоніння замість служіння — вона підлягає перезапуску.</p><p class="legal">Документ має статус художньо-філософської доктрини музичного проєкту ВІТА та не є актом державного права.</p><div class="seal">SYSTEM VITA<br>PROTOCOL<br>224</div></article><div class="preamble-img"><img src="assets/img/dlia-doktryna-storinka%20(1).png" alt="Командний центр Системи Віта"><div class="photo-tag">ARCHIVE IMAGE / COMMAND LAYER</div></div></div>
+<section class="section preamble-section"><div class="wrap"><div class="section-head reveal"><div class="section-no">00 / PREAMBLE</div><h2>Преамбула<small>Основоположне положення Доктрини 224</small></h2></div>
+ <div class="preamble reveal"><article class="paper"><h3>ПОСТАНОВА 224-D</h3><p><b>Система Віта</b> виходить із положення, що будь-яка система — технологічна, економічна, інформаційна чи політична — має сенс лише доти, доки вона служить людині та не забирає в неї свободу вибору.</p><p>Людина не є контентом. Увага не є безмежним ресурсом. Планета не є витратним матеріалом. Війна не є інструментом управління. Технологія не є вищою за життя.</p><p>Коли правило перестає захищати життя, свободу і майбутнє, воно підлягає перегляду. Коли система вимагає поклоніння замість служіння — вона підлягає перезапуску.</p><p class="legal">Документ має статус художньо-філософської доктрини музичного проєкту ВІТА та не є актом державного права.</p><div class="seal">SYSTEM VITA<br>PROTOCOL<br>224</div></article><div class="preamble-img" id="reset-scene"><img src="assets/img/dlia-doktryna-storinka%20(1)_1.webp" alt="Віта змінює правила ударом молота" data-uk-alt="Віта змінює правила ударом молота" data-en-alt="VITA rewrites the rules with a hammer strike" width="1670" height="942" loading="lazy" decoding="async"><div class="photo-tag">RESET / HUMAN OVER ALGORITHM</div></div></div>
 </div></section>
 
-<section class="section directive"><div class="wrap directive-grid reveal"><div class="directive-copy"><div class="kicker">PRIMARY DIRECTIVE / 224-01</div><div class="giant">HUMAN <span>&gt; ALGORITHM</span></div><p>Жоден алгоритм, рейтинг, платформа, тренд або метрика не мають права визначати цінність людини. Технологія може рекомендувати. Людина вирішує.</p></div><div class="directive-image"><img src="assets/img/dlia-doktryna-storinka%20(3).png" alt="Маніфест людина понад алгоритмом"></div></div></section>
+<section class="section directive" id="human-priority"><div class="wrap directive-grid reveal"><div class="directive-copy"><div class="kicker">PRIMARY DIRECTIVE / 224-01</div><div class="giant">HUMAN <span>&gt; ALGORITHM</span></div><p>Жоден алгоритм, рейтинг, платформа, тренд або метрика не мають права визначати цінність людини. Технологія може рекомендувати. Людина вирішує.</p></div><div class="directive-image"><img src="assets/img/dlia-doktryna-storinka%20(3).webp" alt="Маніфест людина понад алгоритмом" width="1672" height="941" loading="lazy" decoding="async"></div></div></section>
 
 <section class="section"><div class="wrap"><div class="section-head reveal"><div class="section-no">01–08 / ARTICLES</div><h2>Основні положення<small>Вісім статей Системи Віта</small></h2></div>
 <div class="articles">
@@ -122,19 +202,21 @@ a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 56px
 </div></div></section>
 
 <section class="section"><div class="wrap"><div class="section-head reveal"><div class="section-no">09 / EXECUTIVE ORDER</div><h2>Протокол перезапуску<small>Що робить Система, коли старий код більше не працює</small></h2></div>
-<div class="split-visual reveal"><img src="assets/img/dlia-doktryna-storinka%20(2).png" alt="Віта активує протокол"><article class="order"><div><div class="over">EXECUTIVE ORDER / RESET SEQUENCE</div><h3>Не знищити світ.<br>Змінити його код.</h3><ol><li>Зупинити механізм, який множить шкоду.</li><li>Від’єднати людську цінність від рейтингів і переглядів.</li><li>Повернути технології роль інструменту, а не судді.</li><li>Перенаправити ресурси на життя, відновлення і доступ.</li><li>Відновити природні системи до стану, в якому вони можуть жити без постійного порятунку.</li><li>Після перезапуску — не будувати новий культ. Залишити людині свободу.</li></ol></div><div class="approval"><span>AUTHORIZED BY / SYSTEM VITA 224</span><b>RESET APPROVED</b></div></article></div>
+<div class="split-visual reveal"><img src="assets/img/dlia-doktryna-storinka%20(8).webp" alt="Віта активує протокол" width="1672" height="941" loading="lazy" decoding="async"><article class="order"><div><div class="over">EXECUTIVE ORDER / RESET SEQUENCE</div><h3>Не знищити світ.<br>Змінити його код.</h3><ol><li>Зупинити механізм, який множить шкоду.</li><li>Від’єднати людську цінність від рейтингів і переглядів.</li><li>Повернути технології роль інструменту, а не судді.</li><li>Перенаправити ресурси на життя, відновлення і доступ.</li><li>Відновити природні системи до стану, в якому вони можуть жити без постійного порятунку.</li><li>Після перезапуску — не будувати новий культ. Залишити людині свободу.</li></ol></div><div class="approval"><span>AUTHORIZED BY / SYSTEM VITA 224</span><b>RESET APPROVED</b></div></article></div>
 </div></section>
 
-<section class="section"><div class="wrap"><div class="section-head reveal"><div class="section-no">10 / EVIDENCE</div><h2>Візуальний код доктрини<small>Не декорація. Символи положень 224.</small></h2></div>
-<div class="feature-banner reveal"><img src="assets/img/dlia-doktryna-storinka%20(4).png" alt="Віта і світловий слон"><div class="wrap feature-copy"><div class="kicker">ICON / CORE EMBLEM / 224-ELEPHANT</div><h3>Сила без руйнування</h3><p>Слон у Системі Віта — не про окупацію простору, а про пам’ять, силу, витримку і відповідальність. Це образ потужності, яка не нищить, а тримає курс, несе вагу змін і захищає життя.</p></div></div>
+<section class="section evidence-section"><div class="wrap"><div class="section-head reveal"><div class="section-no">10 / EVIDENCE</div><h2>Візуальний код доктрини<small>Не декорація. Символи положень 224.</small></h2></div>
+<div class="feature-banner reveal" id="core-emblem"><img src="assets/img/dlia-doktryna-storinka%20(4).webp" alt="Віта і світловий слон" width="4000" height="2253" loading="lazy" decoding="async"><div class="wrap feature-copy"><div class="kicker">ICON / CORE EMBLEM / 224-ELEPHANT</div><h3>Сила без руйнування</h3><p>Слон у Системі Віта — не про окупацію простору, а про пам’ять, силу, витримку і відповідальність. Це образ потужності, яка не нищить, а тримає курс, несе вагу змін і захищає життя.</p></div></div>
 <div class="evidence-grid">
-<div class="ev reveal"><img src="assets/img/dlia-doktryna-storinka%20(10).png" alt="Людина керує Системою Віта"><div class="evcap"><b>Людина керує системою</b><span>CONTROL / HUMAN / COMMAND</span></div></div>
-<div class="ev reveal"><img src="assets/img/dlia-doktryna-storinka%20(6).png" alt="Відбудова світу"><div class="evcap"><b>Відбудова замість захоплення</b><span>PROTOCOL / REBUILD</span></div></div>
-<div class="ev reveal"><img src="assets/img/dlia-doktryna-storinka%20(7).png" alt="Атом Системи Віта"><div class="evcap"><b>Енергія під контролем людини</b><span>CORE / ATOM / SYSTEM VITA</span></div></div>
+<div class="ev reveal"><img src="assets/img/dlia-doktryna-storinka%20(10).webp" alt="Віта серед льодовиків" data-uk-alt="Віта серед льодовиків" data-en-alt="VITA among the glaciers" width="1672" height="941" loading="lazy" decoding="async"><div class="evcap"><b>Громадянин планети Земля</b><span>PRIMARY ID / PLANET EARTH</span></div></div>
+<div class="ev reveal"><img src="assets/img/dlia-doktryna-storinka%20(2).webp" alt="Квіти в ранковій росі" data-uk-alt="Квіти в ранковій росі" data-en-alt="Flowers in the morning dew" width="1672" height="941" loading="lazy" decoding="async"><div class="evcap"><b>Відновлення планети</b><span>PROTOCOL / RESTORE LIFE</span></div></div>
+<div class="ev reveal"><img src="assets/img/dlia-doktryna-storinka%20(7).webp" alt="Командний центр Системи Віта" width="1672" height="941" loading="lazy" decoding="async"><div class="evcap"><b>Людина керує системою</b><span>CONTROL / HUMAN / COMMAND</span></div></div>
 </div></div></section>
 
-<section class="eco"><img src="assets/img/dlia-doktryna-storinka%20(9).png" alt="Відновлений ліс"><div class="wrap eco-copy reveal"><div class="kicker">PLANETARY RESTORATION / 224-GREEN</div><h2>Ліс — не фон.<br><span>Річка — не ресурс.</span><br>Це система життя.</h2><p>Екологічний блок Доктрини не формулюється як благодійність. Це інфраструктурне відновлення: вода, ґрунт, ліс, повітря та біорізноманіття мають бути включені в будь-яку модель майбутнього як базові умови існування.</p></div></section>
+<section class="eco" id="living-system"><div class="eco-media"><video id="forest-film" muted loop playsinline preload="none" poster="assets/img/dlia-doktryna-storinka%20(6).webp" width="1672" height="941" aria-label="Відновлений ліс" data-uk-label="Відновлений ліс" data-en-label="Restored forest"><source data-src="assets/video/jungle-pryroda-baner.mp4" type="video/mp4"></video></div><button class="forest-toggle mono" type="button" aria-controls="forest-film" aria-pressed="false">▶ / PLAY</button><div class="wrap eco-copy reveal"><div class="kicker">PLANETARY RESTORATION / 224-GREEN</div><h2>Ліс — не фон.<br><span>Річка — не ресурс.</span><br>Це система життя.</h2><p>Екологічний блок Доктрини не формулюється як благодійність. Це інфраструктурне відновлення: вода, ґрунт, ліс, повітря та біорізноманіття мають бути включені в будь-яку модель майбутнього як базові умови існування.</p></div></section>
 
+
+<figure class="ocean-frame reveal"><img src="assets/img/dlia-doktryna-storinka%20(9).webp" alt="Океан і скелясте узбережжя" data-uk-alt="Океан і скелясте узбережжя" data-en-alt="Ocean and rocky coastline" width="1672" height="941" loading="lazy" decoding="async"><figcaption><span>PLANET EARTH / OCEAN ARCHIVE</span><span>RESTORE / CLEAN / REBUILD</span></figcaption></figure>
 <section class="section protocol"><div class="wrap"><div class="section-head reveal"><div class="section-no">11 / STATUS BOARD</div><h2>Реєстр протоколів<small>Операційна карта Нової Ери</small></h2></div><div class="protocol-table reveal">
 <div class="prow"><div class="pid">224-A01</div><div class="pname">Людина понад алгоритмом</div><div class="pstatus"><b>ACTIVE</b> / PRIORITY</div></div>
 <div class="prow"><div class="pid">224-W00</div><div class="pname">Нульова війна</div><div class="pstatus"><b>MANDATORY</b> / LIFE</div></div>
@@ -146,16 +228,29 @@ a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 56px
 
 <section class="quote-section"><div class="wrap reveal"><div class="symbol">SYSTEM VITA / CORE PHRASE</div><div class="quote">«Якщо система більше не служить людині — <span>людина не зобов’язана служити системі.</span>»</div><p class="subquote">Музичний трек «Система Віта» — це емоційна, груба і навмисно перевантажена версія цього документа. Доктрина — його холодний офіційний код.</p></div></section>
 
-<section class="final"><img src="assets/img/dlia-doktryna-storinka%20(8).png" alt="Нова система життя"><div class="final-inner reveal"><div class="code">FINAL PROVISION / 224-F</div><h2>СИСТЕМА ВІТА<span>не просить дозволу на майбутнє.</span></h2><p>Вона формулює умови, за яких майбутнє має сенс: людина не нижча за алгоритм, життя не нижче за владу, планета не нижче за прибуток, свобода не нижче за систему.</p><div class="final-stamp">SYSTEM INITIALIZED / 3 · 2 · 1 · GO</div></div></section>
+<section class="final" id="final-provision"><img src="assets/img/dlia-doktryna-storinka%20(5).webp" alt="Віта торкається паростка" data-uk-alt="Віта торкається паростка" data-en-alt="VITA touches a seedling" width="1672" height="941" loading="lazy" decoding="async"><div class="final-inner reveal"><div class="code">FINAL PROVISION / 224-F</div><h2>СИСТЕМА ВІТА<span>не просить дозволу на майбутнє.</span></h2><p>Вона формулює умови, за яких майбутнє має сенс: людина не нижча за алгоритм, життя не нижче за владу, планета не нижче за прибуток, свобода не нижче за систему.</p><div class="final-stamp">SYSTEM INITIALIZED / 3 · 2 · 1 · GO</div></div></section>
 </main>
 
 <script>
 window.addEventListener('load',()=>setTimeout(()=>document.getElementById('boot').classList.add('off'),1750));
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.14});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Load the forest film only near the viewport; stop it when the scene is off screen.
+(()=>{
+ const video=document.getElementById('forest-film'),button=document.querySelector('.forest-toggle');
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');let visible=false,userPaused=false;
+ function labels(){const en=document.documentElement.lang==='en';const playing=!video.paused;button.textContent=playing?(en?'Ⅱ / PAUSE':'Ⅱ / ПАУЗА'):(en?'▶ / PLAY':'▶ / ВІДТВОРИТИ');button.setAttribute('aria-label',playing?(en?'Pause forest video':'Призупинити відео лісу'):(en?'Play forest video':'Відтворити відео лісу'));button.setAttribute('aria-pressed',String(playing));document.querySelectorAll('[data-uk-alt]').forEach(e=>e.alt=en?e.dataset.enAlt:e.dataset.ukAlt);document.querySelectorAll('[data-uk-label]').forEach(e=>e.setAttribute('aria-label',en?e.dataset.enLabel:e.dataset.ukLabel));}
+ function load(){const source=video.querySelector('source');if(!source.hasAttribute('src')){source.src=source.dataset.src;video.load();}}
+ function play(){load();video.play().catch(()=>labels());}
+ button.addEventListener('click',()=>{if(video.paused){userPaused=false;play();}else{userPaused=true;video.pause();}});
+ const watcher=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;if(visible&&!document.hidden&&!reduced.matches&&!userPaused)play();else video.pause();},{rootMargin:'120px 0px',threshold:0});watcher.observe(video);
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)video.pause();else if(visible&&!reduced.matches&&!userPaused)play();});
+ reduced.addEventListener('change',()=>{if(reduced.matches)video.pause();else if(visible&&!userPaused)play();});
+ video.addEventListener('play',labels);video.addEventListener('pause',labels);
+ new MutationObserver(labels).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});labels();
+})();
+
 </script>
 </body>
 </html>
-
-
-
