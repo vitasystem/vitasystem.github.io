@@ -1,2 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://vitasystem.github.io/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url></urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://vitasystem.github.io/</loc></url>
+  <url><loc>https://vitasystem.github.io/about-vita.html</loc></url>
+  <url><loc>https://vitasystem.github.io/music.html</loc></url>
+  <url><loc>https://vitasystem.github.io/discography.html</loc></url>
+  <url><loc>https://vitasystem.github.io/radio.html</loc></url>
+  <url><loc>https://vitasystem.github.io/rooms-vita.html</loc></url>
+  <url><loc>https://vitasystem.github.io/gallery.html</loc></url>
+  <url><loc>https://vitasystem.github.io/contacts.html</loc></url>
+  <url><loc>https://vitasystem.github.io/blitz.html</loc></url>
+  <url><loc>https://vitasystem.github.io/doctrine-system-vita.html</loc></url>
+  <url><loc>https://vitasystem.github.io/dossier.html</loc></url>
+  <url><loc>https://vitasystem.github.io/facts.html</loc></url>
+  <url><loc>https://vitasystem.github.io/fatal-witch.html</loc></url>
+  <url><loc>https://vitasystem.github.io/fuck-show.html</loc></url>
+  <url><loc>https://vitasystem.github.io/gallery-2525.html</loc></url>
+  <url><loc>https://vitasystem.github.io/gallery-behind-scenes.html</loc></url>
+  <url><loc>https://vitasystem.github.io/gallery-concert.html</loc></url>
+  <url><loc>https://vitasystem.github.io/gallery-fashion.html</loc></url>
+  <url><loc>https://vitasystem.github.io/gallery-home.html</loc></url>
+  <url><loc>https://vitasystem.github.io/gallery-musicians-artists.html</loc></url>
+  <url><loc>https://vitasystem.github.io/holos-i-sensy.html</loc></url>
+  <url><loc>https://vitasystem.github.io/interview.html</loc></url>
+  <url><loc>https://vitasystem.github.io/nichna-rozmova-vita.html</loc></url>
+  <url><loc>https://vitasystem.github.io/room-blue-lagoon.html</loc></url>
+  <url><loc>https://vitasystem.github.io/room-caruso.html</loc></url>
+  <url><loc>https://vitasystem.github.io/room-gaming-224.html</loc></url>
+  <url><loc>https://vitasystem.github.io/room-kitchen-vita.html</loc></url>
+  <url><loc>https://vitasystem.github.io/room-purple-tractor.html</loc></url>
+  <url><loc>https://vitasystem.github.io/svoboda-buty-soboiu.html</loc></url>
+  <url><loc>https://vitasystem.github.io/vita-code.html</loc></url>
+  <url><loc>https://vitasystem.github.io/zhyttia-za-dveryma.html</loc></url>
+</urlset>
