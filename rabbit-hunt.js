@@ -3,7 +3,7 @@
 const pages={'music.html':0,'about-vita.html':1,'gallery.html':2,'radio.html':3,'discography.html':4};
 const page=location.pathname.split('/').pop().toLowerCase();
 if(!(page in pages))return;
-const id=pages[page],key='vita-black-rabbits-collection-v1';
+const id=pages[page],key='vita-black-rabbits-collection-v2';
 const params=new URLSearchParams(location.search);
 const en=params.get('lang')==='en'||(!params.has('lang')&&document.documentElement.lang==='en');
 const names=en?['Flower','Peach','Watermelon','Bicycle','Moped']:['Квітка','Персик','Кавун','Велосипед','Мопед'];
@@ -40,7 +40,7 @@ const copy=en?('Rabbit found: '+names[id]+'. '+count+' of 5 collected.'):('Зн�
 note.textContent=copy+' ';
 const link=document.createElement('a');link.href='/index.html?lang='+(en?'en':'uk')+'#black-rabbit-portal';
 link.textContent=en?'Back to the secret door →':'До таємних дверей →';note.append(link);document.body.append(note);
-setTimeout(()=>note.remove(),9500);
+setTimeout(()=>{location.href=link.href;},1250);
 });
 target.append(btn);
 })();
