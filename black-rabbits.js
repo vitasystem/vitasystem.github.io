@@ -6,11 +6,19 @@ const $=s=>root.querySelector(s),$$=s=>[...root.querySelectorAll(s)];
 const en=new URLSearchParams(location.search).get('lang')==='en',lang=en?'en':'uk';
 const tr=(uk,eng)=>en?eng:uk;
 const key='vita-black-rabbits-collection-v2';
+const returnKey='vita-rabbits-fresh-hunt-after-game';
+// If the visitor returned from the game, the five keys must be collected again.
+try{
+ if(sessionStorage.getItem(returnKey)==='1'){
+  localStorage.removeItem(key);
+  sessionStorage.removeItem(returnKey);
+ }
+}catch(_){};
 let found=[],toastTimer,lanternTimer,revealTimer;
 try{const data=JSON.parse(localStorage.getItem(key)||'{}');found=Array.isArray(data.found)?[...new Set(data.found.filter(n=>Number.isInteger(n)&&n>=0&&n<5))]:[];}catch{}
 // A browser Back navigation may restore the unlocked portal from memory.
 window.addEventListener('pageshow',event=>{
- if(!event.persisted)return;
+ if(!event.persisted && !sessionStorage.getItem('vita-rabbits-fresh-hunt-after-game'))return;
  let saved=[];
  try{const data=JSON.parse(localStorage.getItem(key)||'{}');saved=Array.isArray(data.found)?data.found:[];}catch{}
  if(saved.length!==found.length || saved.some(n=>!found.includes(n)))location.reload();
@@ -70,7 +78,7 @@ if(portal){
   $$('[data-milestone]').forEach(b=>{const n=Number(b.dataset.milestone),yes=count>=n;b.classList.toggle('unlocked',yes);b.setAttribute('aria-label',tr(`${n} кроликів: ${yes?'відкрито':'зачинено'}`,`${n} rabbits: ${yes?'unlocked':'locked'}`));});sprites();
  }
  function rattle(){const lock=$('#br-lock');lock.classList.remove('rattle');void lock.offsetWidth;lock.classList.add('rattle');}
- function enter(){if(found.length<5){rattle();toast(tr('Збери п’ятьох кроликів. Віта поки не відчиняє.','Collect five rabbits. VITA isn’t opening yet.'));return;}location.href='black-rabbits.html?lang='+lang;}
+ function enter(){if(found.length<5){rattle();toast(tr('Збери п’ятьох кроликів. Віта поки не відчиняє.','Collect five rabbits. VITA isn’t opening yet.'));return;}try{sessionStorage.setItem('vita-rabbits-game-visit','1');}catch(_){}location.href='black-rabbits.html?lang='+lang;}
  $$('[data-find]').forEach(b=>b.addEventListener('click',()=>{const i=Number(b.dataset.find);if(found.includes(i))return;found.push(i);save();render();rattle();toast(found.length===5?tr('П’ятеро разом. Ланцюги більше не тримають ці двері.','All five together. The chains can no longer hold these doors.'):tr(`${names[i]} — у команді. Знайдено ${found.length} з 5.`,`${names[i]} is on the team. Found ${found.length} of 5.`));}));
  $('#br-lock').addEventListener('click',enter);$('#br-enter-room').addEventListener('click',enter);$('#br-inside-enter').addEventListener('click',enter);
  $$('[data-milestone]').forEach(b=>b.addEventListener('click',()=>toast(tr('Знайдено '+found.length+' із 5 кроликів.','Found '+found.length+' of 5 rabbits.'))));
