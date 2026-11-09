@@ -21,7 +21,18 @@ iframe{display:block;width:100%;height:100%;border:0;background:#090711}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @media(max-width:620px){header{min-height:58px;padding:9px 12px}.brand{font-size:10px;letter-spacing:.06em}.back{font-size:10px;padding:9px 10px}main{height:calc(100dvh - 58px);min-height:550px}}
 </style>
-</head>
+<style>
+.rabbit-afterparty{position:relative;overflow:hidden;min-height:420px;padding:75px 20px 70px;text-align:center;background:radial-gradient(ellipse at 50% 110%,#44205970,transparent 67%),linear-gradient(#090711,#10091b 60%,#070409);border-top:1px solid #a679b535}
+.rabbit-afterparty .eyebrow{display:block;color:#bc8dd1;font:10px Arial,sans-serif;letter-spacing:.35em}
+.rabbit-afterparty h2{font:400 clamp(30px,5vw,64px)/1.1 Georgia,serif;color:#f2dfff;margin:17px auto 10px}
+.rabbit-afterparty p{color:#a78eb3;font:13px/1.7 Arial,sans-serif}
+.rabbit-afterparty .crew{margin:35px auto 0;display:flex;justify-content:center;align-items:flex-end;gap:clamp(0px,1vw,25px);max-width:980px;min-height:170px}
+.rabbit-afterparty .crew i{display:block;width:18%;aspect-ratio:3/4;background:url('assets/img/black-rabbits/rabbits.webp') no-repeat;background-size:500% 100%;background-position:var(--pos) center;filter:drop-shadow(0 12px 23px #a45bc044);animation:crew-bounce 5s ease-in-out infinite;animation-delay:var(--delay)}
+.rabbit-afterparty .crew i:nth-child(3){width:22%}
+.rabbit-afterparty .closing{color:#b897c8;letter-spacing:.25em;font:10px Arial,sans-serif;margin-top:34px}
+@keyframes crew-bounce{0%,100%{translate:0 0}50%{translate:0 -10px}}
+@media(prefers-reduced-motion:reduce){.rabbit-afterparty .crew i{animation:none}}
+</style></head>
 <body>
 <header>
   <div class="brand">VITA SYSTEM <span>/ 224</span> · BLACK RABBITS: UNCENSORED</div>
@@ -31,11 +42,16 @@ iframe{display:block;width:100%;height:100%;border:0;background:#090711}
   <h1 class="sr-only">BLACK RABBITS: UNCENSORED — інтерактивна гра ВІТИ</h1>
   <iframe title="BLACK RABBITS: UNCENSORED — гра VITA SYSTEM v0.5" src="black-rabbits-game.html" allow="autoplay; fullscreen" allowfullscreen></iframe>
 </main>
+<section class="rabbit-afterparty" aria-label="Команда чорних кроликів">
+<span class="eyebrow">VITA SYSTEM / 224</span><h2>BLACK RABBITS<br>AFTERPARTY</h2><p id="party-text">Ти вже по той бік дверей. А кролики лише починають веселитися.</p>
+<div class="crew" aria-hidden="true"><i style="--pos:0%;--delay:0s"></i><i style="--pos:25%;--delay:-1s"></i><i style="--pos:50%;--delay:-2s"></i><i style="--pos:75%;--delay:-3s"></i><i style="--pos:100%;--delay:-4s"></i></div><div class="closing">UNCENSORED · THE NIGHT IS YOURS</div>
+</section>
 <script>
 (function(){
   const en=new URLSearchParams(location.search).get('lang')==='en';
   if(en){
     document.documentElement.lang='en';
+    document.getElementById('party-text').textContent='You made it through the door. The rabbits are just getting started.';
     document.getElementById('back').textContent='← BACK TO THE SECRET DOORS';
     document.getElementById('back').href='index.html?lang=en#black-rabbit-portal';
   }
