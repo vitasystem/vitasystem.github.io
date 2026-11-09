@@ -5,7 +5,7 @@ if(!root)return;
 const $=s=>root.querySelector(s),$$=s=>[...root.querySelectorAll(s)];
 const en=new URLSearchParams(location.search).get('lang')==='en',lang=en?'en':'uk';
 const tr=(uk,eng)=>en?eng:uk;
-const key='vita-black-rabbits-collection-v1';
+const key='vita-black-rabbits-collection-v2';
 let found=[],toastTimer,lanternTimer,revealTimer;
 try{const data=JSON.parse(localStorage.getItem(key)||'{}');found=Array.isArray(data.found)?[...new Set(data.found.filter(n=>Number.isInteger(n)&&n>=0&&n<5))]:[];}catch{}
 const names=en?['Flower','Peach','Watermelon','Bicycle','Moped']:['Квітка','Персик','Кавун','Велосипед','Мопед'];
@@ -59,15 +59,13 @@ if(portal){
   $('#br-enter-room').disabled=!open;$('#br-enter-room').textContent=open?tr('УВІЙТИ ДО КІМНАТИ ↗','ENTER THE ROOM ↗'):tr('ДВЕРІ ЗАЧИНЕНІ','DOORS LOCKED');
   $('#br-door-status').textContent=open?tr('П’ятеро разом. Гра BLACK RABBITS чекає.','All five together. BLACK RABBITS is waiting.'):tr(`Знайдено ${count} з 5. Двері відчиняться, коли збереш усіх.`,`Found ${count} of 5. Collect them all to open the doors.`);
   $('.status-dot').textContent=open?tr('ДВЕРІ ВІДЧИНЕНІ','DOORS OPEN'):tr('ДОСТУП ОБМЕЖЕНО','ACCESS RESTRICTED');
-  $$('[data-milestone]').forEach(b=>{const n=Number(b.dataset.milestone),yes=n>=5&&count>=n;b.classList.toggle('unlocked',yes);b.setAttribute('aria-label',tr(`${n} кроликів: ${yes?'відкрито':'зачинено'}`,`${n} rabbits: ${yes?'unlocked':'locked'}`));});sprites();
+  $$('[data-milestone]').forEach(b=>{const n=Number(b.dataset.milestone),yes=count>=n;b.classList.toggle('unlocked',yes);b.setAttribute('aria-label',tr(`${n} кроликів: ${yes?'відкрито':'зачинено'}`,`${n} rabbits: ${yes?'unlocked':'locked'}`));});sprites();
  }
  function rattle(){const lock=$('#br-lock');lock.classList.remove('rattle');void lock.offsetWidth;lock.classList.add('rattle');}
  function enter(){if(found.length<5){rattle();toast(tr('Збери п’ятьох кроликів. Віта поки не відчиняє.','Collect five rabbits. VITA isn’t opening yet.'));return;}location.href='black-rabbits.html?lang='+lang;}
  $$('[data-find]').forEach(b=>b.addEventListener('click',()=>{const i=Number(b.dataset.find);if(found.includes(i))return;found.push(i);save();render();rattle();toast(found.length===5?tr('П’ятеро разом. Ланцюги більше не тримають ці двері.','All five together. The chains can no longer hold these doors.'):tr(`${names[i]} — у команді. Знайдено ${found.length} з 5.`,`${names[i]} is on the team. Found ${found.length} of 5.`));}));
  $('#br-lock').addEventListener('click',enter);$('#br-enter-room').addEventListener('click',enter);$('#br-inside-enter').addEventListener('click',enter);
- $$('[data-milestone]').forEach(b=>b.addEventListener('click',()=>{if(found.length===5&&Number(b.dataset.milestone)===5)enter();else toast(tr('Спершу збери п’ятьох кроликів. Наступні відкриття з’являться згодом.','First collect five rabbits. More discoveries are coming.'));}));
- // The teaser's first marker becomes the actual entry threshold.
- const first=$('[data-milestone="1"]');if(first){first.dataset.milestone='5';first.textContent='05';const duplicate=$$('[data-milestone="5"]')[1];if(duplicate)duplicate.remove();}
+ $$('[data-milestone]').forEach(b=>b.addEventListener('click',()=>toast(tr('Знайдено '+found.length+' із 5 кроликів.','Found '+found.length+' of 5 rabbits.'))));
  $('#br-lantern').addEventListener('click',()=>{const stage=$('#br-stage');if(stage.classList.contains('lantern-breaking'))return;clearTimeout(lanternTimer);clearTimeout(revealTimer);stage.classList.add('lantern-breaking');$('#br-lantern').setAttribute('aria-disabled','true');stage.classList.remove('rant-active');portal.classList.remove('br-rant');revealTimer=setTimeout(()=>{stage.classList.add('rant-active');portal.classList.add('br-rant');},650);lanternTimer=setTimeout(()=>{stage.classList.remove('lantern-breaking');$('#br-lantern').setAttribute('aria-disabled','false');},6200);});
  $('#br-dismiss-rant').addEventListener('click',()=>{$('#br-stage').classList.remove('rant-active');portal.classList.remove('br-rant');});
  let frame=0;const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
