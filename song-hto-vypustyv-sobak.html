@@ -198,7 +198,7 @@ body{background:#090811}
         <p class="hero-hook"><strong>Хто-хто випустив собак?</strong><br>«Редиска на грядці. І ще трошки салату…» Але щось пішло не так.</p>
         <div class="hero-actions">
           <a href="#purchase" class="btn btn-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 7h14v12H5zM9 7V5a3 3 0 0 1 6 0v2"/></svg>Купити трек — $0.99 <span class="soon-tag">Незабаром</span></a>
-          <button class="btn btn-outline" type="button" data-platform="spotify"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.6 14.5a.7.7 0 0 1-.96.25c-2.4-1.48-5.44-1.81-9.02-.98a.7.7 0 0 1-.32-1.36c3.94-.9 7.33-.52 10.04 1.14.33.2.44.63.26.95Zm1.3-2.84a.88.88 0 0 1-1.2.31c-2.77-1.7-7-2.2-10.28-1.22a.87.87 0 1 1-.5-1.67c3.73-1.12 8.38-.56 11.66 1.45a.86.86 0 0 1 .32 1.13Zm.1-2.95C14.65 8.73 9.1 8.6 5.93 9.52a1.04 1.04 0 1 1-.6-2c3.65-1.06 9.83-.87 13.75 1.46a1.04 1.04 0 0 1-1.08 1.78Z"/></svg>Spotify ↗</button>
+          <a class="btn btn-outline" href="#lyrics">Текст пісні ↗</a>
           <button class="btn-play" type="button" data-preview><span class="play-ring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span><span>Увімкнути демо</span></button>
         </div>
       </div></div>
@@ -237,8 +237,8 @@ body{background:#090811}
       <h2 id="purchase-title">Хто випустив собак?<br><em>Забирай музику.</em></h2>
       <p class="conversion-lead">«Хто випустив собак?» — музика ВІТИ. Додай трек до своєї колекції, коли відкриється купівля.</p>
       <div class="price"><span>Цифровий трек</span><strong>$0.99</strong><span class="price-soon">Незабаром</span></div>
-      <div class="cta-row"><button type="button" class="btn btn-primary" data-platform="buy">Купити трек — $0.99 <span class="soon-tag">Незабаром</span></button><button type="button" class="btn btn-outline" data-platform="spotify">Spotify ↗</button><button type="button" class="btn btn-outline" data-preview>Слухати демо <span aria-hidden="true">▶</span></button></div>
-      <p class="stream-soon">Apple Music · Amazon Music — незабаром</p>
+      <div class="cta-row"><button type="button" class="btn btn-primary" data-platform="buy">Купити трек — $0.99 <span class="soon-tag">Незабаром</span></button><a class="btn btn-outline" href="music.html?lang=uk#vita-singles">Інші сингли ↗</a><button type="button" class="btn btn-outline" data-preview>Слухати демо <span aria-hidden="true">▶</span></button></div>
+      <p class="stream-soon">Умови покупки та отримання файлу з’являться після запуску продажу.</p>
     </div></section>
     <section class="lyrics" id="lyrics" aria-labelledby="lyrics-title"><div class="container lyrics-grid">
       <div class="lyrics-aside">
@@ -330,7 +330,7 @@ Baila, baila, хвіртку!</p></div>
   <script>
   (()=>{'use strict';
     // VITA SYSTEM: insert actual official track destinations here. Empty fields stay in demo mode.
-    const TRACK={title:'Хто випустив собак?',artist:'ВІТА',audio:'assets/audio/hto-vypustyv-sobak-demo-22s.MP3',links:{buy:'',spotify:'https://open.spotify.com/track/45pBBa3GSUA1O0GnTRC3lp',apple:'',youtube:'',amazon:''}};
+    const TRACK={title:'Хто випустив собак?',artist:'ВІТА',audio:'assets/audio/hto-vypustyv-sobak-demo-22s.MP3',links:{buy:'',spotify:'',apple:'',youtube:'',amazon:''}};
     const audio=document.getElementById('track-audio');const consoleEl=document.getElementById('console');const seek=document.getElementById('seek');const current=document.getElementById('time-current');const duration=document.getElementById('time-duration');const state=document.getElementById('audio-state');const playIcon=document.getElementById('main-play-icon');const notice=document.getElementById('notice');const mute=document.getElementById('mute');const sideBtn=document.getElementById('side-play');
     let toastTimer;function toast(message){notice.textContent=message;notice.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>notice.classList.remove('show'),3800)}
     function fmt(time){if(!Number.isFinite(time))return '0:00';const v=Math.floor(time);return `${Math.floor(v/60)}:${String(v%60).padStart(2,'0')}`}
