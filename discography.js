@@ -106,7 +106,6 @@
     s.smoke?.resize(rect.width,rect.height);
   }
   new ResizeObserver(entries=>entries.forEach(e=>{const s=scenes.find(s=>s.root===e.target);if(s)resizeScene(s);})).observe(document.querySelector('.dg-atmosphere').parentElement);
-  addEventListener('resize',()=>{scenes.forEach(resizeScene);positionFlights(false);},{passive:true});
   function drawScene(s,time) {
     const ctx=s.ctx;if(!ctx)return;const w=s.width,h=s.height;ctx.clearRect(0,0,w,h);
     const rush=s.flightUntil>time&&!reduced.matches;
@@ -126,10 +125,17 @@
 
   const stage=document.querySelector('.dg-flight-stage'),objects=[...document.querySelectorAll('[data-dg-fly]')];
   let flightAnimations=[];
+  let flightRunId=0, flightInProgress=false, flightResizePending=false;
+  let measuredStageWidth=0, measuredStageHeight=0;
   function positionFlights(animate) {
     if(!stage)return;
     const w=stage.clientWidth,h=stage.clientHeight;
+    if(!w||!h)return;
+    const runId=++flightRunId;
     flightAnimations.forEach(a=>a.cancel());flightAnimations=[];
+    measuredStageWidth=w;measuredStageHeight=h;
+    flightInProgress=Boolean(animate&&!reduced.matches);
+    flightResizePending=false;
     objects.forEach((el,i)=>{
       el.classList.remove('is-orbiting');
       const x=Number(el.dataset.x)*w/100,y=Number(el.dataset.y)*h/100;
@@ -149,10 +155,31 @@
     if(animate&&!reduced.matches){
       const heroScene=scenes.find(s=>s.root.classList.contains('dg-flight-hero'));if(heroScene)heroScene.flightUntil=performance.now()+3300;
       document.querySelector('.dg-flash').animate([{opacity:0},{opacity:.5,offset:.35},{opacity:0,offset:1}],{duration:850,delay:520,easing:'ease-out'});
+      // The mobile address bar may fire resize during the first entrance.
+      // Defer any true geometry correction until all flight animations land.
+      Promise.allSettled(flightAnimations.map(a=>a.finished)).then(()=>{
+        if(runId!==flightRunId)return;
+        flightInProgress=false;
+        if(flightResizePending){
+          flightResizePending=false;
+          if(Math.abs(stage.clientWidth-measuredStageWidth)>1 ||
+             Math.abs(stage.clientHeight-measuredStageHeight)>1)positionFlights(false);
+        }
+      });
     }
   }
+  addEventListener('resize',()=>{
+    scenes.forEach(resizeScene);
+    if(!stage)return;
+    // Ignore height-only changes from expanding/collapsing mobile browser bars.
+    const widthChanged=Math.abs(stage.clientWidth-measuredStageWidth)>1;
+    if(!widthChanged)return;
+    if(flightInProgress){flightResizePending=true;return;}
+    positionFlights(false);
+  },{passive:true});
   if(stage){
-    positionFlights(true);
+    // Let CSS/layout settle before starting the very first entrance.
+    requestAnimationFrame(()=>requestAnimationFrame(()=>positionFlights(true)));
     document.querySelector('[data-dg-replay]').addEventListener('click',()=>positionFlights(true));
   }
 
