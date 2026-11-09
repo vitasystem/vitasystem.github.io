@@ -8,6 +8,13 @@ const tr=(uk,eng)=>en?eng:uk;
 const key='vita-black-rabbits-collection-v2';
 let found=[],toastTimer,lanternTimer,revealTimer;
 try{const data=JSON.parse(localStorage.getItem(key)||'{}');found=Array.isArray(data.found)?[...new Set(data.found.filter(n=>Number.isInteger(n)&&n>=0&&n<5))]:[];}catch{}
+// A browser Back navigation may restore the unlocked portal from memory.
+window.addEventListener('pageshow',event=>{
+ if(!event.persisted)return;
+ let saved=[];
+ try{const data=JSON.parse(localStorage.getItem(key)||'{}');saved=Array.isArray(data.found)?data.found:[];}catch{}
+ if(saved.length!==found.length || saved.some(n=>!found.includes(n)))location.reload();
+});
 const names=en?['Flower','Peach','Watermelon','Bicycle','Moped']:['Квітка','Персик','Кавун','Велосипед','Мопед'];
 const goals=[5,5,10,15,20,24];
 const rooms=en?[
