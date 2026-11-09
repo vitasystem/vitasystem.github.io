@@ -36,17 +36,17 @@ function translateStatic(){if(!en)return;
  'НАТИСНИ':'CLICK','НА МЕНЕ':'ME','НУ ДАВАЙ. ЩО СТАНЕТЬСЯ?':'GO ON. WHAT COULD HAPPEN?',
  'НАЩО':'WHY DID','НАТИСНУВ???':'YOU CLICK???','Віта просила нічого не чіпати…':'VITA asked you not to touch anything…','Я БІЛЬШЕ НЕ БУДУ':'I WON’T DO IT AGAIN',
  'Тепер ти':'Now you are','всередині.':'inside.','УВІЙТИ ДО КІМНАТИ':'ENTER THE ROOM','ПЕРША П’ЯТІРКА / КЛЮЧІ ДО КІМНАТИ':'THE FIRST FIVE / KEYS TO THE ROOM',
- 'ПЕРШИЙ ЕТАП':'FIRST STAGE','П’ятеро чорних кроликів уже поруч. Натискай на кожного — вони займуть свої місця й відчинять двері.':'The five black rabbits are nearby. Click each one to fill its outline and open the doors.',
+ 'ПЕРШИЙ ЕТАП':'FIRST STAGE','Знайди п’ятьох чорних кроликів на різних сторінках сайту.':'The five black rabbits are nearby. Click each one to fill its outline and open the doors.',
  'ТИ МЕНЕ БАЧИШ?':'CAN YOU SEE ME?','ПЕРСИК НЕ ВІДДАМ.':'THE PEACH IS MINE.','Я ТУТ НІ ДО ЧОГО.':'I HAD NOTHING TO DO WITH IT.','ДОЖЕНЕШ?':'CATCH ME?','ПОЇХАЛИ ДО ВІТИ.':'LET’S GO TO VITA.',
  'ТЕСТОВА КІМНАТА / VITA 224':'TEST ROOM / VITA 224','П’ять кроликів. Один вхід. Далі — більше.':'Five rabbits. One entrance. More to come.',
- 'Спочатку — п’ятеро спільників.':'First, find your five accomplices.','Знайди п’ятьох чорних кроликів біля дверей на головній сторінці.':'Find five black rabbits by the doors on the homepage.',
+ 'Спочатку — п’ятеро спільників.':'First, find your five accomplices.','Знайди п’ятьох чорних кроликів на сторінках сайту.':'Find five black rabbits across the site.',
  'ТЕСТОВИЙ ПРОСТІР · НОВІ ІСТОРІЇ З’ЯВЛЯТЬСЯ ЗГОДОМ':'TEST SPACE · NEW STORIES ARE COMING',
  'Обурений чорний кролик свариться':'An angry black rabbit complains','Срібні ланцюги та замок із кролячою замковою щілиною':'Silver chains and a lock with a rabbit keyhole',
  'Місця для п’ятьох кроликів':'Outlines for five rabbits','Перевірити замок':'Check the lock','Натисни на мене — ліхтар':'Click me — lantern','Позначки відкриттів':'Discovery milestones','Розділи таємної кімнати':'Secret room menu'
  };
  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;while(n=walker.nextNode()){const text=n.textContent.trim();if(pairs[text])n.textContent=n.textContent.replace(text,pairs[text]);}
  $$('[aria-label],[alt]').forEach(e=>['aria-label','alt'].forEach(a=>{if(pairs[e.getAttribute(a)])e.setAttribute(a,pairs[e.getAttribute(a)]);}));
- if(room){document.documentElement.lang='en';document.title='Black Rabbits — VITA Test Room';$('[data-br-room-heading]').innerHTML='VITA has <em>secrets.</em>';}
+ if(room){document.documentElement.lang='en';document.title='BLACK RABBITS: UNCENSORED — VITA SYSTEM';$('[data-br-room-heading]').innerHTML='VITA has <em>secrets.</em>';}
 }
 translateStatic();
 if(portal){
@@ -57,7 +57,7 @@ if(portal){
   $('#br-collection-count').textContent=String(count).padStart(2,'0')+' / 05';
   $('#br-door-space').classList.toggle('open',open);$('#br-key-art').classList.toggle('active',open);
   $('#br-enter-room').disabled=!open;$('#br-enter-room').textContent=open?tr('УВІЙТИ ДО КІМНАТИ ↗','ENTER THE ROOM ↗'):tr('ДВЕРІ ЗАЧИНЕНІ','DOORS LOCKED');
-  $('#br-door-status').textContent=open?tr('П’ятеро разом. Тестова кімната чекає.','All five together. The test room is waiting.'):tr(`Знайдено ${count} з 5. Двері відчиняться, коли збереш усіх.`,`Found ${count} of 5. Collect them all to open the doors.`);
+  $('#br-door-status').textContent=open?tr('П’ятеро разом. Гра BLACK RABBITS чекає.','All five together. BLACK RABBITS is waiting.'):tr(`Знайдено ${count} з 5. Двері відчиняться, коли збереш усіх.`,`Found ${count} of 5. Collect them all to open the doors.`);
   $('.status-dot').textContent=open?tr('ДВЕРІ ВІДЧИНЕНІ','DOORS OPEN'):tr('ДОСТУП ОБМЕЖЕНО','ACCESS RESTRICTED');
   $$('[data-milestone]').forEach(b=>{const n=Number(b.dataset.milestone),yes=n>=5&&count>=n;b.classList.toggle('unlocked',yes);b.setAttribute('aria-label',tr(`${n} кроликів: ${yes?'відкрито':'зачинено'}`,`${n} rabbits: ${yes?'unlocked':'locked'}`));});sprites();
  }
