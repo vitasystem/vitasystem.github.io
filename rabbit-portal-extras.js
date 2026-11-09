@@ -23,11 +23,29 @@ const run=()=>{
  @media(prefers-reduced-motion:reduce){#black-rabbit-portal .vita-guard{animation:none}}
  `;document.head.append(style);
  const frames=[[15,420],[455,380],[835,444],[1274,426],[1715,438]];
- [[1,'left'],[3,'right'],[4,'top']].forEach(([id,pos])=>{
+ const lines=en?[
+  'Not me! I am the guard! Go search the site!',
+  'Who let the dogs out? Go find another rabbit!',
+  'Damn, I am just chilling here!',
+  'What the...? Don’t touch me!'
+ ]:[
+  'Не той! Я вартовий! Іди на сайт і шукай!',
+  'Хто випустив собак? Іди на сайт, шукай іншого!',
+  'Трясця, я тут чилю!',
+  'Шо за…? Не чіпай!!'
+ ];
+ [[1,'left'],[3,'right'],[4,'top']].forEach(([id,pos],guardIndex)=>{
   const b=document.createElement('button');b.type='button';b.className='vita-guard vita-guard--'+pos;b.setAttribute('aria-label',en?'Rabbit guard':'Кролик-вартовий');
   const [x,w]=frames[id];const scale=2172/w*100,offset=x/(2172-w)*100;
-  b.innerHTML='<span class="vita-guard__sprite" style="background-size:'+scale+'% 100%;background-position:'+offset+'% center"></span><span class="vita-guard__speech" role="status">'+(en?'Not me! I am a guard! Search the site!':'Не той! Я вартовий! Іди на сайт і шукай!')+'</span>';
-  b.addEventListener('click',()=>{stage.querySelectorAll('.vita-guard').forEach(g=>{if(g!==b)g.classList.remove('speaking');});b.classList.add('speaking');setTimeout(()=>b.classList.remove('speaking'),2800);});stage.append(b);
+  b.innerHTML='<span class="vita-guard__sprite" style="background-size:'+scale+'% 100%;background-position:'+offset+'% center"></span><span class="vita-guard__speech" role="status"></span>';
+  let clicks=0;
+  b.addEventListener('click',()=>{
+   stage.querySelectorAll('.vita-guard').forEach(g=>{if(g!==b)g.classList.remove('speaking');});
+   b.querySelector('.vita-guard__speech').textContent=lines[(guardIndex+clicks)%lines.length];
+   clicks++;
+   b.classList.add('speaking');setTimeout(()=>b.classList.remove('speaking'),2800);
+  });
+  stage.append(b);
  });
  if(rail){const old=[...rail.querySelectorAll('[data-milestone]')];old.forEach((b,i)=>{if(i>=5){b.remove();return;}const n=i+1;b.dataset.milestone=String(n);b.textContent=String(n).padStart(2,'0');b.setAttribute('aria-label',(en?'Rabbit ':'Кролик ')+n);});const found=(()=>{try{return JSON.parse(localStorage.getItem(key)||'{}').found||[];}catch{return [];}})();old.slice(0,5).forEach((b,i)=>b.classList.toggle('unlocked',found.length>i));}
  const form=document.createElement('form');form.className='vita-secret';form.innerHTML='<input type="password" name="code" autocomplete="off" aria-label="'+(en?'Secret password':'Таємний пароль')+'" placeholder="'+(en?'Secret password':'Таємний пароль')+'"><button type="submit">'+(en?'OPEN':'ВІДЧИНИТИ')+'</button><small>'+(en?'Collect five rabbits or enter the secret password.':'Збери 5 кроликів або введи таємний пароль.')+'</small>';
