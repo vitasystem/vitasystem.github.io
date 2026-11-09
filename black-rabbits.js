@@ -37,6 +37,7 @@ function translateStatic(){if(!en)return;
  'НАЩО':'WHY DID','НАТИСНУВ???':'YOU CLICK???','Віта просила нічого не чіпати…':'VITA asked you not to touch anything…','Я БІЛЬШЕ НЕ БУДУ':'I WON’T DO IT AGAIN',
  'Тепер ти':'Now you are','всередині.':'inside.','УВІЙТИ ДО КІМНАТИ':'ENTER THE ROOM','ПЕРША П’ЯТІРКА / КЛЮЧІ ДО КІМНАТИ':'THE FIRST FIVE / KEYS TO THE ROOM',
  'ПЕРШИЙ ЕТАП':'FIRST STAGE','Знайди п’ятьох чорних кроликів на різних сторінках сайту.':'The five black rabbits are nearby. Click each one to fill its outline and open the doors.',
+ 'Знайди чорних кроликів на сайті. Натисни на кожного, щоб його силует з’явився тут. Після п’ятої знахідки двері відчиняться.':'Find the black rabbits across the site. Click each one to fill its outline here. After the fifth find, the doors will open.',
  'ТИ МЕНЕ БАЧИШ?':'CAN YOU SEE ME?','ПЕРСИК НЕ ВІДДАМ.':'THE PEACH IS MINE.','Я ТУТ НІ ДО ЧОГО.':'I HAD NOTHING TO DO WITH IT.','ДОЖЕНЕШ?':'CATCH ME?','ПОЇХАЛИ ДО ВІТИ.':'LET’S GO TO VITA.',
  'ТЕСТОВА КІМНАТА / VITA 224':'TEST ROOM / VITA 224','П’ять кроликів. Один вхід. Далі — більше.':'Five rabbits. One entrance. More to come.',
  'Спочатку — п’ятеро спільників.':'First, find your five accomplices.','Знайди п’ятьох чорних кроликів на сторінках сайту.':'Find five black rabbits across the site.',
