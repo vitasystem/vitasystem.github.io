@@ -26,9 +26,13 @@ iframe{display:block;width:100%;height:100%;border:0;background:#090711}
 .rabbit-afterparty .eyebrow{display:block;color:#bc8dd1;font:10px Arial,sans-serif;letter-spacing:.35em}
 .rabbit-afterparty h2{font:400 clamp(30px,5vw,64px)/1.1 Georgia,serif;color:#f2dfff;margin:17px auto 10px}
 .rabbit-afterparty p{color:#a78eb3;font:13px/1.7 Arial,sans-serif}
-.rabbit-afterparty .crew{margin:35px auto 0;display:flex;justify-content:center;align-items:flex-end;gap:clamp(0px,1vw,25px);max-width:980px;min-height:170px}
-.rabbit-afterparty .crew i{display:block;width:18%;aspect-ratio:3/4;background:url('assets/img/black-rabbits/rabbits.webp') no-repeat;background-size:500% 100%;background-position:var(--pos) center;filter:drop-shadow(0 12px 23px #a45bc044);animation:crew-bounce 5s ease-in-out infinite;animation-delay:var(--delay)}
-.rabbit-afterparty .crew i:nth-child(3){width:22%}
+.rabbit-afterparty .crew{margin:35px auto 0;display:flex;justify-content:center;align-items:flex-end;gap:clamp(6px,1vw,20px);max-width:1100px;min-height:195px}
+.rabbit-afterparty .crew .member{position:relative;display:block;width:19%;min-width:0;aspect-ratio:3/4;filter:drop-shadow(0 12px 23px #a45bc044);animation:crew-bounce 5s ease-in-out infinite;animation-delay:var(--delay)}
+.rabbit-afterparty .crew .member i{position:absolute;inset:0;display:block;background:url('assets/img/black-rabbits/rabbits.webp') no-repeat;background-size:500% 100%;background-position:var(--pos) center}
+.rabbit-afterparty .crew .member img{position:relative;display:block;width:100%;height:100%;object-fit:contain;opacity:0}
+.rabbit-afterparty .crew .member img.ready{opacity:1}
+@media(max-width:650px){.rabbit-afterparty .crew{gap:3px}.rabbit-afterparty .crew .member{width:19%}}
+
 .rabbit-afterparty .closing{color:#b897c8;letter-spacing:.25em;font:10px Arial,sans-serif;margin-top:34px}
 @keyframes crew-bounce{0%,100%{translate:0 0}50%{translate:0 -10px}}
 @media(prefers-reduced-motion:reduce){.rabbit-afterparty .crew i{animation:none}}
@@ -44,7 +48,7 @@ iframe{display:block;width:100%;height:100%;border:0;background:#090711}
 </main>
 <section class="rabbit-afterparty" aria-label="Команда чорних кроликів">
 <span class="eyebrow">VITA SYSTEM / 224</span><h2>BLACK RABBITS<br>AFTERPARTY</h2><p id="party-text">Ти вже по той бік дверей. А кролики лише починають веселитися.</p>
-<div class="crew" aria-hidden="true"><i style="--pos:0%;--delay:0s"></i><i style="--pos:25%;--delay:-1s"></i><i style="--pos:50%;--delay:-2s"></i><i style="--pos:75%;--delay:-3s"></i><i style="--pos:100%;--delay:-4s"></i></div><div class="closing">UNCENSORED · THE NIGHT IS YOURS</div>
+<div class="crew" aria-hidden="true"><span class="member" style="--pos:0%;--delay:-0s"><i></i><img loading="lazy" src="assets/img/black-rabbits/rabbit-flower.webp" alt="" onload="this.classList.add('ready')" onerror="this.remove()" /></span><span class="member" style="--pos:25%;--delay:-1s"><i></i><img loading="lazy" src="assets/img/black-rabbits/rabbit-peach.webp" alt="" onload="this.classList.add('ready')" onerror="this.remove()" /></span><span class="member" style="--pos:50%;--delay:-2s"><i></i><img loading="lazy" src="assets/img/black-rabbits/rabbit-watermelon.webp" alt="" onload="this.classList.add('ready')" onerror="this.remove()" /></span><span class="member" style="--pos:75%;--delay:-3s"><i></i><img loading="lazy" src="assets/img/black-rabbits/rabbit-bicycle.webp" alt="" onload="this.classList.add('ready')" onerror="this.remove()" /></span><span class="member" style="--pos:100%;--delay:-4s"><i></i><img loading="lazy" src="assets/img/black-rabbits/rabbit-moped.webp" alt="" onload="this.classList.add('ready')" onerror="this.remove()" /></span></div><div class="closing">UNCENSORED · THE NIGHT IS YOURS</div>
 </section>
 <script>
 (function(){
