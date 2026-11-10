@@ -8,7 +8,9 @@ const params=new URLSearchParams(location.search);
 const en=params.get('lang')==='en'||(!params.has('lang')&&document.documentElement.lang==='en');
 const names=en?['Flower','Peach','Watermelon','Bicycle','Moped']:['Квітка','Персик','Кавун','Велосипед','Мопед'];
 const frames=[[15,420],[455,380],[835,444],[1274,426],[1715,438]];
-function read(){try{const f=JSON.parse(localStorage.getItem(key)||'{}').found;return Array.isArray(f)?[...new Set(f.filter(n=>Number.isInteger(n)&&n>=0&&n<5))]:[];}catch{return [];}}
+function read(){try{const f=JSON.parse(sessionStorage.getItem(key)||'{}').found;return Array.isArray(f)?[...new Set(f.filter(n=>Number.isInteger(n)&&n>=0&&n<5))]:[];}catch{return [];}}
+// Migration: an old persistent hunt must never keep the door unlocked.
+try{localStorage.removeItem(key);}catch(_){}
 const found=read();if(found.includes(id))return;
 const spots={
  'music.html':{selector:'.photo-break',left:'8%',top:'17%'},
@@ -40,7 +42,7 @@ btn.innerHTML='<span class="vita-rabbit-egg__sprite" aria-hidden="true"></span><
 const sprite=btn.querySelector('.vita-rabbit-egg__sprite');sprite.style.backgroundSize=sheet+'% 100%';sprite.style.backgroundPosition=x+'% center';
 btn.addEventListener('click',()=>{
 const collected=read();if(!collected.includes(id))collected.push(id);
-try{localStorage.setItem(key,JSON.stringify({found:collected}));}catch{}
+try{sessionStorage.setItem(key,JSON.stringify({found:collected}));}catch{}
 btn.remove();
 const note=document.createElement('div');note.className='vita-rabbit-egg__notice';note.setAttribute('role','status');
 const count=collected.length;
