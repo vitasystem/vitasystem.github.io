@@ -47,10 +47,10 @@ const run=()=>{
   });
   stage.append(b);
  });
- if(rail){const old=[...rail.querySelectorAll('[data-milestone]')];old.forEach((b,i)=>{if(i>=5){b.remove();return;}const n=i+1;b.dataset.milestone=String(n);b.textContent=String(n).padStart(2,'0');b.setAttribute('aria-label',(en?'Rabbit ':'Кролик ')+n);});const found=(()=>{try{return JSON.parse(localStorage.getItem(key)||'{}').found||[];}catch{return [];}})();old.slice(0,5).forEach((b,i)=>b.classList.toggle('unlocked',found.length>i));}
+ if(rail){const old=[...rail.querySelectorAll('[data-milestone]')];old.forEach((b,i)=>{if(i>=5){b.remove();return;}const n=i+1;b.dataset.milestone=String(n);b.textContent=String(n).padStart(2,'0');b.setAttribute('aria-label',(en?'Rabbit ':'Кролик ')+n);});const found=(()=>{try{return JSON.parse(sessionStorage.getItem(key)||'{}').found||[];}catch{return [];}})();old.slice(0,5).forEach((b,i)=>b.classList.toggle('unlocked',found.length>i));}
  const form=document.createElement('form');form.className='vita-secret';form.innerHTML='<input type="password" name="code" autocomplete="off" aria-label="'+(en?'Secret password':'Таємний пароль')+'" placeholder="'+(en?'Secret password':'Таємний пароль')+'"><button type="submit">'+(en?'OPEN':'ВІДЧИНИТИ')+'</button><small>'+(en?'Collect five rabbits or enter the secret password.':'Збери 5 кроликів або введи таємний пароль.')+'</small>';
  portal.querySelector('.collection')?.append(form);
- form.addEventListener('submit',e=>{e.preventDefault();const code=new FormData(form).get('code').toString().trim().toUpperCase();if(code==='VITA224'){try{localStorage.setItem(key,JSON.stringify({found:[0,1,2,3,4]}));}catch{}location.reload();}else{form.querySelector('small').textContent=en?'Wrong password. The guards are watching.':'Неправильний пароль! Вартові все бачать.';}});
+ form.addEventListener('submit',e=>{e.preventDefault();const code=new FormData(form).get('code').toString().trim().toUpperCase();if(code==='VITA224'){try{sessionStorage.removeItem(key);sessionStorage.setItem('vita-rabbits-game-visit','1');}catch{}location.assign('black-rabbits.html?lang='+(en?'en':'uk'));}else{form.querySelector('small').textContent=en?'Wrong password. The guards are watching.':'Неправильний пароль! Вартові все бачать.';}});
 };
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});else run();
 })();
