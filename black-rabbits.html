@@ -5,6 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#090711">
 <meta name="robots" content="noindex,nofollow">
+<script>
+/* A completed five-rabbit hunt or correct password grants one visit.
+   Navigating back or reopening this page without that visit returns to the doors. */
+(()=>{
+ const language=new URLSearchParams(location.search).get('lang')==='en'?'en':'uk';
+ const doors='index.html?lang='+language+'#black-rabbit-portal';
+ try{if(sessionStorage.getItem('vita-rabbits-game-visit')!=='1')location.replace(doors);}
+ catch(_){location.replace(doors);}
+ addEventListener('pageshow',()=>{
+   try{if(sessionStorage.getItem('vita-rabbits-game-visit')!=='1')location.replace(doors);}
+   catch(_){location.replace(doors);}
+ });
+})();
+</script>
 <title>BLACK RABBITS: UNCENSORED — VITA SYSTEM</title>
 <link rel="icon" href="assets/img/vita-planet-icon-v2-48.png">
 <style>
@@ -54,6 +68,7 @@ iframe{display:block;width:100%;height:100%;border:0;background:#090711}
   function resetHunt(){
     try {
       sessionStorage.removeItem(huntKey);
+      sessionStorage.removeItem('vita-rabbits-game-visit');
       localStorage.removeItem(huntKey); // Remove collections from the previous persistent version.
       sessionStorage.setItem(resetKey,'1');
     } catch (_) {}
