@@ -36,7 +36,7 @@
 /* Music navigation only: align with VITA's main header and full-screen mobile menu. */
 .nav{position:fixed;top:0;right:0;left:0;width:100%;height:78px;z-index:110;padding:0 5%;background:rgba(7,6,9,.86);border-bottom:1px solid rgba(241,236,232,.12);backdrop-filter:blur(16px)}
 .nav .brand{font:500 32px/1 'Bodoni Moda',Georgia,serif;letter-spacing:-.025em;color:#d09aae;text-shadow:0 0 10px rgba(122,38,62,.24)}
-.nav .navlinks{display:flex;gap:28px;align-items:center;font:500 10px/1.4 Manrope,Arial,sans-serif;letter-spacing:.19em}
+.nav .navlinks{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:28px;align-items:center;white-space:nowrap;font:500 10px/1.4 Manrope,Arial,sans-serif;letter-spacing:.19em}
 .nav .navlinks a{padding:12px 0;color:#d7d1d7}
 .nav .navlinks a.active:after{content:'';position:absolute;left:calc(50% - 3px);bottom:0;width:6px;height:6px;border-radius:50%;background:#aa8ce5}
 .nav .navlinks a:hover{color:#f4e9f1}
