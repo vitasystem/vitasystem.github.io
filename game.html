@@ -662,8 +662,12 @@ a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}button:f
     const value=el('preview-secret-input').value.trim().toUpperCase();
     const error=el('gate-form-message');
     if(value==='VITA224'){
-      // Same one-visit authorization contract as the established homepage portal.
-      authorizeAndEnter();
+      // Unlock immediately on the showroom, then enter the same one-visit game.
+      el('br-door-space').classList.add('open');
+      el('br-key-art').classList.add('active');
+      el('br-door-status').textContent=tr('Пароль прийнято. Двері відчиняються…','Password accepted. The doors are opening…');
+      form.querySelector('button[type="submit"]').disabled=true;
+      setTimeout(authorizeAndEnter,950);
     }else{
       error.dataset.invalid='1';
       error.textContent=tr('Неправильний пароль! Вартові все бачать.','Wrong password! The guards are watching.');
