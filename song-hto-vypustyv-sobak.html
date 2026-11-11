@@ -253,10 +253,10 @@ body{background:#090811}
     <section class="conversion" id="purchase" aria-labelledby="purchase-title"><div class="container">
       <span class="section-kicker"><b>02</b> / OWN THE SOUND</span>
       <h2 id="purchase-title">Хто випустив собак?<br><em>Забирай музику.</em></h2>
-      <p class="conversion-lead">«Хто випустив собак?» — музика ВІТИ. Додай трек до своєї колекції, коли відкриється купівля.</p>
-      <div class="price"><span>Цифровий трек</span><strong>$1.00</strong><span class="price-soon">Незабаром</span></div>
-      <div class="cta-row"><button type="button" class="btn btn-primary" data-platform="buy">Купити трек — $1 <span class="soon-tag">Незабаром</span></button><a class="btn btn-outline" href="https://open.spotify.com/track/45pBBa3GSUA1O0GnTRC3lp" target="_blank" rel="noopener noreferrer">Spotify ↗</a><button type="button" class="btn btn-outline" data-preview>Слухати демо <span aria-hidden="true">▶</span></button></div>
-      <p class="stream-soon">Умови покупки та отримання файлу з’являться після запуску продажу.</p>
+      <p class="conversion-lead">«Хто випустив собак?» — трек ВІТИ. Придбати MP3 можна за $1: натисни «Купити трек» та напиши ВІТІ в Instagram.</p>
+      <div class="price"><span>Цифровий трек</span><strong>$1.00</strong></div>
+      <div class="cta-row"><button type="button" class="btn btn-primary" data-vita-buy aria-haspopup="dialog" aria-controls="vita-purchase-dialog">Купити трек — $1</button><a class="btn btn-outline" href="https://open.spotify.com/track/45pBBa3GSUA1O0GnTRC3lp" target="_blank" rel="noopener noreferrer">Spotify ↗</a><button type="button" class="btn btn-outline" data-preview>Слухати демо <span aria-hidden="true">▶</span></button></div>
+      <p class="stream-soon">Оплата та передача MP3 узгоджуються безпосередньо в повідомленнях Instagram.</p>
     </div></section>
     <section class="lyrics" id="lyrics" aria-labelledby="lyrics-title"><div class="container lyrics-grid">
       <div class="lyrics-aside">
@@ -361,12 +361,12 @@ Baila, baila, хвіртку!</p></div>
   (()=>{'use strict';
   // Approved showroom purchase contact dialog.
   const buyDialog=document.getElementById('vita-purchase-dialog');
-  const heroBuy=document.getElementById('vita-hero-buy');
-  if(buyDialog&&heroBuy){
-    heroBuy.addEventListener('click',()=>{
+  const buyButtons=document.querySelectorAll('#vita-hero-buy, [data-vita-buy]');
+  if(buyDialog&&buyButtons.length){
+    buyButtons.forEach(button=>button.addEventListener('click',()=>{
       if(typeof buyDialog.showModal==='function'){buyDialog.showModal()}
       else{window.open('https://www.instagram.com/vita.system.music/','_blank','noopener,noreferrer')}
-    });
+    }));
     const closeBuy=buyDialog.querySelector('[data-vita-close-buy]');
     if(closeBuy)closeBuy.addEventListener('click',()=>buyDialog.close());
     buyDialog.addEventListener('click',event=>{if(event.target===buyDialog)buyDialog.close()});
