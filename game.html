@@ -578,7 +578,7 @@ a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}button:f
     placeholders.forEach(({e,original})=>e.setAttribute('placeholder',currentLang==='en'?'Secret password':original));
     langButtons.forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.gameLang===currentLang)));
     staticLinkElements.forEach(a=>a.href=makeLink(initialHref.get(a),currentLang));
-    document.title=currentLang==='en'?'BLACK RABBITS: UNCENSORED — VITA SYSTEM Game':'BLACK RABBITS: UNCENSORED — Гра VITA SYSTEM';
+    document.title=currentLang==='en'?'BLACK RABBITS: UNCENSORED — VITA SYSTEM Game':'BLACK RABBITS: UNCENSORED — українська браузерна аркада | VITA SYSTEM';
     const gateNotice=document.getElementById('gate-form-message');
     if(gateNotice && !gateNotice.dataset.invalid) gateNotice.textContent=currentLang==='en'?'Collect 5 rabbits or enter the secret password.':'Збери 5 кроликів або введи таємний пароль.';
     const params=new URL(location.href);params.searchParams.set('lang',currentLang);
