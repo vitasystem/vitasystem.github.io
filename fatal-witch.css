@@ -5,4 +5,11 @@
 .fatal-witch-page .info-main{min-height:85vh}
 .fatal-witch-page .info-main>h1{line-height:1.12;letter-spacing:.005em}
 @media(max-width:600px){#fatal-witch-banner .fatal-witch-cta{padding:12px 23px;font-size:11px;letter-spacing:.06em;gap:2px}}
-@media(prefers-reduced-motion:reduce){#fatal-witch-banner .fatal-witch-cta{transition:none}}
+@media(prefers-reduced-motion:reduce){#fatal-witch-banner .fatal-witch-cta{transition:none}#fatal-witch-banner .fatal-witch-image-link img{transition:none;transform:none!important}}
+
+/* Clickable stealth banner with restrained cinematic motion; CTA stays on top. */
+#fatal-witch-banner .fatal-witch-image-link{display:block;position:relative;overflow:hidden;cursor:pointer}
+#fatal-witch-banner .fatal-witch-image-link img{display:block;width:100%;height:auto;aspect-ratio:1672/941;object-fit:contain;transform:translate3d(0,0,0) scale(1);transform-origin:center center;transition:transform 900ms cubic-bezier(.2,.65,.25,1);will-change:transform}
+@media(hover:hover) and (pointer:fine){#fatal-witch-banner .fatal-witch-image-link:hover img{transform:translate3d(0,-5px,0) scale(1.035)}}
+#fatal-witch-banner .fatal-witch-image-link:focus-visible{outline:2px solid #e3aebd;outline-offset:-4px}
+#fatal-witch-banner .fatal-witch-image-link:focus-visible img{transform:translate3d(0,-5px,0) scale(1.035)}

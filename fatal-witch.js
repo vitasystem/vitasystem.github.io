@@ -1,9 +1,12 @@
 (() => {
 const cta=document.querySelector('.fatal-witch-cta');
+const imageLink=document.querySelector('.fatal-witch-image-link');
 if(cta){
 const update=()=>{
 const en=document.documentElement.lang==='en';
-cta.href='fatal-witch.html?lang='+(en?'en':'uk');
+const href='fatal-witch.html?lang='+(en?'en':'uk');
+cta.href=href;
+if(imageLink){imageLink.href=href;imageLink.setAttribute('aria-label',en?'Open Fatal Witch page':'Відкрити сторінку «Фатальна Відьма»');}
 cta.querySelector('.fatal-witch-cta-top').textContent=en?'Get in touch':'Вийти на зв’язок';
 cta.querySelector('.fatal-witch-cta-bottom').textContent=en?'with the Fatal Witch':'з Фатальною Відьмою';
 };
