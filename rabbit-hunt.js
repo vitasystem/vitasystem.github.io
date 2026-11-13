@@ -20,7 +20,13 @@ const spots={
  'discography.html':{selector:'.dg-release-section',left:'6%',top:'52%'}
 };
 const spot=spots[page];
-const target=document.querySelector(spot.selector)||document.querySelector('main')||document.body;
+let target=document.querySelector(spot.selector)||document.querySelector('main')||document.body;
+// On narrow screens the release section becomes much taller and its old 52%
+// coordinate can land behind other cards. Anchor Rabbit #5 to release #10.
+if(page==='discography.html'&&matchMedia('(max-width:700px)').matches){
+ const lagoonCard=document.querySelector('.dg-release[data-dg-release="10"]');
+ if(lagoonCard){target=lagoonCard;spot.left='7%';spot.top='28%';}
+}
 const position=getComputedStyle(target).position;if(position==='static')target.style.position='relative';
 const style=document.createElement('style');
 style.textContent=`
