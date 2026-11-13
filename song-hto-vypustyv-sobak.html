@@ -201,12 +201,8 @@ body{background:#090811}
 .vita-purchase-dialog :focus-visible{outline:2px solid #f1b3da;outline-offset:4px}
 @media(prefers-reduced-motion:reduce){.vita-purchase-cta{transition:none}}
 </style>
-<style id="vita-hero-ctas-theme">
-.hero-actions .btn-primary{background:linear-gradient(120deg,#75234f,#a63f72);color:#fff;border-color:#d184aa;box-shadow:0 10px 30px rgba(0,0,0,.3)}
-.hero-actions .btn-primary:hover{filter:brightness(1.13);box-shadow:0 12px 36px rgba(0,0,0,.38)}
-.hero-actions .btn-outline{background:rgba(50,15,41,.68);color:#fff1f8;border-color:#d184aa}
-.hero-actions .btn-outline:hover{background:#75234f;border-color:#fff}
-</style>
+<link rel="stylesheet" href="showroom-mobile-menu.css?v=20261113-1">
+<script src="showroom-mobile-menu.js?v=20261113-1" defer></script>
 </head><body style="--hero-image:url('assets/img/song-hto-vypustyv-sobak%20%282%29.webp')">
 <header class="site-head">
     <a class="wordmark" href="https://vitasystem.github.io/" aria-label="На головну VITA SYSTEM">VITA <i></i><small>SYSTEM<br>224 FM</small></a>
@@ -220,7 +216,7 @@ body{background:#090811}
         <h1 id="hero-title" aria-label="ВІТА — Хто випустив собак?"><span>ХТО</span><span>ВИПУСТИВ</span><span class="number">СОБАК?</span></h1>
         <p class="hero-subtitle">WOOF-WOOF / BAILA, BAILA</p>
         <p class="hero-hook"><strong>Хто-хто випустив собак?</strong><br>«Редиска на грядці. І ще трошки салату…» Але щось пішло не так.</p>
-        <div class="hero-actions"><a class="btn btn-primary" href="#experience">Слухати демо ↗</a><a class="btn btn-outline" href="#lyrics">Текст пісні ↗</a><button type="button" class="btn btn-primary" id="vita-hero-buy" aria-haspopup="dialog" aria-controls="vita-purchase-dialog">Купити трек — $1</button></div>
+        <div class="hero-actions"><button class="btn btn-primary" type="button" id="vita-hero-buy" aria-haspopup="dialog" aria-controls="vita-purchase-dialog">Купити трек — $1</button><a class="btn btn-outline" href="#lyrics">Текст пісні ↗</a><button class="btn-play" type="button" data-preview><span class="play-ring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span><span>Увімкнути демо</span></button></div>
       </div></div>
       <div class="hero-meta"><span>VITA MUSIC / SINGLE RELEASE <span class="longline" style="display:inline-block;vertical-align:middle"></span></span><a href="#experience" class="hero-scroll"><span class="scroll-text">Гортай до звуку</span><span class="arrow">↓</span></a></div>
     </section>
