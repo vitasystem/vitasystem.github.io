@@ -214,11 +214,25 @@ button:disabled{opacity:.48;cursor:not-allowed;transform:none!important}
 .lagoon-room-feature-image:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#071421 0%,rgba(7,20,33,.16) 42%,transparent 100%);pointer-events:none}
 @media(max-width:800px){.lagoon-room-feature{padding:65px 0}.lagoon-room-feature-link{grid-template-columns:1fr}.lagoon-room-feature-image{order:-1;min-height:265px;height:265px}.lagoon-room-feature-image:after{background:linear-gradient(0deg,#071421 0%,transparent 45%)}.lagoon-room-feature-copy{padding:27px 27px 36px}.lagoon-room-feature h2{font-size:clamp(33px,7.2vw,52px);margin:19px 0 14px}.lagoon-room-feature p{font-size:14px;margin-bottom:24px}.lagoon-room-feature-button{padding:15px 17px;width:100%;gap:10px;font-size:10px}.lagoon-room-feature-kicker{font-size:9px;letter-spacing:.17em}}
 @media(prefers-reduced-motion:reduce){.lagoon-room-feature-link,.lagoon-room-feature-button{transition:none}}
+
+/* VITA SHOWROOM — language pilot. Isolated styling; no artwork/player rules changed. */
+.site-head{gap:14px}
+.site-head nav{margin-left:auto}
+.site-head>.vita-lagoon-language{margin-left:4px}
+.vita-lagoon-language{display:inline-flex;flex:none;align-items:center;gap:8px;white-space:nowrap}
+.vita-lagoon-language button{border:0;background:transparent;color:#c2c5d3;padding:8px 2px;font:700 10px/1.25 Inter,Arial,sans-serif;letter-spacing:.09em;cursor:pointer}
+.vita-lagoon-language button[aria-pressed="true"]{color:#fff;text-decoration:underline;text-underline-offset:6px}
+.vita-lagoon-language button:hover{color:#fff}
+.vita-lagoon-language span{color:#8b92a5;font-size:10px}
+.vita-lagoon-language button:focus-visible{outline:2px solid #fff;outline-offset:3px}
+@media(min-width:751px) and (max-width:1100px){.site-head nav{gap:15px;font-size:10px}.site-head>.vita-lagoon-language{margin-left:0;gap:5px}}
+@media(max-width:750px){.site-head>.vita-lagoon-language{display:none}.vita-showroom-mobile-menu-panel .vita-lagoon-language{display:flex;align-items:center;gap:12px;border-top:1px solid rgba(242,239,249,.18);padding:14px 9px 8px}.vita-showroom-mobile-menu-panel .vita-lagoon-language button{font-size:12px;min-width:38px}.vita-showroom-mobile-menu-panel .vita-lagoon-language span{font-size:11px}}
+html[lang="en"] .hero h1{letter-spacing:-.082em}
 </style>
 <link rel="stylesheet" href="showroom-mobile-menu.css?v=20261113-1">
 <script src="showroom-mobile-menu.js?v=20261113-1" defer></script>
 </head><body style="--hero-image:url('assets/img/song-blakynta-kaguna%20%281%29.webp')">
-<header class="site-head"><a class="wordmark" href="index.html" aria-label="На головну VITA SYSTEM">VITA <i></i><small>SYSTEM<br>224 FM</small></a><nav aria-label="Навігація"><a href="#experience">Слухати пісню</a><a href="#lyrics">Лірика</a><a href="showrooms.html?lang=uk">Усі сингли ВІТИ</a><a href="#purchase" class="head-buy">Купити ↗</a></nav></header>
+<header class="site-head"><a class="wordmark" href="index.html" aria-label="На головну VITA SYSTEM">VITA <i></i><small>SYSTEM<br>224 FM</small></a><nav aria-label="Навігація"><a href="#experience">Слухати пісню</a><a href="#lyrics">Лірика</a><a href="showrooms.html?lang=uk">Усі сингли ВІТИ</a><a href="#purchase" class="head-buy">Купити ↗</a></nav><div class="vita-lagoon-language" role="group" aria-label="Мова сайту"><button type="button" data-lagoon-lang="uk" aria-pressed="true" aria-label="Українська">УКР</button><span aria-hidden="true">/</span><button type="button" data-lagoon-lang="en" aria-pressed="false" aria-label="Англійська">ENG</button></div></header>
 <main>
 <section class="hero" id="top" aria-labelledby="hero-title"><div class="hero-image" role="img" aria-label="ВІТА — Блакитна Лагуна"></div><div class="container"><div class="hero-copy">
 <div class="eyebrow">ВІТА / BLUE LAGOON</div><h1 id="hero-title" aria-label="ВІТА — Блакитна Лагуна"><span class="">БЛАКИТНА</span><span class="number">ЛАГУНА</span></h1>
@@ -348,6 +362,155 @@ button:disabled{opacity:.48;cursor:not-allowed;transform:none!important}
  const vu=document.getElementById('vu-meter');for(let i=0;i<18;i++){const bar=document.createElement('i');bar.style.setProperty('--h',(20+((i*37+13)%70))+'%');bar.style.setProperty('--dur',(.35+((i*29)%45)/100)+'s');bar.style.setProperty('--delay',(-i*.13)+'s');vu.append(bar)}
  document.addEventListener('visibilitychange',()=>{if(document.hidden)audio.pause()});
  sync();
+})();
+</script>
+
+<!-- Pilot: isolated bilingual layer for Блакитна Лагуна. Does not modify the audio/game logic. -->
+<script id="vita-lagoon-language-pilot">
+(() => {
+  'use strict';
+  const translations = {"На головну VITA SYSTEM":"VITA SYSTEM home","Навігація":"Navigation","Слухати пісню":"Listen to the song","Лірика":"Lyrics","Усі сингли ВІТИ":"All VITA singles","Купити ↗":"Buy ↗","БЛАКИТНА ЛАГУНА / VITA MUSIC":"БЛАКИТНА ЛАГУНА / VITA MUSIC","Нічне місто. Вода. Відблиски.":"City at night. Water. Reflections.","Музичний шоурум синглу «Блакитна Лагуна».":"The music showroom for VITA’s single «Блакитна Лагуна».","Купити трек — $1":"Buy the track — $1","Текст пісні ↗":"Song lyrics ↗","Увімкнути демо":"Play preview","Гортай до звуку":"Scroll to the sound","Увійди у":"Step inside","Блакитну Лагуну.":"Блакитна Лагуна.","Слухай аудіодемо синглу «Блакитна Лагуна». Натисни на диск або кнопку відтворення, щоб почути фрагмент.":"Listen to an audio preview of «Блакитна Лагуна». Tap the record or the play button to hear an excerpt.","ДЕМО / ГОТОВЕ ДО ПРОСЛУХОВУВАННЯ":"PREVIEW / READY TO PLAY","ДЕМО / ЗАРАЗ ЗВУЧИТЬ":"PREVIEW / NOW PLAYING","Слухати демо":"Listen to preview","Пауза":"Pause","Плеєр ВІТИ — Блакитна Лагуна":"VITA player — Блакитна Лагуна","Диск із обкладинкою синглу «Блакитна Лагуна»":"Record featuring the «Блакитна Лагуна» cover","Відтворити демо":"Play preview","Призупинити демо":"Pause preview","Перемотати демо":"Seek through preview","Вимкнути звук":"Mute audio","Увімкнути звук":"Unmute audio","VITA MUSIC · АУДІОДЕМО":"VITA MUSIC · AUDIO PREVIEW","Блакитна Лагуна.":"Блакитна Лагуна.","Інший ракурс.":"Another perspective.","Сингл ВІТИ в кадрах нічного узбережжя та міських вогнів.":"VITA’s single told through moonlit shores and city lights.","Занурся у звук.":"Dive into the sound.","Залиш цю хвилю собі.":"Make this wave yours.","«Блакитна Лагуна» — трек ВІТИ. Придбати MP3 можна за $1: натисни «Купити трек» та напиши ВІТІ в Instagram.":"«Блакитна Лагуна» by VITA. Buy the MP3 for $1: select “Buy the track” and message VITA on Instagram.","Цифровий трек":"Digital track","Інші сингли ↗":"More singles ↗","Текст пісні ↓":"Song lyrics ↓","Оплата та передача MP3 узгоджуються безпосередньо в повідомленнях Instagram.":"Payment and MP3 delivery are arranged directly in Instagram messages.","Текст":"Song","пісні.":"lyrics.","Повний текст пісні «Блакитна Лагуна».":"Complete lyrics of «Блакитна Лагуна» (English interpretation in ENG mode).","Переглянути інформацію про текст пісні «Блакитна Лагуна»":"Open lyrics for «Блакитна Лагуна»","ВІТА / Блакитна Лагуна · ЛІРИКА":"VITA / Блакитна Лагуна · LYRICS","Відкрий":"Open the","лірику.":"lyrics.","«Море, сонце, пісок, пляж —":"«Sea, sun, sand, beach —","Блакитна лагуна.»":"Blue Lagoon.»","НАТИСНИ, ЩОБ ПРОЧИТАТИ ВСЮ ПІСНЮ ↗":"TAP TO READ THE FULL LYRICS ↗","ВІДКРИТИ":"OPEN","Сонце гралося хвилями, Що на березі моря плескалися. Парео я своє скинула — Воно за вітром полетіло.":"Sunlight danced upon the waves,\nRolling softly onto the shore.\nI slipped off my pareo —\nAnd the wind carried it away.","Море, сонце, пісок, пляж — Блакитна лагуна. Музику постав на всю, діджей! Знайома пісня вже, Давно її не чула. Нехай буде відрив на повну! Давай спочатку і знову!":"Sea, sun, sand, beach —\nBlue Lagoon.\nTurn the music all the way up, DJ!\nI know this song,\nBut I haven't heard it in so long.\nLet's enjoy it to the fullest!\nStart it over, once again!","«Міс це ваше?» — спитав ти, Коли на небі були вже зорі. Ми на даху — двадцять перший поверх, І зникли всі наші суперечки й теорії.":"“Miss, is this yours?” you asked,\nWhen stars were already in the sky.\nWe stood on the rooftop — twenty-first floor,\nAnd all our arguments and theories faded away.","Давай спочатку І знову. Блакитна лагуна.":"Let's start from the beginning,\nOnce more.\nBlue Lagoon.","Готуй Блакитну Лагуну":"Make Блакитна Лагуна","разом з ВІТОЮ!":"with VITA!","Пісня має свій смак. Заходь на кухню ВІТИ: лід, рецепт і приготування коктейлю «Блакитна Лагуна».":"Every song has a flavour. Join VITA in the kitchen for ice, the recipe and a «Блакитна Лагуна» cocktail.","Перейти до приготування":"Discover the recipe","Готуй Блакитну Лагуну разом з ВІТОЮ — перейти в кімнату з рецептом":"Make Блакитна Лагуна with VITA — visit the cocktail recipe room","Інші":"More","релізи.":"releases.","Сингли":"Singles","ВІТИ":"by VITA","Срібні":"Срібні","Дощі":"Дощі","Ванільні":"Ванільні","Мости":"Мости","ВІТА · СПІВАЧКА НОВОЇ ЕРИ":"VITA · SINGER OF THE NEW ERA","← До синглів":"← Back to singles","← На головну":"← Home","Відкрити шоурум «Срібні Дощі»":"Open the «Срібні Дощі» showroom","Відкрити шоурум «Ванільні Мости»":"Open the «Ванільні Мости» showroom","Закрити вікно":"Close dialog","Хочеш забрати":"Want to make","цю пісню собі?":"this song yours?","Напиши ВІТІ, щоб придбати трек у форматі MP3. Просто вкажи назву пісні — і отримай інструкції для покупки.":"Message VITA to buy the MP3. Just mention the song title, and you'll receive purchase instructions.","НАПИСАТИ ВІТІ":"MESSAGE VITA","Написати ВІТІ — відкрити Instagram @vita.system.music":"Message VITA — open Instagram @vita.system.music","Оплата та передача MP3 узгоджуються в повідомленнях.":"Payment and MP3 delivery are arranged in messages.","Instagram: @vita.system.music · Трек: Блакитна Лагуна":"Instagram: @vita.system.music · Track: Блакитна Лагуна","Купівля треку буде доступна пізніше.":"Track purchasing will be available later.","Демо тимчасово недоступне.":"The preview is temporarily unavailable.","Аудіофайл зараз недоступний.":"The audio file is currently unavailable.","Відкрити меню шоуруму":"Open showroom menu","Меню":"Menu","Мова сайту":"Site language","Українська":"Ukrainian","Англійська":"English"};
+  const key = 'vita-language';
+  const pageTitle = {
+    uk: 'ВІТА — Блакитна Лагуна | Текст пісні та музичний шоурум',
+    en: 'VITA — Блакитна Лагуна | Music Showroom, Preview & Lyrics'
+  };
+  const pageDescription = {
+    uk: '«Блакитна Лагуна» — музичний шоурум ВІТИ: аудіофрагмент, текст пісні та фотоісторія. Замов MP3 за $1 через Instagram ВІТИ.',
+    en: 'Explore VITA’s «Блакитна Лагуна»: music preview, song lyrics, visual story and MP3 purchase for $1 via Instagram.'
+  };
+  let active = 'uk';
+  const originals = new WeakMap();
+  const originalAttrs = new WeakMap();
+  const normalize = value => value.replace(/\s+/g, ' ').trim();
+  const valid = v => v === 'uk' || v === 'en';
+  const stored = () => { try { return localStorage.getItem(key); } catch { return null; } };
+
+  function translateNode(node) {
+    if (node.nodeType !== Node.TEXT_NODE || !node.nodeValue || !node.nodeValue.trim()) return;
+    const parent = node.parentElement;
+    if (!parent || parent.closest('script,style,.vita-lagoon-language')) return;
+    const previous = originals.get(node);
+    if (active === 'uk') {
+      if (previous && node.nodeValue === previous.en) node.nodeValue = previous.uk;
+      return;
+    }
+    const source = previous && node.nodeValue === previous.en ? previous.uk : node.nodeValue;
+    const target = translations[normalize(source)];
+    if (!target) return;
+    const head = source.match(/^\s*/)[0], tail = source.match(/\s*$/)[0];
+    const next = head + target + tail;
+    originals.set(node, {uk:source, en:next});
+    if (node.nodeValue !== next) node.nodeValue = next;
+  }
+  function translateAttr(el) {
+    if (el.nodeType !== Node.ELEMENT_NODE || el.closest('.vita-lagoon-language')) return;
+    for (const name of ['aria-label','title','alt']) {
+      const value = el.getAttribute(name);
+      if (value == null) continue;
+      const previous = originalAttrs.get(el)?.get(name);
+      if (active === 'uk') {
+        if (previous && value === previous.en) el.setAttribute(name, previous.uk);
+        continue;
+      }
+      const source = previous && value === previous.en ? previous.uk : value;
+      const target = translations[normalize(source)];
+      if (target && target !== source) {
+        let originalsForElement = originalAttrs.get(el);
+        if (!originalsForElement) { originalsForElement = new Map(); originalAttrs.set(el, originalsForElement); }
+        originalsForElement.set(name, {uk:source,en:target});
+        el.setAttribute(name,target);
+      }
+    }
+  }
+  function scan(root) {
+    if (!root) return;
+    if (root.nodeType === Node.TEXT_NODE) { translateNode(root); return; }
+    if (root.nodeType !== Node.ELEMENT_NODE && root.nodeType !== Node.DOCUMENT_NODE) return;
+    if (root.nodeType === Node.ELEMENT_NODE && root.matches('script,style')) return;
+    if (root.nodeType === Node.ELEMENT_NODE) translateAttr(root);
+    const walker = document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+    let node;
+    while ((node=walker.nextNode())) translateNode(node);
+    if (root.querySelectorAll) root.querySelectorAll('[aria-label],[alt],[title]').forEach(translateAttr);
+  }
+  function updateLinks() {
+    document.querySelectorAll('a[href]').forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('#') || link.hasAttribute('download')) return;
+      let url;
+      try { url = new URL(href, location.href); } catch { return; }
+      if (url.origin !== location.origin || !(/\.html$/i.test(url.pathname) || url.pathname.endsWith('/'))) return;
+      url.searchParams.set('lang', active);
+      const next = url.pathname + url.search + url.hash;
+      if (href !== next) link.setAttribute('href',next);
+    });
+  }
+  function syncControls() {
+    document.querySelectorAll('[data-lagoon-lang]').forEach(button => {
+      button.setAttribute('aria-pressed', String(button.dataset.lagoonLang === active));
+    });
+    document.querySelectorAll('.vita-lagoon-language').forEach(group => {
+      group.setAttribute('aria-label',active === 'en' ? 'Site language' : 'Мова сайту');
+    });
+  }
+  function updateMeta() {
+    document.title = pageTitle[active];
+    const desc = document.querySelector('meta[name="description"]');
+    if (desc) desc.setAttribute('content',pageDescription[active]);
+  }
+  const observer = new MutationObserver(records => {
+    observer.disconnect();
+    try {
+      for (const r of records) {
+        if (r.type === 'characterData') translateNode(r.target);
+        else if (r.type === 'childList') r.addedNodes.forEach(scan);
+        else if (r.type === 'attributes') translateAttr(r.target);
+      }
+      updateLinks();
+    } finally { observe(); }
+  });
+  function observe() {
+    observer.observe(document.body,{subtree:true,characterData:true,childList:true,attributes:true,attributeFilter:['aria-label','title','alt']});
+  }
+  function apply(language,changeUrl) {
+    active = valid(language) ? language : 'uk';
+    observer.disconnect();
+    try {
+      document.documentElement.lang = active;
+      try { localStorage.setItem(key,active); } catch {}
+      scan(document.body);
+      updateLinks();
+      syncControls();
+      updateMeta();
+      if (changeUrl) {
+        const url = new URL(location.href);
+        url.searchParams.set('lang',active);
+        if (url.href !== location.href) history.replaceState(history.state,'',url);
+      }
+    } finally { observe(); }
+  }
+  function mobileControl() {
+    const panel = document.querySelector('.vita-showroom-mobile-menu-panel');
+    if (!panel || panel.querySelector('.vita-lagoon-language')) return;
+    const clone = document.querySelector('.site-head>.vita-lagoon-language').cloneNode(true);
+    panel.appendChild(clone);
+    syncControls();
+    scan(panel);
+    updateLinks();
+  }
+  document.addEventListener('click', event => {
+    const button = event.target.closest('[data-lagoon-lang]');
+    if (button) apply(button.dataset.lagoonLang,true);
+  });
+  const initial = new URLSearchParams(location.search).get('lang');
+  apply(valid(initial) ? initial : (valid(stored()) ? stored() : 'uk'),false);
+  document.addEventListener('DOMContentLoaded',mobileControl);
+  addEventListener('pageshow',event => { if (event.persisted) apply(valid(stored()) ? stored() : active,false); });
+  addEventListener('popstate',() => {
+    const lang = new URLSearchParams(location.search).get('lang');
+    apply(valid(lang) ? lang : active,false);
+  });
 })();
 </script>
 </body></html>
