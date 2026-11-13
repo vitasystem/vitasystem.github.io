@@ -1,0 +1,20 @@
+/* VITA SYSTEM — compact, showroom-only mobile menu.
+   Desktop headers and existing music layouts are unchanged. */
+.vita-showroom-mobile-menu{display:none}
+@media(max-width:750px){
+  .site-head>nav{margin-left:auto}
+  .site-head>.vita-showroom-mobile-menu{display:block;position:relative;flex:none;margin-left:10px}
+}
+@media(max-width:760px){
+  .site-header>.nav-links{margin-left:auto}
+  .site-header>.vita-showroom-mobile-menu{display:block;position:relative;flex:none;margin-left:10px}
+  .vita-showroom-mobile-menu>summary{display:flex;align-items:center;justify-content:center;list-style:none;cursor:pointer;box-sizing:border-box;width:42px;height:42px;border:1px solid rgba(235,239,249,.46);border-radius:50%;color:#f4f4fa;background:rgba(7,9,18,.48);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+  .vita-showroom-mobile-menu>summary::-webkit-details-marker{display:none}
+  .vita-showroom-mobile-menu>summary svg{display:block;width:19px;height:19px;stroke:currentColor;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .vita-showroom-mobile-menu[open]>summary{background:rgba(82,40,67,.88);border-color:rgba(255,233,247,.84)}
+  .vita-showroom-mobile-menu>summary:focus-visible,.vita-showroom-mobile-menu-panel a:focus-visible{outline:2px solid #ffd2ec;outline-offset:3px}
+  .vita-showroom-mobile-menu-panel{position:absolute;right:0;top:calc(100% + 14px);width:min(295px,calc(100vw - 40px));box-sizing:border-box;padding:9px 15px;border:1px solid rgba(223,218,238,.34);border-radius:10px;background:rgba(11,12,22,.97);box-shadow:0 16px 40px rgba(0,0,0,.65);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);z-index:250}
+  .vita-showroom-mobile-menu-panel a{display:block;padding:16px 9px;white-space:normal;text-transform:uppercase;color:#f4f2f8!important;font-size:11px;font-weight:750;letter-spacing:.095em;line-height:1.35;text-decoration:none;border-bottom:1px solid rgba(244,239,249,.14)}
+  .vita-showroom-mobile-menu-panel a:last-child{border-bottom:none}
+  .vita-showroom-mobile-menu-panel a:hover{color:white!important;background:rgba(151,104,142,.16)}
+}

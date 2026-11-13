@@ -174,12 +174,8 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/vita-planet-icon-v2-180.png">
   <link rel="manifest" href="/site.webmanifest?v=planet-v2">
   <link rel="preload" as="image" href="assets/img/trasa-224-hero.webp" fetchpriority="high">
-<style id="vita-hero-ctas-theme">
-.hero-actions .btn-primary{background:linear-gradient(120deg,#203955,#376c91);color:#fff;border-color:#8abedc;box-shadow:0 10px 30px rgba(0,0,0,.3)}
-.hero-actions .btn-primary:hover{filter:brightness(1.13);box-shadow:0 12px 36px rgba(0,0,0,.38)}
-.hero-actions .btn-outline{background:rgba(13,31,50,.68);color:#e5f4ff;border-color:#8abedc}
-.hero-actions .btn-outline:hover{background:#203955;border-color:#fff}
-</style>
+<link rel="stylesheet" href="showroom-mobile-menu.css?v=20261113-1">
+<script src="showroom-mobile-menu.js?v=20261113-1" defer></script>
 </head>
 <body style="--hero-image:url('assets/img/trasa-224-hero.webp')">
   <header class="site-head">
@@ -194,7 +190,7 @@
         <h1 id="hero-title" aria-label="ВІТА — Траса 224 (The Ultimate Race)"><span>ТРАСА</span><span class="number">224</span></h1>
         <p class="hero-subtitle">NEED FOR SPEED. ULTIMATE.</p>
         <p class="hero-hook"><strong>Ніч. Сицилія. Максимум.</strong><br>Океан зліва, гори праворуч. І жодного гальма на шляху до твого ритму.</p>
-        <div class="hero-actions"><a class="btn btn-primary" href="#experience">Слухати демо ↗</a><a class="btn btn-outline" href="#lyrics">Текст пісні ↗</a><button type="button" class="btn btn-primary" id="vita-hero-buy" aria-haspopup="dialog" aria-controls="vita-purchase-dialog">Купити трек — $1</button></div>
+        <div class="hero-actions"><button class="btn btn-primary" type="button" id="vita-hero-buy" aria-haspopup="dialog" aria-controls="vita-purchase-dialog">Купити трек — $1</button><a class="btn btn-outline" href="#lyrics">Текст пісні ↗</a><button class="btn-play" type="button" data-preview><span class="play-ring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span><span>Увімкнути демо</span></button></div>
       </div></div>
       <div class="hero-meta"><span>VITA MUSIC / SINGLE RELEASE <span class="longline" style="display:inline-block;vertical-align:middle"></span></span><a href="#experience" class="hero-scroll"><span class="scroll-text">Гортай до звуку</span><span class="arrow">↓</span></a></div>
     </section>

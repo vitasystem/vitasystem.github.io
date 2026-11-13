@@ -198,7 +198,7 @@ body.nek-showroom{background:#090710;color:var(--silver)}
 .nek-showroom .hero h1 .number{font-size:.94em;background:linear-gradient(95deg,#fff 4%,#e9c6fa 30%,#bb9cb9 57%,#faf2ff 85%);background-clip:text;-webkit-background-clip:text;color:transparent}
 .nek-showroom .hero-copy{max-width:770px}
 .nek-showroom .hero-image{background-position:center 43%}
-.nek-showroom .hero-actions .btn-primary{background:linear-gradient(120deg,#ab265d,#e87cad);border-color:#f7b3d3;color:white}
+
 .nek-showroom .section-title em,.nek-showroom .conversion h2 em,.nek-showroom .interlude h2 em,.nek-showroom .lyrics-cta-copy strong em{color:#e6accd}
 .nek-showroom .interlude{min-height:580px}
 .nek-showroom .interlude-bg{background:none;filter:none}
@@ -260,6 +260,8 @@ body.nek-showroom{background:#090710;color:var(--silver)}
 .vita-purchase-dialog :focus-visible{outline:2px solid #f1b3da;outline-offset:4px}
 @media(prefers-reduced-motion:reduce){.vita-purchase-cta{transition:none}}
 </style>
+<link rel="stylesheet" href="showroom-mobile-menu.css?v=20261113-1">
+<script src="showroom-mobile-menu.js?v=20261113-1" defer></script>
 </head>
 <body class="nek-showroom" style="--hero-image:url('assets/img/ne-kolyshnii-storinka%20%281%29.webp')">
 <header class="site-head">
@@ -274,7 +276,7 @@ body.nek-showroom{background:#090710;color:var(--silver)}
   <h1 id="hero-title" aria-label="ВІТА — Не-Колишній"><span>НЕ-</span><span class="number">КОЛИШНІЙ</span></h1>
   <p class="hero-subtitle">Ти насправді нікуди не йшов.</p>
   <p class="hero-hook"><strong>Вечірні вогні. Інша паралель. Квітучі вишні.</strong><br>Історія про того, хто ніколи не ставав колишнім.</p>
-  <div class="hero-actions"><a href="#experience" class="btn btn-primary">Слухати демо ↗</a><a class="btn btn-outline" href="#lyrics">Текст пісні ↗</a><button class="btn btn-primary" type="button" data-vita-buy aria-haspopup="dialog" aria-controls="vita-purchase-dialog">Придбати трек — $1</button></div>
+  <div class="hero-actions"><button class="btn btn-primary" type="button" id="vita-hero-buy" aria-haspopup="dialog" aria-controls="vita-purchase-dialog">Придбати трек — $1</button><a class="btn btn-outline" href="#lyrics">Текст пісні ↗</a><button class="btn-play" type="button" data-vita-ne-preview><span class="play-ring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span><span>Увімкнути демо</span></button></div>
  </div></div>
  <div class="hero-meta"><span>VITA MUSIC / SINGLE SHOWROOM</span><a href="#experience" class="hero-scroll">Увійти в історію <span class="arrow">↓</span></a></div>
 </section>
@@ -476,6 +478,7 @@ function fmt(time){if(!Number.isFinite(time))return '0:00';const s=Math.floor(ti
 function sync(){const playing=!audio.paused;consoleEl.classList.toggle('is-playing',playing);icon.innerHTML=playing?'<path d="M7 5h4v14H7zM13 5h4v14h-4z"/>':'<path d="M8 5v14l11-7z"/>';state.textContent=playing?'ДЕМО / ЗАРАЗ ЗВУЧИТЬ':'ДЕМО / ГОТОВЕ ДО ПРОСЛУХОВУВАННЯ';side.querySelector('span').textContent=playing?'Пауза':'Слухати демо';discPlay.setAttribute('aria-label',playing?'Призупинити демо':'Відтворити демо');discPlay.setAttribute('aria-pressed',String(playing))}
 async function toggle(){if(!audio.paused){audio.pause();return}try{await audio.play()}catch(e){toast('Демо тимчасово недоступне. Спробуй пізніше.')}}
 discPlay.addEventListener('click',toggle);side.addEventListener('click',toggle);
+document.querySelectorAll('[data-vita-ne-preview]').forEach(button=>button.addEventListener('click',toggle));
 for(const e of ['play','pause','ended'])audio.addEventListener(e,sync);
 audio.addEventListener('loadedmetadata',()=>dur.textContent=fmt(audio.duration));
 audio.addEventListener('timeupdate',()=>{cur.textContent=fmt(audio.currentTime);const n=audio.duration?Math.min(100,100*audio.currentTime/audio.duration):0;seek.value=n;seek.style.setProperty('--progress',n+'%')});
