@@ -1,0 +1,18 @@
+/* VITA SYSTEM — standalone UKR/ENG controls for 7 showrooms and the showroom catalog.
+   Keep existing players, artwork, game and mobile navigation untouched. */
+.site-head,.site-header{gap:12px}
+.site-head nav,.site-header nav.nav-links{margin-left:auto}
+.site-head>.vita-showroom-lang,.site-header>.vita-showroom-lang{margin-left:8px;z-index:3}
+.vita-showroom-lang{display:inline-flex;flex:none;align-items:center;gap:8px;white-space:nowrap;line-height:1}
+.vita-showroom-lang button{display:inline-block;min-width:28px;min-height:36px;padding:7px 2px;background:transparent;border:0;color:#bbc1ce;font:700 10px/1.3 Arial,sans-serif;letter-spacing:.08em;cursor:pointer}
+.vita-showroom-lang button:hover{color:#fff}
+.vita-showroom-lang button[aria-pressed="true"]{color:#fff;text-decoration:underline;text-underline-offset:6px}
+.vita-showroom-lang button:focus-visible{outline:2px solid #f2dce9;outline-offset:4px}
+.vita-showroom-lang span{color:#858b9a;font-size:10px}
+@media(min-width:751px) and (max-width:1050px){.site-head nav{gap:14px;font-size:10px}.site-head>.vita-showroom-lang{gap:5px;margin-left:0}}
+@media(max-width:760px){
+ .site-head>.vita-showroom-lang,.site-header>.vita-showroom-lang{display:none}
+ .vita-showroom-mobile-menu-panel .vita-showroom-lang{display:flex;gap:12px;border-top:1px solid rgba(232,229,244,.2);padding:14px 9px 7px}
+ .vita-showroom-mobile-menu-panel .vita-showroom-lang button{font-size:12px;min-width:39px}
+ .vita-showroom-mobile-menu-panel .vita-showroom-lang span{font-size:11px}
+}
