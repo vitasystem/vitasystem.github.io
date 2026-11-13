@@ -30,6 +30,24 @@
   const englishDescription = songName
     ? ('Explore VITA’s «' + songName + '»: visual music showroom, audio preview, English lyrics and MP3 purchase for $1 via Instagram.')
     : 'Explore VITA MUSIC SHOWROOMS: eight immersive song worlds, visuals, lyrics and links to every VITA single.';
+
+  function lookup(source) {
+    const value = norm(source);
+    if (Object.prototype.hasOwnProperty.call(dictionary,value)) return dictionary[value];
+    let match;
+    if ((match = value.match(/^Відкрити шоурум «(.+)»$/))) return 'Open the «' + match[1] + '» showroom';
+    if ((match = value.match(/^Музичний диск «(.+)»$/))) return 'Music record for «' + match[1] + '»';
+    if ((match = value.match(/^Відкрити або закрити повний текст пісні (.+)$/))) return 'Expand or collapse the full lyrics of ' + match[1];
+    if ((match = value.match(/^Переглянути інформацію про текст пісні «(.+)»$/))) return 'Open the lyrics of «' + match[1] + '»';
+    if ((match = value.match(/^Візуальний світ пісні (.+)$/))) return 'Visual world of song ' + match[1];
+    if ((match = value.match(/^Увійти в шоурум (.+)$/))) return 'Enter the showroom for ' + match[1];
+    if ((match = value.match(/^Плеєр ВІТИ — (.+)$/))) return 'VITA player — ' + match[1];
+    if ((match = value.match(/^Музичний плеєр ВІТИ — (.+)$/))) return 'VITA music player — ' + match[1];
+    if ((match = value.match(/^ВІТА — (.+)$/))) return 'VITA — ' + match[1];
+    if ((match = value.match(/^ВІТА \/ (.+)$/))) return 'VITA / ' + match[1];
+    return undefined;
+  }
+
   const switchMarkup = '<div class="vita-showroom-lang" role="group" aria-label="Мова сайту"><button type="button" data-showroom-lang="uk" aria-label="Українська" aria-pressed="true">УКР</button><span aria-hidden="true">/</span><button type="button" data-showroom-lang="en" aria-label="Англійська" aria-pressed="false">ENG</button></div>';
 
   function control() {
@@ -58,7 +76,7 @@
       return;
     }
     const source = previous ? previous.uk : node.nodeValue;
-    const translated = dictionary[norm(source)];
+    const translated = lookup(source);
     if (translated == null) return;
     const next = source.match(/^\s*/)[0] + translated + source.match(/\s*$/)[0];
     if (node.nodeValue !== next) {
@@ -78,7 +96,7 @@
         continue;
       }
       const source = old ? old.uk : val;
-      const translated = dictionary[norm(source)];
+      const translated = lookup(source);
       if (translated == null || source === translated) continue;
       let props = originalAttr.get(el);
       if (!props) { props = new Map();originalAttr.set(el,props); }
