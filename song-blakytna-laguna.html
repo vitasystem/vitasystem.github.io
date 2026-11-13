@@ -195,6 +195,25 @@ button:disabled{opacity:.48;cursor:not-allowed;transform:none!important}
 .vita-purchase-footnote{margin:19px 0 0;color:#9c8c9d;font:500 11px/1.7 Manrope,Arial,sans-serif}
 .vita-purchase-dialog :focus-visible{outline:2px solid #f1b3da;outline-offset:4px}
 @media(prefers-reduced-motion:reduce){.vita-purchase-cta{transition:none}}
+
+/* BLUE LAGOON — independent cross-room link, isolated to this showroom */
+.lagoon-room-feature{padding:95px 0;background:linear-gradient(180deg,#0a0e17 0%,#090e18 58%,#0a0e17 100%);border-top:1px solid rgba(169,214,241,.11)}
+.lagoon-room-feature-link{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);position:relative;min-height:420px;overflow:hidden;border:1px solid rgba(175,218,237,.32);border-radius:4px;background:radial-gradient(ellipse at 35% 28%,rgba(29,107,148,.29),transparent 59%),linear-gradient(120deg,#0c2235 0%,#071421 60%,#0b121d 100%);text-decoration:none;color:#f6f9ff;box-shadow:0 26px 60px rgba(0,0,0,.21);transition:border-color .25s,transform .25s,box-shadow .25s}
+.lagoon-room-feature-link:hover{border-color:rgba(190,242,255,.76);transform:translateY(-4px);box-shadow:0 30px 70px rgba(0,0,0,.31)}
+.lagoon-room-feature-link:focus-visible{outline:2px solid #c3efff;outline-offset:5px}
+.lagoon-room-feature-copy{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:clamp(30px,5vw,70px)}
+.lagoon-room-feature-kicker{font-size:10px;font-weight:800;letter-spacing:.27em;color:#96d9f1;text-transform:uppercase}
+.lagoon-room-feature h2{font:400 clamp(35px,4.1vw,67px)/1.08 Georgia,"Times New Roman",serif;letter-spacing:-.048em;margin:24px 0 17px}
+.lagoon-room-feature h2 em{font-weight:400;color:#9bd7ed}
+.lagoon-room-feature p{max-width:510px;margin:0 0 30px;color:#c9dce9;line-height:1.78;font-size:clamp(14px,1.2vw,17px)}
+.lagoon-room-feature-button{display:inline-flex;align-items:center;gap:25px;justify-content:space-between;border:1px solid rgba(191,232,249,.58);border-radius:3px;padding:17px 22px;color:#fff;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;background:rgba(5,20,32,.35);transition:background .25s,border-color .25s}
+.lagoon-room-feature-button span{font-size:23px;line-height:12px}
+.lagoon-room-feature-link:hover .lagoon-room-feature-button{background:rgba(93,166,205,.19);border-color:#d3f1ff}
+.lagoon-room-feature-image{position:relative;min-width:0;min-height:420px;overflow:hidden}
+.lagoon-room-feature-image img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:saturate(1.04) brightness(.89)}
+.lagoon-room-feature-image:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#071421 0%,rgba(7,20,33,.16) 42%,transparent 100%);pointer-events:none}
+@media(max-width:800px){.lagoon-room-feature{padding:65px 0}.lagoon-room-feature-link{grid-template-columns:1fr}.lagoon-room-feature-image{order:-1;min-height:265px;height:265px}.lagoon-room-feature-image:after{background:linear-gradient(0deg,#071421 0%,transparent 45%)}.lagoon-room-feature-copy{padding:27px 27px 36px}.lagoon-room-feature h2{font-size:clamp(33px,7.2vw,52px);margin:19px 0 14px}.lagoon-room-feature p{font-size:14px;margin-bottom:24px}.lagoon-room-feature-button{padding:15px 17px;width:100%;gap:10px;font-size:10px}.lagoon-room-feature-kicker{font-size:9px;letter-spacing:.17em}}
+@media(prefers-reduced-motion:reduce){.lagoon-room-feature-link,.lagoon-room-feature-button{transition:none}}
 </style>
 <link rel="stylesheet" href="showroom-mobile-menu.css?v=20261113-1">
 <script src="showroom-mobile-menu.js?v=20261113-1" defer></script>
@@ -258,6 +277,21 @@ button:disabled{opacity:.48;cursor:not-allowed;transform:none!important}
 І знову.
 Блакитна лагуна.</p></div>
 </div></details></div></div></section>
+<section class="lagoon-room-feature" aria-labelledby="lagoon-room-title">
+  <div class="container">
+    <a class="lagoon-room-feature-link" href="room-blue-lagoon.html?lang=uk" aria-label="Готуй Блакитну Лагуну разом з ВІТОЮ — перейти в кімнату з рецептом">
+      <div class="lagoon-room-feature-copy">
+        <span class="lagoon-room-feature-kicker">VITA SYSTEM / BLUE LAGOON ROOM</span>
+        <h2 id="lagoon-room-title">Готуй Блакитну Лагуну<br><em>разом з ВІТОЮ!</em></h2>
+        <p>Пісня має свій смак. Заходь на кухню ВІТИ: лід, рецепт і приготування коктейлю «Блакитна Лагуна».</p>
+        <span class="lagoon-room-feature-button">Перейти до приготування <span aria-hidden="true">↗</span></span>
+      </div>
+      <div class="lagoon-room-feature-image" aria-hidden="true">
+        <img src="assets/img/blakytna-laguna-page (1).webp" alt="" loading="lazy" decoding="async">
+      </div>
+    </a>
+  </div>
+</section>
 <section class="more" id="more" aria-labelledby="more-title"><div class="container"><div class="more-head"><div><span class="section-kicker"><b>04</b> / KEEP LISTENING</span><h2 id="more-title">Інші <em>релізи.</em></h2></div><a class="text-link" href="showrooms.html?lang=uk">Усі сингли ВІТИ ↗</a></div>
 <div class="release-grid"><a class="release-card one" href="showrooms.html?lang=uk"><span class="abstract" aria-hidden="true"></span><div class="card-meta">VITA / SINGLE SHOWROOMS</div><h3>Сингли<br>ВІТИ</h3><span class="card-arrow">↗</span></a>
 <a class="release-card two" href="song-sribni-doshi.html?lang=uk" aria-label="Відкрити шоурум «Срібні Дощі»"><span class="abstract" aria-hidden="true"></span><div class="card-meta">VITA / SHOWROOM</div><h3>Срібні<br>Дощі</h3><span class="card-arrow">↗</span></a>
