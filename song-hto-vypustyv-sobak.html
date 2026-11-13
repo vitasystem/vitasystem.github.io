@@ -201,6 +201,12 @@ body{background:#090811}
 .vita-purchase-dialog :focus-visible{outline:2px solid #f1b3da;outline-offset:4px}
 @media(prefers-reduced-motion:reduce){.vita-purchase-cta{transition:none}}
 </style>
+<style id="vita-hero-ctas-theme">
+.hero-actions .btn-primary{background:linear-gradient(120deg,#75234f,#a63f72);color:#fff;border-color:#d184aa;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.hero-actions .btn-primary:hover{filter:brightness(1.13);box-shadow:0 12px 36px rgba(0,0,0,.38)}
+.hero-actions .btn-outline{background:rgba(50,15,41,.68);color:#fff1f8;border-color:#d184aa}
+.hero-actions .btn-outline:hover{background:#75234f;border-color:#fff}
+</style>
 </head><body style="--hero-image:url('assets/img/song-hto-vypustyv-sobak%20%282%29.webp')">
 <header class="site-head">
     <a class="wordmark" href="https://vitasystem.github.io/" aria-label="На головну VITA SYSTEM">VITA <i></i><small>SYSTEM<br>224 FM</small></a>
@@ -214,11 +220,7 @@ body{background:#090811}
         <h1 id="hero-title" aria-label="ВІТА — Хто випустив собак?"><span>ХТО</span><span>ВИПУСТИВ</span><span class="number">СОБАК?</span></h1>
         <p class="hero-subtitle">WOOF-WOOF / BAILA, BAILA</p>
         <p class="hero-hook"><strong>Хто-хто випустив собак?</strong><br>«Редиска на грядці. І ще трошки салату…» Але щось пішло не так.</p>
-        <div class="hero-actions">
-          <button type="button" class="btn btn-primary" id="vita-hero-buy" aria-haspopup="dialog" aria-controls="vita-purchase-dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 7h14v12H5zM9 7V5a3 3 0 0 1 6 0v2"/></svg>Купити трек — $1</button>
-          <a class="btn btn-outline" href="https://open.spotify.com/track/45pBBa3GSUA1O0GnTRC3lp" target="_blank" rel="noopener noreferrer">Spotify ↗</a>
-          <button class="btn-play" type="button" data-preview><span class="play-ring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span><span>Увімкнути демо</span></button>
-        </div>
+        <div class="hero-actions"><a class="btn btn-primary" href="#experience">Слухати демо ↗</a><a class="btn btn-outline" href="#lyrics">Текст пісні ↗</a><button type="button" class="btn btn-primary" id="vita-hero-buy" aria-haspopup="dialog" aria-controls="vita-purchase-dialog">Купити трек — $1</button></div>
       </div></div>
       <div class="hero-meta"><span>VITA MUSIC / SINGLE RELEASE <span class="longline" style="display:inline-block;vertical-align:middle"></span></span><a href="#experience" class="hero-scroll"><span class="scroll-text">Гортай до звуку</span><span class="arrow">↓</span></a></div>
     </section>
@@ -255,7 +257,7 @@ body{background:#090811}
       <h2 id="purchase-title">Хто випустив собак?<br><em>Забирай музику.</em></h2>
       <p class="conversion-lead">«Хто випустив собак?» — трек ВІТИ. Придбати MP3 можна за $1: натисни «Купити трек» та напиши ВІТІ в Instagram.</p>
       <div class="price"><span>Цифровий трек</span><strong>$1.00</strong></div>
-      <div class="cta-row"><button type="button" class="btn btn-primary" data-vita-buy aria-haspopup="dialog" aria-controls="vita-purchase-dialog">Купити трек — $1</button><a class="btn btn-outline" href="https://open.spotify.com/track/45pBBa3GSUA1O0GnTRC3lp" target="_blank" rel="noopener noreferrer">Spotify ↗</a><button type="button" class="btn btn-outline" data-preview>Слухати демо <span aria-hidden="true">▶</span></button></div>
+      <div class="cta-row"><button type="button" class="btn btn-primary" data-vita-buy aria-haspopup="dialog" aria-controls="vita-purchase-dialog">Купити трек — $1</button><a class="btn btn-outline" href="showrooms.html?lang=uk">Інші сингли ↗</a><button type="button" class="btn btn-outline" data-preview>Слухати демо <span aria-hidden="true">▶</span></button></div>
       <p class="stream-soon">Оплата та передача MP3 узгоджуються безпосередньо в повідомленнях Instagram.</p>
     </div></section>
     <section class="lyrics" id="lyrics" aria-labelledby="lyrics-title"><div class="container lyrics-grid">
@@ -337,8 +339,8 @@ Baila, baila, хвіртку!</p></div>
     <section class="more" id="more" aria-labelledby="more-title"><div class="container"><div class="more-head"><div><span class="section-kicker"><b>04</b> / KEEP LISTENING</span><h2 id="more-title">Залишайся <em>у музиці.</em></h2></div><a class="text-link" href="showrooms.html?lang=uk">Усі сингли ВІТИ ↗</a></div>
       <div class="release-grid">
         <a class="release-card one" href="showrooms.html?lang=uk" aria-label="Переглянути всі сингли ВІТИ"><span class="abstract" aria-hidden="true"></span><div class="card-meta">VITA / SINGLE SHOWROOMS</div><h3>Сингли<br>ВІТИ</h3><span class="card-arrow">↗</span></a>
-        <a class="release-card two" href="song-blakytna-laguna.html?lang=uk" aria-label="Відкрити шоурум Блакитна Лагуна"><span class="abstract" aria-hidden="true"></span><div class="card-meta">VITA / SHOWROOM</div><h3>Блакитна<br>Лагуна</h3><span class="card-arrow">↗</span></a>
-        <a class="release-card three" href="song-vanilni-mosty.html?lang=uk" aria-label="Відкрити шоурум Ванільні Мости"><span class="abstract" aria-hidden="true"></span><div class="card-meta">VITA / SHOWROOM</div><h3>Ванільні<br>Мости</h3><span class="card-arrow">↗</span></a>
+        <a class="release-card two" href="song-tsukerkovyi-dyler.html?lang=uk" aria-label="Відкрити шоурум «Цукерковий ДилеR»"><span class="abstract" aria-hidden="true"></span><div class="card-meta">VITA / SHOWROOM</div><h3>Цукерковий<br>ДилеR</h3><span class="card-arrow">↗</span></a>
+        <a class="release-card three" href="song-terakotovyi-slon.html?lang=uk" aria-label="Відкрити шоурум «Теракотовий Слон»"><span class="abstract" aria-hidden="true"></span><div class="card-meta">VITA / SHOWROOM</div><h3>Теракотовий<br>Слон</h3><span class="card-arrow">↗</span></a>
       </div>
     </div></section>
   </main>
