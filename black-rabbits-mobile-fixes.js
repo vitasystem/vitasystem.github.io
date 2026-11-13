@@ -45,6 +45,12 @@ function correctGameLayout(){
   status.id='vitaGameStatusOutside';
   arena.insertAdjacentElement('afterend',status);
   status.appendChild(toast);
+  // Same-origin iframe: load small Stage 2 gameplay add-on, for desktop and mobile.
+  // The original 6 MB game source stays entirely unchanged.
+  const addon=doc.createElement('script');
+  addon.id='vita-rabbits-l2-player-fire-loader';
+  addon.src='black-rabbits-l2-player-fire.js?v=20261113-1';
+  doc.body.appendChild(addon);
 }
 frame.addEventListener('load',correctGameLayout);
 if(frame.contentDocument?.readyState==='complete')correctGameLayout();
